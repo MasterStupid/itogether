@@ -117,7 +117,7 @@ function NeckLabel({ color }: { color: string }) {
 }
 
 /* ---------- garments ---------- */
-const NAVY: Ink = { body: K.deep, ink: K.white, ink2: K.silver };
+const NAVY: Ink = { body: "#2463D4", ink: K.white, ink2: "#E4EEFF" };
 const WHITE: Ink = { body: K.white, ink: K.deep, ink2: K.navy };
 const PAD = { top: 4, right: 6, bottom: 8, left: 6 };
 
@@ -262,7 +262,7 @@ export function DongDieuTee() {
           <Highlight
             n="04"
             kicker="Hai màu áo"
-            title="Xanh than và trắng"
+            title="Xanh royal và trắng"
             note="Cùng một câu khẩu hiệu, đổi sắc độ theo nền vải. Cotton 100%, phom rộng vừa, nhãn in trong cổ."
           >
             <div className="flex h-full items-center justify-center gap-1 px-3">
