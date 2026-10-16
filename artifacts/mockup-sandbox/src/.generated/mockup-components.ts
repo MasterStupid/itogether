@@ -6,6 +6,7 @@ export const modules: ModuleMap = {
   "./components/mockups/fit-hpuni/DesignBrief.tsx": () => import("../components/mockups/fit-hpuni/DesignBrief.tsx"),
   "./components/mockups/fit-hpuni/DoItPolo.tsx": () => import("../components/mockups/fit-hpuni/DoItPolo.tsx"),
   "./components/mockups/fit-hpuni/DoItTee.tsx": () => import("../components/mockups/fit-hpuni/DoItTee.tsx"),
+  "./components/mockups/fit-hpuni/DongDieuAngles.tsx": () => import("../components/mockups/fit-hpuni/DongDieuAngles.tsx"),
   "./components/mockups/fit-hpuni/DongDieuTee.tsx": () => import("../components/mockups/fit-hpuni/DongDieuTee.tsx"),
   "./components/mockups/fit-hpuni/HoaHocTroPolo.tsx": () => import("../components/mockups/fit-hpuni/HoaHocTroPolo.tsx"),
   "./components/mockups/fit-hpuni/HoaHocTroTee.tsx": () => import("../components/mockups/fit-hpuni/HoaHocTroTee.tsx"),
