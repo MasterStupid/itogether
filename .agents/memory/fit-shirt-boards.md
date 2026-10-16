@@ -12,3 +12,5 @@ description: Rules for the faculty shirt design boards on the canvas (garment fl
 - Internal concept names (Dấu Ấn, do IT, Phượng Số) are board labels only — never printed on the garment; garment text identifies the faculty (FIT-HPUni / faculty name) and the verbatim slogan.
   **Why:** a design subagent printed "PHƯỢNG SỐ" on a tee back; the shirt must represent the faculty, not our pitch vocabulary.
   **How to apply:** review garment copy on every new board/variant before presenting.
+- On 2026-10-16 the user asked for "phiên bản mà sinh viên yêu thích nhất" → student edition "Hoa Học Trò" (C's phượng + B's "do IT" + personalised name). Treat student appeal as a stated priority for follow-up work.
+  **Why:** the user's own request after seeing A/B/C.

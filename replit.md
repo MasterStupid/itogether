@@ -34,6 +34,7 @@ _Populate as you build — non-obvious choices a reader couldn't infer from the 
 ## Product
 
 - Overview brief + 3 concepts (A "Dấu Ấn", B "do IT", C "Phượng Số"), each with a polo board and a T-shirt board.
+- Student edition "Hoa Học Trò" (polo + tee): C's phượng + B's "do IT" wordplay + a personalised name line on the back.
 - Slogan must be verbatim: "You can do IT, we are ready to accompany". Board copy in Vietnamese with full diacritics.
 
 ## User preferences
