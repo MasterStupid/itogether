@@ -216,7 +216,7 @@ export function DongDieuTee() {
             }}
           >
             <div className="min-h-0 w-full flex-1">{v.node}</div>
-            <figcaption className="absolute left-5 top-4 text-[11px] font-bold uppercase tracking-[0.22em]" style={{ color: K.muted }}>
+            <figcaption className="absolute left-5 top-4 text-[26px] font-extrabold uppercase tracking-[0.12em]" style={{ color: K.navy }}>
               {v.label}
             </figcaption>
           </figure>
@@ -229,7 +229,7 @@ export function DongDieuTee() {
           <h2 className="text-[19px] font-extrabold tracking-[-0.02em]">
             Điểm nổi bật <span style={{ color: K.navy, fontWeight: 500 }}>của chiếc áo</span>
           </h2>
-          <span className="text-[11px]" style={{ color: K.muted, fontFamily: MONO }}>
+          <span className="text-[22px] font-semibold" style={{ color: K.navy, fontFamily: SANS }}>
             {BRAND.short} · {BRAND.slogan}
           </span>
         </div>
