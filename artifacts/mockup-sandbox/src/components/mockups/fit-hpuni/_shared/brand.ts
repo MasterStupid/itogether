@@ -41,4 +41,6 @@ export const PALETTE = {
   /** Concept C · Phượng Số */
   phuong: { hex: "#E2322B", name: "Đỏ Phượng", pantone: "PANTONE 17-1664 TCX Poppy Red (tham khảo)" },
   nhuy: { hex: "#F4C542", name: "Vàng nhụy" },
+  /** Concept D · Cảng Khởi Hành */
+  cang: { hex: "#F26B21", name: "Cam Cảng" },
 } as const;
