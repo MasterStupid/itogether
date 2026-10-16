@@ -1,4 +1,4 @@
-import { useId, type ComponentProps, type ReactNode } from "react";
+import { Fragment, useId, type ComponentProps, type ReactNode } from "react";
 import { BRAND, PALETTE } from "./_shared/brand";
 import { FitLogo, TeeShirt, ANCHORS } from "./_shared/garments";
 
@@ -226,7 +226,7 @@ function FitCompare() {
   const sx = 58 / 54;
   const sy = 720 / 740;
   return (
-    <svg viewBox="20 20 960 820" className="block h-[118px] w-full">
+    <svg viewBox="20 20 960 820" className="block h-[84px] w-full">
       <path d={STD_TEE} fill={K.card} stroke={K.muted} strokeWidth={5} />
       <path
         d={STD_TEE}
@@ -239,6 +239,87 @@ function FitCompare() {
     </svg>
   );
 }
+
+/* ---------- size grading: two screen frames, mm-true ---------- */
+const GRADE = [
+  { s: "S", chest: 52, len: 67, k: 0.9 },
+  { s: "M", chest: 55, len: 69.5, k: 0.9 },
+  { s: "L", chest: 58, len: 72, k: 1 },
+  { s: "XL", chest: 61, len: 74.5, k: 1 },
+  { s: "XXL", chest: 64, len: 77, k: 1 },
+];
+const FRAME_A = { w: Math.round(ART_W * 0.9), h: Math.round(ART_H * 0.9) };
+
+function GradeTee({ chest, len, k, active }: { chest: number; len: number; k: number; active: boolean }) {
+  /* STD_TEE is drawn at chest 54 / length 74 cm in mm units, HPS at y 60 */
+  const sx = chest / 54;
+  const sy = len / 74;
+  const w = ART_W * k;
+  const h = ART_H * k;
+  const top = HPS_Y + (ART.top - HPS_Y) * k;
+  return (
+    <svg viewBox="-70 20 1140 860" className="block h-[86px] w-full">
+      <path
+        d={STD_TEE}
+        transform={`translate(500 60) scale(${sx} ${sy}) translate(-500 -60)`}
+        fill={active ? K.deep : "#DCD5CB"}
+        stroke={active ? K.deep : "#C9C0B4"}
+        strokeWidth={6}
+      />
+      <rect x={500 - w / 2} y={top} width={w} height={h} fill="none" stroke={active ? K.white : K.muted} strokeWidth={7} strokeDasharray={active ? "0" : "18 12"} />
+      <rect x={500 - w / 2} y={top + h * 0.17} width={w * 0.79} height={h * 0.42} fill={active ? K.white : "#BDB3A6"} opacity={active ? 0.9 : 0.8} />
+    </svg>
+  );
+}
+
+function SizeStrip() {
+  return (
+    <div className="rounded-[14px] border px-4 pb-3 pt-3" style={{ borderColor: K.rule, background: K.card }}>
+      <div className="flex items-baseline justify-between">
+        <div className="flex items-baseline gap-3">
+          <span className="text-[13px] font-bold">Nhảy cỡ hình in theo size</span>
+          <span className="text-[11px]" style={{ color: K.muted }}>
+            Hai khung lưới thay vì một — chữ IT không bị “lọt thỏm” trên áo nhỏ hay “tràn” trên áo lớn.
+          </span>
+        </div>
+        <span className="text-[10px]" style={{ color: K.muted, fontFamily: MONO }}>phom rộng vừa · cm</span>
+      </div>
+      <div className="mt-2 grid grid-cols-[1fr_1fr_14px_1fr_1fr_1fr] items-end gap-2">
+        {GRADE.map((g, i) => (
+          <Fragment key={g.s}>
+            {i === 2 && <div className="h-[70%] w-px justify-self-center" style={{ background: K.rule }} />}
+            <div className="flex flex-col items-center">
+              <GradeTee chest={g.chest} len={g.len} k={g.k} active={g.s === "L"} />
+              <div className="mt-1 flex items-baseline gap-1.5">
+                <span className="text-[13px] font-extrabold" style={{ color: g.s === "L" ? K.ink : K.muted }}>{g.s}</span>
+                <span className="text-[10px]" style={{ color: K.muted, fontFamily: MONO }}>
+                  {g.chest}×{String(g.len).replace(".", ",")}
+                </span>
+              </div>
+            </div>
+          </Fragment>
+        ))}
+      </div>
+      <div className="mt-2 grid grid-cols-[2fr_14px_3fr] gap-2 text-[10.5px]" style={{ fontFamily: MONO, color: K.muted }}>
+        <div className="border-t pt-1.5 text-center" style={{ borderColor: K.muted }}>
+          <b style={{ color: K.ink }}>Khung A · 90%</b> · {FRAME_A.w} × {FRAME_A.h} mm
+        </div>
+        <span />
+        <div className="border-t pt-1.5 text-center" style={{ borderColor: K.ink }}>
+          <b style={{ color: K.ink }}>Khung B · 100%</b> · {ART_W} × {ART_H} mm · bản vẽ chính
+        </div>
+      </div>
+    </div>
+  );
+}
+
+const CHECKS = [
+  ["File logo vector từ Khoa", "thay ảnh 474 px trước khi làm phim DTF"],
+  ["Lab dip vải xanh than", "so với #1F3349, duyệt dưới đèn D65"],
+  ["In thử khuôn trên vải thật", "mép chữ IT sắc, không lem vào lòng chữ"],
+  ["Giặt thử 5 lần ở 40 °C", "mực không nứt, cổ không bai"],
+  ["Áo mẫu mặc thử 1 tuần", "2–3 sinh viên, ghi nhận phom & cảm giác"],
+];
 
 export function DongDieuTee() {
   return (
@@ -267,8 +348,9 @@ export function DongDieuTee() {
         </div>
         <div className="flex items-center gap-3">
           <span className="rounded-full px-3 py-1 text-[11px] font-semibold text-white" style={{ background: K.deep }}>
-            Đề xuất mới
+            Bản hoàn thiện · v1.0
           </span>
+          <span className="text-[10.5px]" style={{ color: K.muted, fontFamily: MONO }}>FIT-DD-01</span>
           <span className="text-[17px] font-extrabold tracking-tight">Đồng Điệu</span>
           <span style={{ color: "#A79E92" }}>/</span>
           <span className="text-[14px]" style={{ color: K.muted }}>Áo thun mặc hằng ngày</span>
@@ -327,6 +409,23 @@ export function DongDieuTee() {
             </div>
           </div>
 
+          <div className="mt-4 rounded-[12px] border px-3.5 py-3" style={{ borderColor: K.rule, background: K.card }}>
+            <div className="flex items-center justify-between">
+              <span className="text-[10.5px] font-bold uppercase tracking-[0.12em]" style={{ color: K.muted }}>Khẩu hiệu nguyên văn</span>
+              <span className="rounded-full px-2 py-[1px] text-[9.5px] font-bold" style={{ background: K.deep, color: K.white }}>ĐÃ KHỚP</span>
+            </div>
+            <div className="mt-2 text-[14px] leading-[1.35]">
+              <span className="font-extrabold">You can do </span>
+              <span className="rounded-[3px] px-1 font-black" style={{ background: K.deep, color: K.card }}>IT</span>
+              <span className="font-extrabold">,</span>{" "}
+              <span className="font-medium" style={{ color: K.navy }}>we are ready to accompany</span>
+              <span className="ml-0.5 inline-block h-[14px] w-[6px] translate-y-[2px]" style={{ background: K.deep }} />
+            </div>
+            <div className="mt-1.5 text-[10.5px] leading-[1.45]" style={{ color: K.muted }}>
+              Không thêm, bớt hay đảo từ — chỉ đổi cỡ chữ và sắc độ. Con trỏ là ô in tĩnh, không phải chữ.
+            </div>
+          </div>
+
           <div className="mt-auto rounded-[12px] border-l-[3px] px-3.5 py-3 text-[11px] leading-[1.5]" style={{ borderColor: K.accent, background: K.card, color: K.muted }}>
             Đây là giả thuyết thiết kế, chưa có số liệu khảo sát. Nên may 2–3 áo mẫu cho sinh viên mặc thử một tuần
             trước khi chốt.
@@ -334,12 +433,12 @@ export function DongDieuTee() {
         </section>
 
         {/* ---------- centre: garments + details ---------- */}
-        <section className="flex min-h-0 flex-col">
+        <section className="flex min-h-0 flex-col justify-between">
           <div className="flex items-end justify-center gap-4">
             <figure className="flex flex-col items-center">
               <Back
                 pad={PAD}
-                style={{ width: 520, height: 520 * (910 / 1080) }}
+                style={{ width: 470, height: 470 * (910 / 1080) }}
                 annotations={
                   <>
                     <DimH x1={ART.x} x2={ART.right} y={512} label={`${ART_W} mm`} />
@@ -360,7 +459,7 @@ export function DongDieuTee() {
             <figure className="flex flex-col items-center">
               <Front
                 pad={PAD}
-                style={{ width: 344, height: 344 * (910 / 1080) }}
+                style={{ width: 320, height: 320 * (910 / 1080) }}
                 annotations={
                   <>
                     <NeckLabel color={K.white} />
@@ -378,20 +477,22 @@ export function DongDieuTee() {
             </figure>
           </div>
 
-          <div className="mt-auto grid grid-cols-4 gap-4 pt-5">
+          <SizeStrip />
+
+          <div className="grid grid-cols-4 gap-4">
             <Loupe n={1} title="IT để trống, lộ màu vải" note={`Khối ${BLOCK.w} × ${BLOCK.h} mm; chữ IT cao ≈100 mm không in mực — vải thở, nhẹ tay hơn mảng đặc.`}>
-              <Back crop={{ x: 345, y: 165, w: 300, h: 192 }} style={{ width: "100%", height: 168 }} />
+              <Back crop={{ x: 340, y: 160, w: 305, h: 206 }} style={{ width: "100%", height: 150 }} />
             </Loupe>
             <Loupe n={2} title="Lời đáp và con trỏ chờ" note="Chữ hoa ≈29 mm, xám bạc. Con trỏ trắng 12 × 29 mm: khoa luôn sẵn sàng. Dòng ký tên chữ nhỏ nhất 6 mm.">
-              <Back crop={{ x: 345, y: 355, w: 310, h: 135 }} style={{ width: "100%", height: 168 }} />
+              <Back crop={{ x: 345, y: 362, w: 300, h: 203 }} style={{ width: "100%", height: 150 }} />
             </Loupe>
             <Loupe n={3} title="Logo giữ nguyên bản gốc" note={`Ép DTF Ø${LOGO.d} mm, tâm cách HPS ${LOGO.y - HPS_Y} mm, lệch tâm ${LOGO.x - 500} mm về ngực trái.`}>
-              <Front crop={{ x: 524, y: 182, w: 160, h: 112 }} style={{ width: "100%", height: 168 }} />
+              <Front crop={{ x: 528, y: 191, w: 140, h: 95 }} style={{ width: "100%", height: 150 }} />
             </Loupe>
             <Loupe n={4} title="Nhãn in trong cổ" note={`${LABEL.w} × ${LABEL.h} mm, 1 màu, in cùng xưởng. Không mác cứng cấn gáy.`}>
               <Front
-                crop={{ x: 428, y: 46, w: 144, h: 100 }}
-                style={{ width: "100%", height: 168 }}
+                crop={{ x: 440, y: 46, w: 120, h: 81 }}
+                style={{ width: "100%", height: 150 }}
                 annotations={<NeckLabel color={K.white} />}
               />
             </Loupe>
@@ -438,6 +539,22 @@ export function DongDieuTee() {
               <span style={{ color: K.accent }}>Nét đứt</span>: ngang ngực 58 cm (chuẩn 54), dài 72 cm (chuẩn 74), vai rơi
               khoảng 3 cm. Hình áo trên bảng vẫn dùng phom chuẩn chung để so sánh công bằng.
             </div>
+          </div>
+
+          <div className="mt-3">
+            <div className="text-[10.5px] font-bold uppercase tracking-[0.12em]" style={{ color: K.muted }}>Duyệt trước sản xuất</div>
+            <ol className="mt-1.5 space-y-1">
+              {CHECKS.map(([t, d], i) => (
+                <li key={t} className="flex gap-2 text-[11px] leading-[1.35]">
+                  <span className="mt-[1px] flex h-[15px] w-[15px] shrink-0 items-center justify-center rounded-[4px] border text-[9px] font-bold" style={{ borderColor: K.accent, color: K.accent, fontFamily: MONO }}>
+                    {i + 1}
+                  </span>
+                  <span>
+                    <b>{t}</b> <span style={{ color: K.muted }}>— {d}</span>
+                  </span>
+                </li>
+              ))}
+            </ol>
           </div>
 
           <div className="mt-auto text-[11px] leading-[1.5]" style={{ color: K.muted }}>
