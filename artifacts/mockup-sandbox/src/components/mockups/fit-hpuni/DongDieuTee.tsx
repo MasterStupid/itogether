@@ -102,10 +102,19 @@ function BackArt({ ink, ink2 }: Ink) {
       >
         KHOA CÔNG NGHỆ THÔNG TIN · ĐH HẢI PHÒNG
       </text>
-      <text x={ART.x} y={534} fontWeight={600} fontSize={14} letterSpacing={0.2} fill={ink2}>
+      {/* contact signature — restrained line icons, kept clear of the type */}
+      <g transform={`translate(${ART.x}, 518)`} fill="none" stroke={ink2} strokeWidth={2}>
+        <circle cx={7} cy={7} r={6} />
+        <path d="M1.5 7h11M7 1c1.7 1.7 2.5 3.7 2.5 6S8.7 11.3 7 13M7 1C5.3 2.7 4.5 4.7 4.5 7S5.3 11.3 7 13" />
+      </g>
+      <text x={ART.x + 21} y={534} textLength={116} lengthAdjust="spacingAndGlyphs" fontWeight={600} fontSize={14} letterSpacing={0.2} fill={ink2}>
         fit.dhhp.edu.vn
       </text>
-      <text x={ART.right} y={534} textAnchor="end" fontWeight={600} fontSize={14} letterSpacing={0.1} fill={ink2}>
+      <g transform={`translate(${ART.right - 131}, 520)`} fill="none" stroke={ink2} strokeWidth={1.8} strokeLinejoin="round">
+        <rect x={0.5} y={1} width={14} height={11} rx={1.5} />
+        <path d="m1.5 2 6 5 6-5" />
+      </g>
+      <text x={ART.right} y={534} textAnchor="end" textLength={110} lengthAdjust="spacingAndGlyphs" fontWeight={600} fontSize={14} letterSpacing={0.1} fill={ink2}>
         fit@dhhp.edu.vn
       </text>
     </g>
