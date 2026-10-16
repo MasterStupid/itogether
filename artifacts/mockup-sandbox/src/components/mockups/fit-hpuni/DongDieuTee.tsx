@@ -1,5 +1,5 @@
 import { useId, type ComponentProps, type ReactNode } from "react";
-import { PALETTE } from "./_shared/brand";
+import { BRAND, PALETTE } from "./_shared/brand";
 import { FitLogo, TeeShirt, ANCHORS } from "./_shared/garments";
 
 /* ==================================================================
@@ -35,56 +35,14 @@ const LABEL = { x: 475, y: 78, w: 50, h: 20 };
 const BLOCK = { x: 360, y: 222, w: 220, h: 130 };
 const IT_SIZE = 140;
 
-type Ink = {
-  body: string;
-  sleeve: string;
-  rib: string;
-  tip: string;
-  ink: string;
-  ink2: string;
-  block: string;
-  spark: string;
-};
-
-/* Phối màu pha loãng — các tông pastel dịu của xanh FIT, vàng nhụy và cam:
-   thân xanh sương, tay xanh khói, viền vàng bơ, chấm đào. Chữ dùng xanh than mềm
-   để vẫn đọc rõ trên nền sáng. */
-const C = {
-  mist: "#BCD2EA", // xanh sương — thân áo
-  smoke: "#7F98B9", // xanh khói — tay & cổ
-  butter: "#F3DFA2", // vàng bơ — viền
-  peach: "#EFA88C", // đào — tia nhấn
-  ink: "#26394F", // xanh than mềm — chữ
-  slate: "#4F6785", // xanh đá — lời đáp
-  block: "#3B5474", // khối IT
-  cream: "#F7F2E8", // kem — bản sáng
-  white: PALETTE.white.hex,
-};
-
-/* Sleeve panels: everything outboard of the armhole seam (clipped by the silhouette). */
-const SLEEVE_L = "M262,100 C272,170 266,262 230,300 L140,390 L0,430 L0,0 L262,0 Z";
-const SLEEVE_R = "M738,100 C728,170 734,262 770,300 L860,390 L1000,430 L1000,0 L738,0 Z";
-/* 6 mm accent band, 6 mm in from the sleeve hem, parallel to it */
-const BAND_L = "M77.6,153.8 L168.6,386.8 L174.2,384.6 L83.2,151.6 Z";
-const BAND_R = "M922.4,153.8 L831.4,386.8 L825.8,384.6 L916.8,151.6 Z";
-
-function SleeveBlocks({ sleeve, tip }: Ink) {
-  return (
-    <g>
-      <path d={SLEEVE_L} fill={sleeve} />
-      <path d={SLEEVE_R} fill={sleeve} />
-      <path d={BAND_L} fill={tip} />
-      <path d={BAND_R} fill={tip} />
-    </g>
-  );
-}
+type Ink = { body: string; ink: string; ink2: string };
 
 /**
  * The whole back print — the slogan set as a two-voice dialogue.
  * Voice 1 (student, loud):  "You can do IT,"
  * Voice 2 (faculty, calm):  "we are ready to accompany"  + a waiting cursor.
  */
-function BackArt({ ink, ink2, block, spark }: Ink) {
+function BackArt({ ink, ink2 }: Ink) {
   const id = useId().replace(/:/g, "");
   return (
     <g fontFamily={SANS}>
@@ -109,8 +67,8 @@ function BackArt({ ink, ink2, block, spark }: Ink) {
       <text x={ART.x} y={208} textLength={ART_W} lengthAdjust="spacingAndGlyphs" fontWeight={800} fontSize={50} fill={ink}>
         You can do
       </text>
-      <rect x={BLOCK.x} y={BLOCK.y} width={BLOCK.w} height={BLOCK.h} fill={block} mask={`url(#ko${id})`} />
-      <text x={588} y={330} fontWeight={900} fontSize={130} fill={spark}>
+      <rect x={BLOCK.x} y={BLOCK.y} width={BLOCK.w} height={BLOCK.h} fill={ink} mask={`url(#ko${id})`} />
+      <text x={588} y={330} fontWeight={900} fontSize={130} fill={ink}>
         ,
       </text>
 
@@ -121,13 +79,12 @@ function BackArt({ ink, ink2, block, spark }: Ink) {
       <text x={ART.x} y={440} textLength={262} lengthAdjust="spacingAndGlyphs" fontWeight={500} fontSize={40} fill={ink2}>
         to accompany
       </text>
-      <rect x={628} y={411} width={12} height={29} fill={block}>
+      <rect x={628} y={411} width={12} height={29} fill={ink}>
         <animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.5;0.5;1" dur="1.1s" repeatCount="indefinite" />
       </rect>
 
       {/* signature */}
-      <path d={`M${ART.x},456 H${ART.x + 70}`} stroke={spark} strokeWidth={1.5} />
-      <path d={`M${ART.x + 70},456 H${ART.right}`} stroke={ink2} strokeWidth={1.5} />
+      <path d={`M${ART.x},456 H${ART.right}`} stroke={ink2} strokeWidth={1.5} />
       <text x={ART.x} y={ART.bottom} fontWeight={800} fontSize={10} fill={ink}>
         FIT-HPUni
       </text>
@@ -160,41 +117,21 @@ function NeckLabel({ color }: { color: string }) {
 }
 
 /* ---------- garments ---------- */
-const ROYAL: Ink = {
-  body: C.mist,
-  sleeve: C.smoke,
-  rib: C.smoke,
-  tip: C.butter,
-  ink: C.ink,
-  ink2: C.slate,
-  block: C.block,
-  spark: C.peach,
-};
-const WHITE: Ink = {
-  body: C.cream,
-  sleeve: C.mist,
-  rib: C.mist,
-  tip: C.peach,
-  ink: C.ink,
-  ink2: C.slate,
-  block: C.smoke,
-  spark: C.peach,
-};
+const NAVY: Ink = { body: K.deep, ink: K.white, ink2: K.silver };
+const WHITE: Ink = { body: K.white, ink: K.deep, ink2: K.navy };
 const PAD = { top: 4, right: 6, bottom: 8, left: 6 };
 
-function Back({ c = ROYAL, ...rest }: { c?: Ink } & Omit<ComponentProps<typeof TeeShirt>, "body">) {
+function Back({ c = NAVY, ...rest }: { c?: Ink } & Omit<ComponentProps<typeof TeeShirt>, "body">) {
   return (
-    <TeeShirt side="back" body={c.body} rib={c.rib} ribTipping={[c.tip]} {...rest}>
-      <SleeveBlocks {...c} />
+    <TeeShirt side="back" body={c.body} {...rest}>
       <BackArt {...c} />
     </TeeShirt>
   );
 }
 
-function Front({ c = ROYAL, ...rest }: { c?: Ink } & Omit<ComponentProps<typeof TeeShirt>, "body">) {
+function Front({ c = NAVY, ...rest }: { c?: Ink } & Omit<ComponentProps<typeof TeeShirt>, "body">) {
   return (
-    <TeeShirt side="front" body={c.body} rib={c.rib} ribTipping={[c.tip]} {...rest}>
-      <SleeveBlocks {...c} />
+    <TeeShirt side="front" body={c.body} {...rest}>
       <FrontArt />
     </TeeShirt>
   );
@@ -220,27 +157,27 @@ function Highlight({
     <article
       className="dd-rise group flex min-w-0 flex-col overflow-hidden rounded-[18px] border"
       style={{
-        borderColor: dark ? C.smoke : K.rule,
-        background: dark ? "#E4ECF5" : K.card,
-        color: K.ink,
+        borderColor: dark ? K.deep : K.rule,
+        background: dark ? K.deep : K.card,
+        color: dark ? K.white : K.ink,
         animationDelay: `${Number(n) * 60 + 80}ms`,
       }}
     >
-      <div className="relative h-[132px] overflow-hidden" style={{ background: dark ? "#D3E0EE" : "#EEE8DF" }}>
+      <div className="relative h-[132px] overflow-hidden" style={{ background: dark ? "#18293B" : "#E8E2D9" }}>
         <div className="h-full w-full transition-transform duration-700 ease-out group-hover:scale-[1.04]">{children}</div>
         <span
           className="absolute left-3 top-3 rounded-full px-2.5 py-[3px] text-[10px] font-bold tracking-[0.12em]"
-          style={{ background: C.ink, color: K.white, fontFamily: MONO }}
+          style={{ background: dark ? K.white : K.deep, color: dark ? K.deep : K.white, fontFamily: MONO }}
         >
           {n}
         </span>
       </div>
       <div className="flex flex-1 flex-col px-4 pb-3.5 pt-3">
-        <div className="text-[10px] font-bold uppercase tracking-[0.16em]" style={{ color: dark ? C.slate : K.navy }}>
+        <div className="text-[10px] font-bold uppercase tracking-[0.16em]" style={{ color: dark ? K.silver : K.navy }}>
           {kicker}
         </div>
         <h3 className="mt-1.5 text-[17px] font-extrabold leading-[1.2] tracking-[-0.01em]">{title}</h3>
-        <p className="mt-2 text-[12px] leading-[1.55]" style={{ color: K.muted }}>
+        <p className="mt-2 text-[12px] leading-[1.55]" style={{ color: dark ? "#B9C4CF" : K.muted }}>
           {note}
         </p>
       </div>
@@ -267,7 +204,7 @@ export function DongDieuTee() {
       {/* ---------- two equal views ---------- */}
       <section className="relative grid min-h-0 flex-1 grid-cols-2 gap-3 px-5 pt-4">
         {[
-          { label: "Mặt trước", node: <Front pad={PAD} style={{ width: "100%", height: "100%" }} annotations={<NeckLabel color={C.ink} />} /> },
+          { label: "Mặt trước", node: <Front pad={PAD} style={{ width: "100%", height: "100%" }} annotations={<NeckLabel color={K.white} />} /> },
           { label: "Mặt sau", node: <Back pad={PAD} style={{ width: "100%", height: "100%" }} /> },
         ].map((v, i) => (
           <figure
@@ -292,31 +229,17 @@ export function DongDieuTee() {
           <h2 className="text-[19px] font-extrabold tracking-[-0.02em]">
             Điểm nổi bật <span style={{ color: K.navy, fontWeight: 500 }}>của chiếc áo</span>
           </h2>
-          <div className="flex items-center gap-4">
-            {[
-              [C.mist, "Xanh sương", "thân áo"],
-              [C.smoke, "Xanh khói", "tay & cổ"],
-              [C.butter, "Vàng bơ", "viền"],
-              [C.peach, "Đào", "tia nhấn"],
-              [C.ink, "Than mềm", "chữ"],
-            ].map(([hex, name, role]) => (
-              <div key={name} className="flex items-center gap-2">
-                <span className="h-5 w-5 rounded-full border" style={{ background: hex, borderColor: K.rule }} />
-                <span className="leading-[1.1]">
-                  <span className="block text-[11px] font-bold">{name}</span>
-                  <span className="block text-[10px]" style={{ color: K.muted, fontFamily: MONO }}>{role}</span>
-                </span>
-              </div>
-            ))}
-          </div>
+          <span className="text-[11px]" style={{ color: K.muted, fontFamily: MONO }}>
+            {BRAND.short} · {BRAND.slogan}
+          </span>
         </div>
         <div className="grid grid-cols-[1.25fr_1fr_1fr_1fr] gap-3">
           <Highlight
             n="01"
             dark
             kicker="Chữ là hình"
-            title="Chữ IT lộ màu xanh sương"
-            note="Khối than mềm trên nền pastel — chữ IT không in mực, để màu vải dịu tự hiện lên."
+            title="Chữ IT để trống, lộ màu vải"
+            note="Khối mực đặc, riêng chữ IT không in — điểm nhìn mạnh nhất áo, vải vẫn mềm và thoáng."
           >
             <Back crop={{ x: 255, y: 148, w: 490, h: 214 }} style={{ width: "100%", height: "100%" }} />
           </Highlight>
@@ -324,26 +247,26 @@ export function DongDieuTee() {
             n="02"
             kicker="Hai giọng nói"
             title="Bạn nói, Khoa đáp lời"
-            note="“You can do IT” than mềm, dấu phẩy màu đào; lời đáp xanh đá nhẹ hơn kèm con trỏ đang chờ."
+            note="“You can do IT,” trắng và đậm; “we are ready to accompany” xám bạc, kèm con trỏ chờ."
           >
             <Back crop={{ x: 320, y: 356, w: 350, h: 192 }} style={{ width: "100%", height: "100%" }} />
           </Highlight>
           <Highlight
             n="03"
-            kicker="Phối tay áo"
-            title="Tay xanh khói, viền vàng bơ"
-            note="Tay áo trầm hơn thân một nấc cho dáng gọn. Viền vàng bơ 6 mm ở gấu tay và cổ, nhẹ mà vẫn có điểm nhấn."
+            kicker="Mặt trước tối giản"
+            title="Chỉ logo Khoa, giữ nguyên bản gốc"
+            note="Đặt ở ngực trái, dễ phối với quần jean hay sơ mi khoác ngoài — đi học, đi làm đều hợp."
           >
-            <Front crop={{ x: 40, y: 120, w: 300, h: 200 }} style={{ width: "100%", height: "100%" }} />
+            <Front crop={{ x: 520, y: 180, w: 156, h: 102 }} style={{ width: "100%", height: "100%" }} />
           </Highlight>
           <Highlight
             n="04"
-            kicker="Hai bản phối"
-            title="Xanh sương · Kem phối xanh sương"
-            note="Cùng bộ màu pastel, đảo vai trò nền và tay. Lưng in 3 khuôn: than mềm, xanh đá, đào."
+            kicker="Hai màu áo"
+            title="Xanh than và trắng"
+            note="Cùng một câu khẩu hiệu, đổi sắc độ theo nền vải. Cotton 100%, phom rộng vừa, nhãn in trong cổ."
           >
             <div className="flex h-full items-center justify-center gap-1 px-3">
-              <Back c={ROYAL} pad={14} style={{ width: "50%", height: "92%" }} />
+              <Back c={NAVY} pad={14} style={{ width: "50%", height: "92%" }} />
               <Back c={WHITE} pad={14} style={{ width: "50%", height: "92%" }} />
             </div>
           </Highlight>
