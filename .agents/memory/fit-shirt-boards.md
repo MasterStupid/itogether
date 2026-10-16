@@ -14,3 +14,6 @@ description: Rules for the faculty shirt design boards on the canvas (garment fl
   **How to apply:** review garment copy on every new board/variant before presenting.
 - On 2026-10-16 the user asked for "phiên bản mà sinh viên yêu thích nhất" → student edition "Hoa Học Trò" (C's phượng + B's "do IT" + personalised name). Treat student appeal as a stated priority for follow-up work.
   **Why:** the user's own request after seeing A/B/C.
+- For the Đồng Điệu direction, omit city symbols and focus on the faculty slogan: “You can do IT, we are ready to accompany”.
+  **Why:** the user explicitly redirected this selected design away from city imagery.
+  **How to apply:** keep future refinements of this direction slogan-led; this does not require changing the other concept boards.

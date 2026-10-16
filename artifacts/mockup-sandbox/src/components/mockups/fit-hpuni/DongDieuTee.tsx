@@ -1,18 +1,19 @@
-import type { ComponentProps, ReactNode } from "react";
+import { useId, type ComponentProps, type ReactNode } from "react";
 import { BRAND, PALETTE } from "./_shared/brand";
 import { FitLogo, TeeShirt, ANCHORS } from "./_shared/garments";
 
 /* ==================================================================
    Đồng Điệu · áo thun mặc hằng ngày (board label only — never printed)
-   One focal motif: a phượng flower whose centre is a PCB via and whose
-   stem is four circuit traces growing out of the faculty wordmark.
+   One focal motif: the faculty slogan set as a two-voice dialogue —
+   the student's "You can do IT," answered by the faculty's promise.
    1 SVG unit = 1 mm on size L. All callouts read from the constants below.
    ================================================================== */
 
 const K = {
   deep: PALETTE.navyDeep.hex,
   navy: PALETTE.navy.hex,
-  red: PALETTE.phuong.hex,
+  silver: PALETTE.silver.hex,
+  accent: PALETTE.navy.hex,
   white: PALETTE.white.hex,
   paper: "#F1ECE4",
   card: "#F8F5F0",
@@ -24,127 +25,71 @@ const SANS = "'Be Vietnam Pro', sans-serif";
 const MONO = "'JetBrains Mono', monospace";
 
 /* ---------- artwork geometry (mm) ---------- */
-const C = { x: 500, y: 286 }; // flower centre = via
-const ART = { x: 380, top: 195, right: 620, bottom: 524 }; // measured bbox
-const ART_W = ART.right - ART.x; // 240
-const ART_H = ART.bottom - ART.top; // 329
+const ART = { x: 360, top: 170, right: 640, bottom: 476 };
+const ART_W = ART.right - ART.x; // 280
+const ART_H = ART.bottom - ART.top; // 306
 const HPS_Y = 60;
 const LOGO = { ...ANCHORS.tee.front.wearerLeftChest, d: 80 };
 const LABEL = { x: 475, y: 78, w: 50, h: 20 };
+/* the "IT" block: solid ink, letters left open so the fabric shows through */
+const BLOCK = { x: 360, y: 222, w: 220, h: 130 };
+const IT_SIZE = 140;
 
-const PETAL =
-  "M0,-10 C-5,-20 -7,-32 -16,-44 C-34,-62 -38,-86 -22,-95 C-14,-99 -8,-94 -3,-98 C2,-101 8,-97 12,-98 C30,-97 40,-80 30,-60 C24,-48 10,-34 5,-22 C3,-16 2,-12 0,-10 Z";
-const VEINS = ["M0,-18 L0,-84", "M-2,-38 Q-12,-58 -20,-82", "M2,-38 Q12,-58 20,-82"];
-const STREAKS = ["M0,-16 L0,-70", "M-3,-34 Q-10,-50 -14,-66", "M3,-34 Q10,-50 14,-66", "M-6,-48 L-22,-72", "M6,-48 L22,-72"];
-const RED_PETALS: [number, number][] = [
-  [70, 1],
-  [142, 0.97],
-  [218, 1],
-  [290, 0.98],
-];
+type Ink = { body: string; ink: string; ink2: string };
 
-const TRACES = [
-  { d: `M493,296 V360 L462,391 V398`, pad: [462, 404] },
-  { d: `M493,296 V386 L477,402 V410`, pad: [477, 416] },
-  { d: `M500,296 V414`, pad: [500, 420] },
-  { d: `M507,296 V380 L527,400 V404`, pad: [527, 410] },
-];
-
-type Ink = { body: string; ink: string; red: string };
-
-function Pad({ x, y, ink, body, r = 4.4 }: { x: number; y: number; ink: string; body: string; r?: number }) {
+/**
+ * The whole back print — the slogan set as a two-voice dialogue.
+ * Voice 1 (student, loud):  "You can do IT,"
+ * Voice 2 (faculty, calm):  "we are ready to accompany"  + a waiting cursor.
+ */
+function BackArt({ ink, ink2 }: Ink) {
+  const id = useId().replace(/:/g, "");
   return (
-    <g>
-      <circle cx={x} cy={y} r={r} fill={ink} />
-      <circle cx={x} cy={y} r={r * 0.42} fill={body} />
-    </g>
-  );
-}
+    <g fontFamily={SANS}>
+      <defs>
+        <mask id={`ko${id}`} maskUnits="userSpaceOnUse" x={BLOCK.x} y={BLOCK.y} width={BLOCK.w} height={BLOCK.h}>
+          <rect x={BLOCK.x} y={BLOCK.y} width={BLOCK.w} height={BLOCK.h} fill="#fff" />
+          <text
+            x={BLOCK.x + BLOCK.w / 2}
+            y={BLOCK.y + BLOCK.h / 2 + 50}
+            textAnchor="middle"
+            fontWeight={900}
+            fontSize={IT_SIZE}
+            letterSpacing={-4}
+            fill="#000"
+          >
+            IT
+          </text>
+        </mask>
+      </defs>
 
-/** The whole back print. ink = white on navy, navy on white fabric. */
-function BackArt({ body, ink, red }: Ink) {
-  return (
-    <g>
-      {/* traces first so the petals overlap their roots */}
-      <g fill="none" stroke={ink} strokeWidth={2.6} strokeLinecap="round" strokeLinejoin="round">
-        {TRACES.map((t, i) => (
-          <path key={i} d={t.d} />
-        ))}
-      </g>
-      {TRACES.map((t, i) => (
-        <Pad key={i} x={t.pad[0]} y={t.pad[1]} ink={ink} body={body} />
-      ))}
+      {/* voice 1 */}
+      <text x={ART.x} y={208} textLength={ART_W} lengthAdjust="spacingAndGlyphs" fontWeight={800} fontSize={50} fill={ink}>
+        You can do
+      </text>
+      <rect x={BLOCK.x} y={BLOCK.y} width={BLOCK.w} height={BLOCK.h} fill={ink} mask={`url(#ko${id})`} />
+      <text x={588} y={330} fontWeight={900} fontSize={130} fill={ink}>
+        ,
+      </text>
 
-      {/* four scarlet petals, veins knocked out to the fabric */}
-      {RED_PETALS.map(([a, s]) => (
-        <g key={a} transform={`translate(${C.x} ${C.y}) rotate(${a}) scale(${s})`}>
-          <path d={PETAL} fill={red} />
-          <g fill="none" stroke={body} strokeWidth={1.5 / s} strokeLinecap="round">
-            {VEINS.map((d) => (
-              <path key={d} d={d} />
-            ))}
-          </g>
-        </g>
-      ))}
-      {/* upright standard petal: ink with red streaks */}
-      <g transform={`translate(${C.x} ${C.y}) scale(0.92)`}>
-        <path d={PETAL} fill={ink} />
-        <g fill="none" stroke={red} strokeWidth={2.2} strokeLinecap="round">
-          {STREAKS.map((d) => (
-            <path key={d} d={d} />
-          ))}
-        </g>
-      </g>
-      {/* centre = via */}
-      <circle cx={C.x} cy={C.y} r={13} fill={body} />
-      <circle cx={C.x} cy={C.y} r={10} fill={ink} />
-      <circle cx={C.x} cy={C.y} r={4.4} fill={body} />
+      {/* voice 2 */}
+      <text x={ART.x} y={396} textLength={262} lengthAdjust="spacingAndGlyphs" fontWeight={500} fontSize={40} fill={ink2}>
+        we are ready
+      </text>
+      <text x={ART.x} y={440} textLength={262} lengthAdjust="spacingAndGlyphs" fontWeight={500} fontSize={40} fill={ink2}>
+        to accompany
+      </text>
+      <rect x={628} y={411} width={12} height={29} fill={ink}>
+        <animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.5;0.5;1" dur="1.1s" repeatCount="indefinite" />
+      </rect>
 
-      {/* one fallen petal */}
-      <g transform="translate(588 402) rotate(128) scale(0.3)">
-        <path d={PETAL} fill={red} />
-      </g>
-
-      {/* faculty identity + verbatim slogan */}
-      <text
-        x={500}
-        y={476}
-        textAnchor="middle"
-        textLength={ART_W}
-        lengthAdjust="spacingAndGlyphs"
-        fontFamily={SANS}
-        fontWeight={800}
-        fontSize={46}
-        fill={ink}
-      >
+      {/* signature */}
+      <path d={`M${ART.x},456 H${ART.right}`} stroke={ink2} strokeWidth={1.5} />
+      <text x={ART.x} y={ART.bottom} fontWeight={800} fontSize={10} fill={ink}>
         FIT-HPUni
       </text>
-      <text
-        x={500}
-        y={503}
-        textAnchor="middle"
-        textLength={ART_W}
-        lengthAdjust="spacingAndGlyphs"
-        fontFamily={SANS}
-        fontWeight={600}
-        fontSize={11}
-        fill={ink}
-      >
-        You can do <tspan fill={red}>IT</tspan>, we are ready to accompany
-      </text>
-      <text
-        x={500}
-        y={ART.bottom}
-        textAnchor="middle"
-        textLength={ART_W}
-        lengthAdjust="spacing"
-        fontFamily={SANS}
-        fontWeight={500}
-        fontSize={7}
-        fill={ink}
-        opacity={0.78}
-      >
-        KHOA CÔNG NGHỆ THÔNG TIN · TRƯỜNG ĐẠI HỌC HẢI PHÒNG
+      <text x={ART.right} y={ART.bottom} textAnchor="end" fontWeight={500} fontSize={8} fill={ink2}>
+        KHOA CÔNG NGHỆ THÔNG TIN · ĐH HẢI PHÒNG
       </text>
     </g>
   );
@@ -177,7 +122,7 @@ function Pill({ x, y, children, anchor = "middle" }: { x: number; y: number; chi
   const rx = anchor === "middle" ? x - w / 2 : anchor === "start" ? x : x - w;
   return (
     <g>
-      <rect x={rx} y={y - 19} width={w} height={38} rx={19} fill={K.paper} stroke={K.red} strokeWidth={1.6} />
+      <rect x={rx} y={y - 19} width={w} height={38} rx={19} fill={K.paper} stroke={K.accent} strokeWidth={1.6} />
       <text x={rx + w / 2} y={y + 9} textAnchor="middle" fontFamily={MONO} fontWeight={700} fontSize={26} fill={K.ink}>
         {children}
       </text>
@@ -208,7 +153,7 @@ function DimV({ x, y1, y2, label }: { x: number; y1: number; y2: number; label: 
 function Marker({ x, y, n }: { x: number; y: number; n: number }) {
   return (
     <g>
-      <circle cx={x} cy={y} r={17} fill={K.red} stroke={K.paper} strokeWidth={3} />
+      <circle cx={x} cy={y} r={17} fill={K.accent} stroke={K.paper} strokeWidth={3} />
       <text x={x} y={y + 7.5} textAnchor="middle" fontFamily={SANS} fontWeight={800} fontSize={21} fill={K.white}>
         {n}
       </text>
@@ -217,8 +162,8 @@ function Marker({ x, y, n }: { x: number; y: number; n: number }) {
 }
 
 /* ---------- garments ---------- */
-const NAVY: Ink = { body: K.deep, ink: K.white, red: K.red };
-const WHITE: Ink = { body: K.white, ink: K.deep, red: K.red };
+const NAVY: Ink = { body: K.deep, ink: K.white, ink2: K.silver };
+const WHITE: Ink = { body: K.white, ink: K.deep, ink2: K.navy };
 const PAD = { top: 20, right: 40, bottom: 30, left: 40 };
 
 function Back({ c = NAVY, ...rest }: { c?: Ink } & Omit<ComponentProps<typeof TeeShirt>, "body">) {
@@ -239,7 +184,7 @@ function Front({ c = NAVY, ...rest }: { c?: Ink } & Omit<ComponentProps<typeof T
 
 /* ---------- board pieces ---------- */
 function Eyebrow({ children }: { children: ReactNode }) {
-  return <div className="text-[10.5px] font-bold tracking-[0.18em]" style={{ color: K.red }}>{children}</div>;
+  return <div className="text-[10.5px] font-bold tracking-[0.18em]" style={{ color: K.accent }}>{children}</div>;
 }
 
 function Loupe({ n, title, note, children }: { n: number; title: string; note: string; children: ReactNode }) {
@@ -251,7 +196,7 @@ function Loupe({ n, title, note, children }: { n: number; title: string; note: s
       <div className="mt-2.5 flex items-start gap-2">
         <span
           className="mt-[1px] flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-full text-[10px] font-extrabold text-white"
-          style={{ background: K.red }}
+          style={{ background: K.accent }}
         >
           {n}
         </span>
@@ -287,7 +232,7 @@ function FitCompare() {
         d={STD_TEE}
         transform={`translate(500 60) scale(${sx} ${sy}) translate(-500 -60)`}
         fill="none"
-        stroke={K.red}
+        stroke={K.accent}
         strokeWidth={6}
         strokeDasharray="22 14"
       />
@@ -333,27 +278,27 @@ export function DongDieuTee() {
       <main className="grid min-h-0 flex-1 grid-cols-[292px_1fr_318px] gap-6 px-8 py-6">
         {/* ---------- left: idea + reasoning ---------- */}
         <section className="flex min-h-0 flex-col">
-          <Eyebrow>BẢN TINH GỌN · CHO NGÀY THƯỜNG</Eyebrow>
+          <Eyebrow>CHỈ CÓ KHẨU HIỆU · CHO NGÀY THƯỜNG</Eyebrow>
           <h1 className="mt-3 text-[30px] font-extrabold leading-[1.08] tracking-[-0.02em]">
-            Một bông phượng.
+            Bạn nói:
             <br />
-            Một mạch điện.
+            “You can do IT,”
             <br />
-            <span style={{ color: K.red }}>Vậy là đủ.</span>
+            <span style={{ color: K.accent }}>Khoa đáp lời.</span>
           </h1>
           <p className="mt-4 text-[13px] leading-[1.55]" style={{ color: K.muted }}>
-            Chiếc áo để mặc đi học, đi cà phê, đi thực tập — không chỉ trong ngày hội khoa. Nhụy hoa là một
-            lỗ via; cuống hoa là bốn đường mạch mọc lên từ tên khoa.
+            Không biểu tượng, không minh họa — chỉ câu khẩu hiệu của khoa, dàn trang như một cuộc đối
+            thoại. Nửa đầu là giọng sinh viên: to, đậm. Nửa sau là lời hứa của khoa: bình tĩnh, kèm con trỏ đang chờ.
           </p>
 
           <div className="mt-5 space-y-3">
             {[
-              ["Mặt trước gần như trơn", "Chỉ logo Ø80 mm ở ngực trái: dễ phối với quần jean, sơ mi khoác ngoài."],
-              ["Một điểm nhấn duy nhất", `Hình lưng ${ART_W} × ${ART_H} mm, không kín lưng. Xa nhìn là hoa, lại gần mới thấy mạch.`],
-              ["Bớt hẳn công đoạn", "Không in nổi, không tên riêng, không họa tiết tay, không sọc cổ, không màu vàng."],
+              ["Chữ là hình", "Khối IT đặc, chữ để trống lộ màu vải — điểm nhìn duy nhất, đọc rõ từ xa."],
+              ["Hai giọng nói", `Hai cỡ chữ, hai sắc độ: trắng cho “You can do IT,”, xám bạc cho “we are ready to accompany”. Hình lưng ${ART_W} × ${ART_H} mm.`],
+              ["Bớt hẳn công đoạn", "Mặt trước chỉ logo. Không minh họa, không in nổi, không tên riêng, không sọc cổ."],
             ].map(([t, d], i) => (
               <div key={t} className="flex gap-3">
-                <span className="font-mono text-[11px] font-bold" style={{ color: K.red, fontFamily: MONO }}>
+                <span className="font-mono text-[11px] font-bold" style={{ color: K.accent, fontFamily: MONO }}>
                   0{i + 1}
                 </span>
                 <div>
@@ -382,7 +327,7 @@ export function DongDieuTee() {
             </div>
           </div>
 
-          <div className="mt-auto rounded-[12px] border-l-[3px] px-3.5 py-3 text-[11px] leading-[1.5]" style={{ borderColor: K.red, background: K.card, color: K.muted }}>
+          <div className="mt-auto rounded-[12px] border-l-[3px] px-3.5 py-3 text-[11px] leading-[1.5]" style={{ borderColor: K.accent, background: K.card, color: K.muted }}>
             Đây là giả thuyết thiết kế, chưa có số liệu khảo sát. Nên may 2–3 áo mẫu cho sinh viên mặc thử một tuần
             trước khi chốt.
           </div>
@@ -397,11 +342,11 @@ export function DongDieuTee() {
                 style={{ width: 520, height: 520 * (910 / 1080) }}
                 annotations={
                   <>
-                    <DimH x1={ART.x} x2={ART.right} y={560} label={`${ART_W} mm`} />
-                    <DimV x={660} y1={ART.top} y2={ART.bottom} label={`${ART_H}`} />
-                    <DimV x={350} y1={HPS_Y} y2={ART.top} label={`${ART.top - HPS_Y}`} />
-                    <Marker x={612} y={232} n={1} />
-                    <Marker x={360} y={452} n={2} />
+                    <DimH x1={ART.x} x2={ART.right} y={512} label={`${ART_W} mm`} />
+                    <DimV x={676} y1={ART.top} y2={ART.bottom} label={`${ART_H}`} />
+                    <DimV x={330} y1={HPS_Y} y2={ART.top} label={`${ART.top - HPS_Y}`} />
+                    <Marker x={330} y={287} n={1} />
+                    <Marker x={330} y={418} n={2} />
                   </>
                 }
               />
@@ -434,11 +379,11 @@ export function DongDieuTee() {
           </div>
 
           <div className="mt-auto grid grid-cols-4 gap-4 pt-5">
-            <Loupe n={1} title="Nhụy hoa là một lỗ via" note="4 cánh đỏ, gân để lộ màu vải. Cánh cờ trắng sọc đỏ, đúng hình hoa phượng thật.">
-              <Back crop={{ x: 392, y: 182, w: 216, h: 150 }} style={{ width: "100%", height: 168 }} />
+            <Loupe n={1} title="IT để trống, lộ màu vải" note={`Khối ${BLOCK.w} × ${BLOCK.h} mm; chữ IT cao ≈100 mm không in mực — vải thở, nhẹ tay hơn mảng đặc.`}>
+              <Back crop={{ x: 345, y: 165, w: 300, h: 192 }} style={{ width: "100%", height: 168 }} />
             </Loupe>
-            <Loupe n={2} title="Hoa mọc lên từ tên khoa" note={`4 đường mạch nét 2,6 mm. Chữ FIT-HPUni rộng ${ART_W} mm; câu khẩu hiệu cao 11 mm, chữ IT màu đỏ.`}>
-              <Back crop={{ x: 372, y: 372, w: 256, h: 178 }} style={{ width: "100%", height: 168 }} />
+            <Loupe n={2} title="Lời đáp và con trỏ chờ" note="Chữ hoa ≈29 mm, xám bạc. Con trỏ trắng 12 × 29 mm: khoa luôn sẵn sàng. Dòng ký tên chữ nhỏ nhất 6 mm.">
+              <Back crop={{ x: 345, y: 355, w: 310, h: 135 }} style={{ width: "100%", height: 168 }} />
             </Loupe>
             <Loupe n={3} title="Logo giữ nguyên bản gốc" note={`Ép DTF Ø${LOGO.d} mm, tâm cách HPS ${LOGO.y - HPS_Y} mm, lệch tâm ${LOGO.x - 500} mm về ngực trái.`}>
               <Front crop={{ x: 524, y: 182, w: 160, h: 112 }} style={{ width: "100%", height: 168 }} />
@@ -468,8 +413,8 @@ export function DongDieuTee() {
               <div className="mt-1.5 flex flex-col gap-1" style={{ fontFamily: MONO }}>
                 {[
                   [K.white, "1 · Lót trắng (dưới mọi màu)"],
-                  [K.red, "2 · Đỏ Phượng"],
-                  [K.white, "3 · Trắng phủ (chữ, mạch)"],
+                  [K.silver, "2 · Xám bạc (lời đáp, đường kẻ)"],
+                  [K.white, "3 · Trắng phủ (khối IT, chữ lớn)"],
                 ].map(([c, t]) => (
                   <span key={t} className="flex items-center gap-2 text-[10.5px]">
                     <span className="h-3 w-3 rounded-[3px] border" style={{ background: c, borderColor: K.rule }} />
@@ -477,10 +422,10 @@ export function DongDieuTee() {
                   </span>
                 ))}
               </div>
-              <div className="mt-1 text-[10.5px]" style={{ color: K.muted }}>Áo trắng: chỉ 2 khuôn (đỏ, xanh than), không lót.</div>
+              <div className="mt-1 text-[10.5px]" style={{ color: K.muted }}>Áo trắng: 2 khuôn (xanh than đậm, xanh FIT), không lót.</div>
             </Row>
             <Row k="Ngực trái">Logo chính thức ép DTF Ø{LOGO.d} mm, dùng nguyên file gốc, không vẽ lại.</Row>
-            <Row k="Kỹ thuật">Nét nhỏ nhất 1,5 mm (gân cánh); chữ nhỏ nhất 7 mm. Không có hình nào chạy qua đường may sườn.</Row>
+            <Row k="Kỹ thuật">Nét nhỏ nhất 1,5 mm (đường kẻ); chữ nhỏ nhất 6 mm. Không có hình nào chạy qua đường may sườn.</Row>
           </div>
 
           <div className="mt-3 rounded-[12px] border p-3" style={{ borderColor: K.rule, background: K.card }}>
@@ -490,15 +435,15 @@ export function DongDieuTee() {
             </div>
             <FitCompare />
             <div className="text-[10.5px] leading-[1.45]" style={{ color: K.muted }}>
-              <span style={{ color: K.red }}>Nét đứt</span>: ngang ngực 58 cm (chuẩn 54), dài 72 cm (chuẩn 74), vai rơi
+              <span style={{ color: K.accent }}>Nét đứt</span>: ngang ngực 58 cm (chuẩn 54), dài 72 cm (chuẩn 74), vai rơi
               khoảng 3 cm. Hình áo trên bảng vẫn dùng phom chuẩn chung để so sánh công bằng.
             </div>
           </div>
 
           <div className="mt-auto text-[11px] leading-[1.5]" style={{ color: K.muted }}>
             <span className="font-bold" style={{ color: K.ink }}>Đánh đổi: </span>
-            ít “chất lễ hội” hơn Hoa Học Trò — không tên riêng, không chữ nổi. Đổi lại, áo hợp mặc thường ngày và đơn giản
-            hơn khi đặt in số lượng lớn.
+            không kể chuyện địa phương như các bản phượng — toàn bộ sức nặng dồn vào câu khẩu hiệu. Đổi lại, áo ai mặc
+            cũng hợp, không lỗi thời, in số lượng lớn rất đều.
           </div>
         </section>
       </main>
