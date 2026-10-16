@@ -25,7 +25,7 @@ const SANS = "'Be Vietnam Pro', sans-serif";
 const MONO = "'JetBrains Mono', monospace";
 
 /* ---------- artwork geometry (mm) ---------- */
-const ART = { x: 360, top: 170, right: 640, bottom: 512 };
+const ART = { x: 360, top: 170, right: 640, bottom: 558 };
 const ART_W = ART.right - ART.x; // 280
 const ART_H = ART.bottom - ART.top; // 342 — within the 300 × 400 mm back-print limit
 const HPS_Y = 60;
@@ -85,12 +85,15 @@ function BackArt({ ink, ink2 }: Ink) {
 
       {/* signature */}
       <path d={`M${ART.x},458 H${ART.right}`} stroke={ink2} strokeWidth={2} />
-      <text x={ART.x} y={488} fontWeight={800} fontSize={26} letterSpacing={0.5} fill={ink}>
+      <text x={ART.x} y={486} fontWeight={800} fontSize={26} letterSpacing={0.5} fill={ink}>
         FIT-HPUni
+      </text>
+      <text x={ART.right} y={484} textAnchor="end" fontWeight={600} fontSize={16} letterSpacing={0.4} fill={ink2}>
+        Since 2012
       </text>
       <text
         x={ART.x}
-        y={ART.bottom}
+        y={510}
         textLength={ART_W}
         lengthAdjust="spacingAndGlyphs"
         fontWeight={600}
@@ -98,6 +101,12 @@ function BackArt({ ink, ink2 }: Ink) {
         fill={ink2}
       >
         KHOA CÔNG NGHỆ THÔNG TIN · ĐH HẢI PHÒNG
+      </text>
+      <text x={ART.x} y={534} fontWeight={600} fontSize={14} letterSpacing={0.2} fill={ink2}>
+        fit.dhhp.edu.vn
+      </text>
+      <text x={ART.right} y={534} textAnchor="end" fontWeight={600} fontSize={14} letterSpacing={0.1} fill={ink2}>
+        fit@dhhp.edu.vn
       </text>
     </g>
   );
