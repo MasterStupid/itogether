@@ -46,13 +46,18 @@ type Ink = {
   spark: string;
 };
 
-/* Phối màu — lấy từ bảng màu chung: xanh royal (sáng của xanh FIT), xanh than đậm,
-   vàng nhụy, cam cảng. Vàng là điểm nhấn chính, cam chỉ là "tia lửa" nhỏ. */
+/* Phối màu pha loãng — các tông pastel dịu của xanh FIT, vàng nhụy và cam:
+   thân xanh sương, tay xanh khói, viền vàng bơ, chấm đào. Chữ dùng xanh than mềm
+   để vẫn đọc rõ trên nền sáng. */
 const C = {
-  royal: "#2463D4",
-  navy: PALETTE.navyDeep.hex,
-  yellow: PALETTE.nhuy.hex,
-  orange: PALETTE.cang.hex,
+  mist: "#BCD2EA", // xanh sương — thân áo
+  smoke: "#7F98B9", // xanh khói — tay & cổ
+  butter: "#F3DFA2", // vàng bơ — viền
+  peach: "#EFA88C", // đào — tia nhấn
+  ink: "#26394F", // xanh than mềm — chữ
+  slate: "#4F6785", // xanh đá — lời đáp
+  block: "#3B5474", // khối IT
+  cream: "#F7F2E8", // kem — bản sáng
   white: PALETTE.white.hex,
 };
 
@@ -156,24 +161,24 @@ function NeckLabel({ color }: { color: string }) {
 
 /* ---------- garments ---------- */
 const ROYAL: Ink = {
-  body: C.royal,
-  sleeve: C.navy,
-  rib: C.navy,
-  tip: C.yellow,
-  ink: C.white,
-  ink2: "#DCE8FF",
-  block: C.yellow,
-  spark: C.orange,
+  body: C.mist,
+  sleeve: C.smoke,
+  rib: C.smoke,
+  tip: C.butter,
+  ink: C.ink,
+  ink2: C.slate,
+  block: C.block,
+  spark: C.peach,
 };
 const WHITE: Ink = {
-  body: C.white,
-  sleeve: C.royal,
-  rib: C.royal,
-  tip: C.yellow,
-  ink: C.navy,
-  ink2: C.royal,
-  block: C.royal,
-  spark: C.orange,
+  body: C.cream,
+  sleeve: C.mist,
+  rib: C.mist,
+  tip: C.peach,
+  ink: C.ink,
+  ink2: C.slate,
+  block: C.smoke,
+  spark: C.peach,
 };
 const PAD = { top: 4, right: 6, bottom: 8, left: 6 };
 
@@ -215,27 +220,27 @@ function Highlight({
     <article
       className="dd-rise group flex min-w-0 flex-col overflow-hidden rounded-[18px] border"
       style={{
-        borderColor: dark ? K.deep : K.rule,
-        background: dark ? K.deep : K.card,
-        color: dark ? K.white : K.ink,
+        borderColor: dark ? C.smoke : K.rule,
+        background: dark ? "#E4ECF5" : K.card,
+        color: K.ink,
         animationDelay: `${Number(n) * 60 + 80}ms`,
       }}
     >
-      <div className="relative h-[132px] overflow-hidden" style={{ background: dark ? "#18293B" : "#E8E2D9" }}>
+      <div className="relative h-[132px] overflow-hidden" style={{ background: dark ? "#D3E0EE" : "#EEE8DF" }}>
         <div className="h-full w-full transition-transform duration-700 ease-out group-hover:scale-[1.04]">{children}</div>
         <span
           className="absolute left-3 top-3 rounded-full px-2.5 py-[3px] text-[10px] font-bold tracking-[0.12em]"
-          style={{ background: dark ? K.white : K.deep, color: dark ? K.deep : K.white, fontFamily: MONO }}
+          style={{ background: C.ink, color: K.white, fontFamily: MONO }}
         >
           {n}
         </span>
       </div>
       <div className="flex flex-1 flex-col px-4 pb-3.5 pt-3">
-        <div className="text-[10px] font-bold uppercase tracking-[0.16em]" style={{ color: dark ? K.silver : K.navy }}>
+        <div className="text-[10px] font-bold uppercase tracking-[0.16em]" style={{ color: dark ? C.slate : K.navy }}>
           {kicker}
         </div>
         <h3 className="mt-1.5 text-[17px] font-extrabold leading-[1.2] tracking-[-0.01em]">{title}</h3>
-        <p className="mt-2 text-[12px] leading-[1.55]" style={{ color: dark ? "#B9C4CF" : K.muted }}>
+        <p className="mt-2 text-[12px] leading-[1.55]" style={{ color: K.muted }}>
           {note}
         </p>
       </div>
@@ -262,7 +267,7 @@ export function DongDieuTee() {
       {/* ---------- two equal views ---------- */}
       <section className="relative grid min-h-0 flex-1 grid-cols-2 gap-3 px-5 pt-4">
         {[
-          { label: "Mặt trước", node: <Front pad={PAD} style={{ width: "100%", height: "100%" }} annotations={<NeckLabel color={K.white} />} /> },
+          { label: "Mặt trước", node: <Front pad={PAD} style={{ width: "100%", height: "100%" }} annotations={<NeckLabel color={C.ink} />} /> },
           { label: "Mặt sau", node: <Back pad={PAD} style={{ width: "100%", height: "100%" }} /> },
         ].map((v, i) => (
           <figure
@@ -289,11 +294,11 @@ export function DongDieuTee() {
           </h2>
           <div className="flex items-center gap-4">
             {[
-              [C.royal, "Xanh royal", "thân áo"],
-              [C.navy, "Xanh than", "tay & cổ"],
-              [C.yellow, "Vàng nhụy", "điểm nhấn"],
-              [C.orange, "Cam", "tia lửa"],
-              [C.white, "Trắng", "chữ"],
+              [C.mist, "Xanh sương", "thân áo"],
+              [C.smoke, "Xanh khói", "tay & cổ"],
+              [C.butter, "Vàng bơ", "viền"],
+              [C.peach, "Đào", "tia nhấn"],
+              [C.ink, "Than mềm", "chữ"],
             ].map(([hex, name, role]) => (
               <div key={name} className="flex items-center gap-2">
                 <span className="h-5 w-5 rounded-full border" style={{ background: hex, borderColor: K.rule }} />
@@ -310,8 +315,8 @@ export function DongDieuTee() {
             n="01"
             dark
             kicker="Chữ là hình"
-            title="Khối vàng, chữ IT lộ xanh vải"
-            note="Vàng nhụy trên nền royal — cặp tương phản sáng nhất áo. Chữ IT không in mực, để vải tự lên màu."
+            title="Chữ IT lộ màu xanh sương"
+            note="Khối than mềm trên nền pastel — chữ IT không in mực, để màu vải dịu tự hiện lên."
           >
             <Back crop={{ x: 255, y: 148, w: 490, h: 214 }} style={{ width: "100%", height: "100%" }} />
           </Highlight>
@@ -319,23 +324,23 @@ export function DongDieuTee() {
             n="02"
             kicker="Hai giọng nói"
             title="Bạn nói, Khoa đáp lời"
-            note="“You can do IT” trắng đậm, dấu phẩy cam; lời đáp xanh nhạt kèm con trỏ vàng đang chờ."
+            note="“You can do IT” than mềm, dấu phẩy màu đào; lời đáp xanh đá nhẹ hơn kèm con trỏ đang chờ."
           >
             <Back crop={{ x: 320, y: 356, w: 350, h: 192 }} style={{ width: "100%", height: "100%" }} />
           </Highlight>
           <Highlight
             n="03"
             kicker="Phối tay áo"
-            title="Tay xanh than, viền vàng"
-            note="Tay áo đậm hơn thân làm dáng gọn, vai khỏe. Viền vàng 6 mm ở gấu tay và cổ nối nhịp với khối IT."
+            title="Tay xanh khói, viền vàng bơ"
+            note="Tay áo trầm hơn thân một nấc cho dáng gọn. Viền vàng bơ 6 mm ở gấu tay và cổ, nhẹ mà vẫn có điểm nhấn."
           >
             <Front crop={{ x: 40, y: 120, w: 300, h: 200 }} style={{ width: "100%", height: "100%" }} />
           </Highlight>
           <Highlight
             n="04"
             kicker="Hai bản phối"
-            title="Royal phối than · Trắng phối royal"
-            note="Cùng bộ màu, đảo vai trò nền và tay. Lưng in tối đa 4 khuôn: lót trắng, trắng, vàng, cam."
+            title="Xanh sương · Kem phối xanh sương"
+            note="Cùng bộ màu pastel, đảo vai trò nền và tay. Lưng in 3 khuôn: than mềm, xanh đá, đào."
           >
             <div className="flex h-full items-center justify-center gap-1 px-3">
               <Back c={ROYAL} pad={14} style={{ width: "50%", height: "92%" }} />
