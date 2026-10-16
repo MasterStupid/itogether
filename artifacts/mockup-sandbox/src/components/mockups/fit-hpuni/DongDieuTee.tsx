@@ -25,9 +25,9 @@ const SANS = "'Be Vietnam Pro', sans-serif";
 const MONO = "'JetBrains Mono', monospace";
 
 /* ---------- artwork geometry (mm) ---------- */
-const ART = { x: 360, top: 170, right: 640, bottom: 476 };
+const ART = { x: 360, top: 170, right: 640, bottom: 512 };
 const ART_W = ART.right - ART.x; // 280
-const ART_H = ART.bottom - ART.top; // 306
+const ART_H = ART.bottom - ART.top; // 342 — within the 300 × 400 mm back-print limit
 const HPS_Y = 60;
 const LOGO = { ...ANCHORS.tee.front.wearerLeftChest, d: 80 };
 const LABEL = { x: 475, y: 78, w: 50, h: 20 };
@@ -84,11 +84,19 @@ function BackArt({ ink, ink2 }: Ink) {
       </rect>
 
       {/* signature */}
-      <path d={`M${ART.x},456 H${ART.right}`} stroke={ink2} strokeWidth={1.5} />
-      <text x={ART.x} y={ART.bottom} fontWeight={800} fontSize={10} fill={ink}>
+      <path d={`M${ART.x},458 H${ART.right}`} stroke={ink2} strokeWidth={2} />
+      <text x={ART.x} y={488} fontWeight={800} fontSize={26} letterSpacing={0.5} fill={ink}>
         FIT-HPUni
       </text>
-      <text x={ART.right} y={ART.bottom} textAnchor="end" fontWeight={500} fontSize={8} fill={ink2}>
+      <text
+        x={ART.x}
+        y={ART.bottom}
+        textLength={ART_W}
+        lengthAdjust="spacingAndGlyphs"
+        fontWeight={600}
+        fontSize={15}
+        fill={ink2}
+      >
         KHOA CÔNG NGHỆ THÔNG TIN · ĐH HẢI PHÒNG
       </text>
     </g>
