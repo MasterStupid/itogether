@@ -25,7 +25,7 @@ const SANS = "'Be Vietnam Pro', sans-serif";
 const MONO = "'JetBrains Mono', monospace";
 
 /* ---------- artwork geometry (mm) ---------- */
-const ART = { x: 360, top: 170, right: 640, bottom: 558 };
+const ART = { x: 360, top: 170, right: 640, bottom: 570 };
 const ART_W = ART.right - ART.x; // 280
 const ART_H = ART.bottom - ART.top; // 342 — within the 300 × 400 mm back-print limit
 const HPS_Y = 60;
@@ -84,16 +84,16 @@ function BackArt({ ink, ink2 }: Ink) {
       </rect>
 
       {/* signature */}
-      <path d={`M${ART.x},458 H${ART.right}`} stroke={ink2} strokeWidth={2} />
-      <text x={ART.x} y={486} fontWeight={800} fontSize={26} letterSpacing={0.5} fill={ink}>
+      <path d={`M${ART.x},462 H${ART.right}`} stroke={ink2} strokeWidth={2} />
+      <text x={ART.x} y={490} fontWeight={800} fontSize={26} letterSpacing={0.5} fill={ink}>
         FIT-HPUni
       </text>
-      <text x={ART.right} y={484} textAnchor="end" fontWeight={600} fontSize={16} letterSpacing={0.4} fill={ink2}>
+      <text x={ART.right} y={488} textAnchor="end" fontWeight={600} fontSize={16} letterSpacing={0.4} fill={ink2}>
         Since 2012
       </text>
       <text
         x={ART.x}
-        y={510}
+        y={518}
         textLength={ART_W}
         lengthAdjust="spacingAndGlyphs"
         fontWeight={600}
@@ -102,19 +102,19 @@ function BackArt({ ink, ink2 }: Ink) {
       >
         KHOA CÔNG NGHỆ THÔNG TIN · ĐH HẢI PHÒNG
       </text>
-      {/* contact signature — restrained line icons, kept clear of the type */}
-      <g transform={`translate(${ART.x}, 518)`} fill="none" stroke={ink2} strokeWidth={2}>
+      {/* Contact details sit on separate centered rows for an easy, unhurried read. */}
+      <g transform={`translate(${ART.x + 71}, 526)`} fill="none" stroke={ink2} strokeWidth={2}>
         <circle cx={7} cy={7} r={6} />
         <path d="M1.5 7h11M7 1c1.7 1.7 2.5 3.7 2.5 6S8.7 11.3 7 13M7 1C5.3 2.7 4.5 4.7 4.5 7S5.3 11.3 7 13" />
       </g>
-      <text x={ART.x + 21} y={534} textLength={116} lengthAdjust="spacingAndGlyphs" fontWeight={600} fontSize={14} letterSpacing={0.2} fill={ink2}>
+      <text x={ART.x + 92} y={542} textLength={116} lengthAdjust="spacingAndGlyphs" fontWeight={600} fontSize={14} letterSpacing={0.2} fill={ink2}>
         fit.dhhp.edu.vn
       </text>
-      <g transform={`translate(${ART.right - 131}, 520)`} fill="none" stroke={ink2} strokeWidth={1.8} strokeLinejoin="round">
+      <g transform={`translate(${ART.x + 74}, 550)`} fill="none" stroke={ink2} strokeWidth={1.8} strokeLinejoin="round">
         <rect x={0.5} y={1} width={14} height={11} rx={1.5} />
         <path d="m1.5 2 6 5 6-5" />
       </g>
-      <text x={ART.right} y={534} textAnchor="end" textLength={110} lengthAdjust="spacingAndGlyphs" fontWeight={600} fontSize={14} letterSpacing={0.1} fill={ink2}>
+      <text x={ART.x + 95} y={566} textLength={110} lengthAdjust="spacingAndGlyphs" fontWeight={600} fontSize={14} letterSpacing={0.1} fill={ink2}>
         fit@dhhp.edu.vn
       </text>
     </g>
