@@ -119,7 +119,7 @@ function NeckLabel({ color }: { color: string }) {
 /* ---------- garments ---------- */
 const NAVY: Ink = { body: K.deep, ink: K.white, ink2: K.silver };
 const WHITE: Ink = { body: K.white, ink: K.deep, ink2: K.navy };
-const PAD = { top: 20, right: 40, bottom: 30, left: 40 };
+const PAD = { top: 4, right: 6, bottom: 8, left: 6 };
 
 function Back({ c = NAVY, ...rest }: { c?: Ink } & Omit<ComponentProps<typeof TeeShirt>, "body">) {
   return (
@@ -163,7 +163,7 @@ function Highlight({
         animationDelay: `${Number(n) * 60 + 80}ms`,
       }}
     >
-      <div className="relative h-[188px] overflow-hidden" style={{ background: dark ? "#18293B" : "#E8E2D9" }}>
+      <div className="relative h-[132px] overflow-hidden" style={{ background: dark ? "#18293B" : "#E8E2D9" }}>
         <div className="h-full w-full transition-transform duration-700 ease-out group-hover:scale-[1.04]">{children}</div>
         <span
           className="absolute left-3 top-3 rounded-full px-2.5 py-[3px] text-[10px] font-bold tracking-[0.12em]"
@@ -172,7 +172,7 @@ function Highlight({
           {n}
         </span>
       </div>
-      <div className="flex flex-1 flex-col px-5 pb-5 pt-4">
+      <div className="flex flex-1 flex-col px-4 pb-3.5 pt-3">
         <div className="text-[10px] font-bold uppercase tracking-[0.16em]" style={{ color: dark ? K.silver : K.navy }}>
           {kicker}
         </div>
@@ -202,21 +202,21 @@ export function DongDieuTee() {
       />
 
       {/* ---------- two equal views ---------- */}
-      <section className="relative grid min-h-0 flex-1 grid-cols-2 gap-6 px-10 pt-8">
+      <section className="relative grid min-h-0 flex-1 grid-cols-2 gap-3 px-5 pt-4">
         {[
           { label: "Mặt trước", node: <Front pad={PAD} style={{ width: "100%", height: "100%" }} annotations={<NeckLabel color={K.white} />} /> },
           { label: "Mặt sau", node: <Back pad={PAD} style={{ width: "100%", height: "100%" }} /> },
         ].map((v, i) => (
           <figure
             key={v.label}
-            className="dd-rise relative flex min-h-0 flex-col items-center justify-end rounded-[24px]"
+            className="dd-rise relative flex min-h-0 flex-col items-center justify-end overflow-hidden rounded-[24px]"
             style={{
-              background: "radial-gradient(ellipse 60% 55% at 50% 52%, #FBF8F3 0%, #ECE6DD 70%, transparent 100%)",
+              background: "radial-gradient(ellipse 70% 62% at 50% 50%, #FBF8F3 0%, #ECE6DD 70%, transparent 100%)",
               animationDelay: `${i * 120}ms`,
             }}
           >
             <div className="min-h-0 w-full flex-1">{v.node}</div>
-            <figcaption className="pb-3 pt-1 text-[11px] font-bold uppercase tracking-[0.22em]" style={{ color: K.muted }}>
+            <figcaption className="absolute left-5 top-4 text-[11px] font-bold uppercase tracking-[0.22em]" style={{ color: K.muted }}>
               {v.label}
             </figcaption>
           </figure>
@@ -224,16 +224,16 @@ export function DongDieuTee() {
       </section>
 
       {/* ---------- highlights ---------- */}
-      <section className="shrink-0 px-10 pb-9 pt-5">
-        <div className="mb-4 flex items-end justify-between">
-          <h2 className="text-[22px] font-extrabold tracking-[-0.02em]">
+      <section className="shrink-0 px-5 pb-5 pt-3">
+        <div className="mb-3 flex items-end justify-between">
+          <h2 className="text-[19px] font-extrabold tracking-[-0.02em]">
             Điểm nổi bật <span style={{ color: K.navy, fontWeight: 500 }}>của chiếc áo</span>
           </h2>
           <span className="text-[11px]" style={{ color: K.muted, fontFamily: MONO }}>
             {BRAND.short} · {BRAND.slogan}
           </span>
         </div>
-        <div className="grid grid-cols-[1.25fr_1fr_1fr_1fr] gap-5">
+        <div className="grid grid-cols-[1.25fr_1fr_1fr_1fr] gap-3">
           <Highlight
             n="01"
             dark
