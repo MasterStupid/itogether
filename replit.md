@@ -1,6 +1,6 @@
-# [Project name]
+# Áo đồng phục Khoa CNTT — Trường Đại học Hải Phòng (FIT-HPUni)
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+Design concepts (polo + T-shirt) for the Faculty of IT's shirts, presented as boards on the Design canvas (mockup sandbox).
 
 ## Run & Operate
 
@@ -22,7 +22,10 @@ _Replace the heading above with the project's name, and this line with one sente
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- Shirt boards: `artifacts/mockup-sandbox/src/components/mockups/fit-hpuni/` (one file per canvas frame)
+- Shared brand facts + colour system: `fit-hpuni/_shared/brand.ts`; common board header/footer: `_shared/BoardShell.tsx`
+- Scale-accurate polo/tee SVG flats (1 unit = 1 mm, size L) + placement anchors: `_shared/garments.tsx`
+- Logo: `artifacts/mockup-sandbox/public/images/fit-logo.png` (transparent corners) and `fit-logo-original.webp` (untouched upload)
 
 ## Architecture decisions
 
@@ -30,15 +33,17 @@ _Populate as you build — non-obvious choices a reader couldn't infer from the 
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+- Overview brief + 3 concepts (A "Dấu Ấn", B "do IT", C "Phượng Số"), each with a polo board and a T-shirt board.
+- Slogan must be verbatim: "You can do IT, we are ready to accompany". Board copy in Vietnamese with full diacritics.
 
 ## User preferences
 
-_Populate as you build — explicit user instructions worth remembering across sessions._
+- User writes in Vietnamese; reply in Vietnamese.
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+- The supplied logo is a 474 px raster: fine for mockups, but production needs the faculty's vector file.
+- Vietnamese text: use Be Vietnam Pro / Montserrat / Inter etc.; Poppins, Outfit, DM Sans, Geist, Oxanium, Fira Code lack Vietnamese glyphs.
 
 ## Pointers
 

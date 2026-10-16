@@ -1,0 +1,1 @@
+- [FIT-HPUni shirt boards](fit-shirt-boards.md) — shared mm-accurate garment flats, unaltered logo, manufacturability rules for the shirt concepts.
