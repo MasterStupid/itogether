@@ -492,8 +492,10 @@ function GarmentSvg({
         )}
       </g>
 
+      {/* Custom collars also cover the shoulder outline at their outer edges. */}
+      {outlinePath && <path d={outlinePath} fill="none" stroke={outline} strokeWidth={2.2} strokeLinejoin="round" />}
       {construction}
-      <path d={outlinePath ?? silhouette} fill="none" stroke={outline} strokeWidth={2.2} strokeLinejoin="round" />
+      {!outlinePath && <path d={silhouette} fill="none" stroke={outline} strokeWidth={2.2} strokeLinejoin="round" />}
       {annotations}
     </svg>
   );
