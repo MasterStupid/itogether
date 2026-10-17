@@ -163,6 +163,40 @@ function SleeveCuffTrim({ color }: { color: string }) {
   );
 }
 
+/** Matching contrast piping along the visible edge of the polo collar. */
+function CollarTrim({
+  color,
+  side,
+  wideFront = false,
+}: {
+  color: string;
+  side: "front" | "back";
+  wideFront?: boolean;
+}) {
+  if (side === "back") {
+    return (
+      <g pointerEvents="none" fill="none" stroke={color} strokeWidth={5} strokeLinecap="round" opacity={0.96}>
+        <path d="M388,104 Q500,120 612,104" />
+      </g>
+    );
+  }
+  return (
+    <g pointerEvents="none" fill="none" stroke={color} strokeWidth={5} strokeLinecap="round" strokeLinejoin="round" opacity={0.96}>
+      {wideFront ? (
+        <>
+          <path d="M365,122 L420,180 L488,108" />
+          <path d="M635,122 L580,180 L512,108" />
+        </>
+      ) : (
+        <>
+          <path d="M406,58 C390,68 380,86 386,104 L432,168 L446,187" />
+          <path d="M594,58 C610,68 620,86 614,104 L568,168 L554,187" />
+        </>
+      )}
+    </g>
+  );
+}
+
 function Back({
   c = NAVY,
   annotations,
@@ -177,6 +211,7 @@ function Back({
         <>
           {annotations}
           <SleeveCuffTrim color={c.body === K.white ? K.navy : K.silver} />
+          <CollarTrim side="back" color={c.body === K.white ? K.navy : K.silver} />
         </>
       }
     >
@@ -188,8 +223,9 @@ function Back({
 function Front({
   c = NAVY,
   annotations,
+  wideCollar = false,
   ...rest
-}: { c?: Ink } & Omit<ComponentProps<typeof PoloShirt>, "body">) {
+}: { c?: Ink; wideCollar?: boolean } & Omit<ComponentProps<typeof PoloShirt>, "body">) {
   return (
     <PoloShirt
       side="front"
@@ -199,6 +235,7 @@ function Front({
         <>
           {annotations}
           <SleeveCuffTrim color={c.body === K.white ? K.navy : K.silver} />
+          <CollarTrim side="front" wideFront={wideCollar} color={c.body === K.white ? K.navy : K.silver} />
         </>
       }
     >
@@ -274,7 +311,7 @@ export function DongDieuTee() {
       {/* ---------- two equal views ---------- */}
       <section className="relative grid min-h-0 flex-1 grid-cols-2 gap-3 px-5 pt-4">
         {[
-          { label: "Mặt trước", node: <Front pad={PAD} style={{ width: "100%", height: "100%" }} annotations={<NeckLabel color={K.white} />} /> },
+          { label: "Mặt trước", node: <Front pad={PAD} wideCollar style={{ width: "100%", height: "100%" }} annotations={<NeckLabel color={K.white} />} /> },
           { label: "Mặt sau", node: <Back pad={PAD} style={{ width: "100%", height: "100%" }} /> },
         ].map((v, i) => (
           <figure
@@ -329,6 +366,7 @@ export function DongDieuTee() {
           >
             <Front
               crop={{ x: 450, y: 70, w: 100, h: 40 }}
+              wideCollar
               annotations={<NeckLabel color={K.white} />}
               style={{ width: "100%", height: "100%" }}
             />
@@ -337,7 +375,7 @@ export function DongDieuTee() {
             n="04"
             kicker="Hai màu áo"
             title="Polo xanh than và trắng"
-            note="Cùng một mẫu polo, đổi màu thân áo. Cổ bẻ, nẹp ba nút và bo tay dệt đồng bộ ở cả hai phối màu."
+            note="Cùng mẫu polo xanh than và trắng, viền tương phản đồng bộ ở cổ bẻ và bo tay."
           >
             <div className="flex h-full items-center justify-center gap-1 px-3">
               <Front c={NAVY} pad={14} style={{ width: "50%", height: "92%" }} />
