@@ -133,10 +133,10 @@ function DongDieuCollar({ body, stripe, side }: { body: string; stripe: string; 
       {side === "back" ? (
         <g>
           {/* Back view: soft folded band whose top edge dips gently at centre back. */}
-          <path d="M392,64 C394,46 404,38 420,37 Q500,48 580,37 C596,38 606,46 608,64 L606,86 Q500,104 394,86 Z" fill={collarColor} />
+          <path d="M379,74 C382,46 400,30 427,28 Q500,36 573,28 C600,30 618,46 623,74 L621,92 Q500,110 379,92 Z" fill={collarColor} />
           {/* Twin tipping: medium-width white bands with a visible navy gap. */}
-          <path d="M398,72 Q500,90 602,72" fill="none" stroke={stripe} strokeWidth="4.5" />
-          <path d="M396,80 Q500,98 604,80" fill="none" stroke={stripe} strokeWidth="4.5" />
+          <path d="M386,78 Q500,96 614,78" fill="none" stroke={stripe} strokeWidth="4.5" />
+          <path d="M384,86 Q500,104 616,86" fill="none" stroke={stripe} strokeWidth="4.5" />
         </g>
       ) : (
         <g>
@@ -144,18 +144,18 @@ function DongDieuCollar({ body, stripe, side }: { body: string; stripe: string; 
           <path d="M484,170 L516,170 L516,284 L484,284 Z" fill={placket} stroke={edge} strokeWidth="1.6" />
           <path d="M511,186 V279" fill="none" stroke={stripe} strokeOpacity="0.32" strokeWidth="0.9" strokeDasharray="3.6 2.7" />
           {/* Upper band: soft curve dipping at centre, no squared stand. */}
-          <path d="M392,64 C394,46 404,38 420,37 Q500,48 580,37 C596,38 606,46 608,64 L580,68 Q500,80 420,68 Z" fill={collarColor} />
+          <path d="M379,74 C382,46 400,30 427,28 Q500,36 573,28 C600,30 618,46 623,74 L568,69 Q500,80 432,69 Z" fill={collarColor} />
           {/* Inner neckline: curved sides tapering to a central V at the placket. */}
-          <path d="M420,66 Q500,80 580,66 C578,104 552,144 500,180 C448,144 422,104 420,66 Z" fill={opening} />
-          {/* Broad folded leaves, tapering inward to meet over the placket. */}
-          <path d="M390,62 C386,100 392,138 403,168 Q452,178 498,186 C446,148 422,106 420,66 C410,60 400,58 390,62 Z" fill={collarColor} />
-          <path d="M610,62 C614,100 608,138 597,168 Q548,178 502,186 C554,148 578,106 580,66 C590,60 600,58 610,62 Z" fill={collarColor} />
+          <path d="M432,69 Q500,80 568,69 C564,120 530,165 500,185 C470,165 436,120 432,69 Z" fill={opening} />
+          {/* Broad folded leaves: outer tips hang lowest, inner tips frame the V. */}
+          <path d="M379,74 C381,120 386,165 393,199 L471,179 C452,152 436,115 432,69 Q404,64 379,74 Z" fill={collarColor} />
+          <path d="M621,74 C619,120 614,165 607,199 L529,179 C548,152 564,115 568,69 Q596,64 621,74 Z" fill={collarColor} />
           {/* Double white tipping tracks the natural outer edges. */}
           <g fill="none" stroke={stripe} strokeWidth="4.5" strokeLinecap="butt">
-            <path d="M396,60 C392,99 398,137 408,169" />
-            <path d="M404,60 C400,98 406,136 416,170" />
-            <path d="M604,60 C608,99 602,137 592,169" />
-            <path d="M596,60 C600,98 594,136 584,170" />
+            <path d="M388,60 C390,118 395,164 401,195" />
+            <path d="M396,53 C398,116 403,162 409,193" />
+            <path d="M612,60 C610,118 605,164 599,195" />
+            <path d="M604,53 C602,116 597,162 591,193" />
           </g>
           {/* Buttons and ivory end bar. */}
           {[204, 244].map((y) => (
