@@ -1,10 +1,11 @@
-import { type ComponentProps, type ReactNode } from "react";
+import { useId, type ComponentProps, type ReactNode } from "react";
 import { BRAND, PALETTE } from "./_shared/brand";
 import { TeeShirt } from "./_shared/garments";
 
 /* ==================================================================
    Đồng Điệu · áo thun mặc hằng ngày (board label only — never printed)
-   One focal motif: the faculty name of study, Information Technology.
+   One focal motif: the faculty slogan set as a two-voice dialogue —
+   the student's "You can do IT," answered by the faculty's promise.
    1 SVG unit = 1 mm on size L. All callouts read from the constants below.
    ================================================================== */
 
@@ -29,20 +30,57 @@ const ART_W = ART.right - ART.x; // 280
 const ART_H = ART.bottom - ART.top; // 342 — within the 300 × 400 mm back-print limit
 const HPS_Y = 60;
 const LABEL = { x: 475, y: 78, w: 50, h: 20 };
+/* the "IT" block: solid ink, letters left open so the fabric shows through */
+const BLOCK = { x: 360, y: 222, w: 220, h: 130 };
+const IT_SIZE = 140;
+
 type Ink = { body: string; ink: string; ink2: string };
 
 /**
- * The whole back print — the faculty field name as a two-line typographic mark.
+ * The whole back print — the slogan set as a two-voice dialogue.
+ * Voice 1 (student, loud):  "You can do IT,"
+ * Voice 2 (faculty, calm):  "we are ready to accompany"  + a waiting cursor.
  */
 function BackArt({ ink, ink2 }: Ink) {
+  const id = useId().replace(/:/g, "");
   return (
     <g fontFamily={SANS}>
-      <text x={ART.x} y={276} textLength={ART_W} lengthAdjust="spacingAndGlyphs" fontWeight={600} fontSize={42} fill={ink2}>
-        Information
+      <defs>
+        <mask id={`ko${id}`} maskUnits="userSpaceOnUse" x={BLOCK.x} y={BLOCK.y} width={BLOCK.w} height={BLOCK.h}>
+          <rect x={BLOCK.x} y={BLOCK.y} width={BLOCK.w} height={BLOCK.h} fill="#fff" />
+          <text
+            x={BLOCK.x + BLOCK.w / 2}
+            y={BLOCK.y + BLOCK.h / 2 + 50}
+            textAnchor="middle"
+            fontWeight={900}
+            fontSize={IT_SIZE}
+            letterSpacing={-4}
+            fill="#000"
+          >
+            IT
+          </text>
+        </mask>
+      </defs>
+
+      {/* voice 1 */}
+      <text x={ART.x} y={208} textLength={ART_W} lengthAdjust="spacingAndGlyphs" fontWeight={800} fontSize={50} fill={ink}>
+        You can do
       </text>
-      <text x={ART.x} y={352} textLength={ART_W} lengthAdjust="spacingAndGlyphs" fontWeight={900} fontSize={48} fill={ink}>
-        Technology
+      <rect x={BLOCK.x} y={BLOCK.y} width={BLOCK.w} height={BLOCK.h} fill={ink} mask={`url(#ko${id})`} />
+      <text x={588} y={330} fontWeight={900} fontSize={130} fill={ink}>
+        ,
       </text>
+
+      {/* voice 2 */}
+      <text x={ART.x} y={396} textLength={262} lengthAdjust="spacingAndGlyphs" fontWeight={500} fontSize={40} fill={ink2}>
+        we are ready
+      </text>
+      <text x={ART.x} y={440} textLength={262} lengthAdjust="spacingAndGlyphs" fontWeight={500} fontSize={40} fill={ink2}>
+        to accompany
+      </text>
+      <rect x={628} y={411} width={12} height={29} fill={ink}>
+        <animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.5;0.5;1" dur="1.1s" repeatCount="indefinite" />
+      </rect>
 
       {/* signature */}
       <path d={`M${ART.x},462 H${ART.right}`} stroke={ink2} strokeWidth={2} />
@@ -215,26 +253,26 @@ export function DongDieuTee() {
             Điểm nổi bật <span style={{ color: K.navy, fontWeight: 500 }}>của chiếc áo</span>
           </h2>
           <span className="text-[22px] font-semibold" style={{ color: K.navy, fontFamily: SANS }}>
-            {BRAND.short} · Information Technology
+            {BRAND.short} · {BRAND.slogan}
           </span>
         </div>
         <div className="grid grid-cols-[1.25fr_1fr_1fr_1fr] gap-3">
           <Highlight
             n="01"
             dark
-            kicker="Tên ngành học"
-            title="Information Technology"
-            note="Tên ngành được đặt thành hai dòng chữ lớn, rõ nét trên nền áo."
+            kicker="Chữ là hình"
+            title="Chữ IT để trống, lộ màu vải"
+            note="Khối mực đặc, riêng chữ IT không in — điểm nhìn mạnh nhất áo, vải vẫn mềm và thoáng."
           >
-            <Back crop={{ x: 340, y: 210, w: 320, h: 180 }} style={{ width: "100%", height: "100%" }} />
+            <Back crop={{ x: 255, y: 148, w: 490, h: 214 }} style={{ width: "100%", height: "100%" }} />
           </Highlight>
           <Highlight
             n="02"
-            kicker="Chữ ký khoa"
-            title="FIT-HPUni · Since 2012"
-            note="Tên khoa và năm thành lập nằm gọn bên dưới tên ngành."
+            kicker="Hai giọng nói"
+            title="Bạn nói, Khoa đáp lời"
+            note="“You can do IT,” trắng và đậm; “we are ready to accompany” xám bạc, kèm con trỏ chờ."
           >
-            <Back crop={{ x: 340, y: 420, w: 320, h: 125 }} style={{ width: "100%", height: "100%" }} />
+            <Back crop={{ x: 320, y: 356, w: 350, h: 192 }} style={{ width: "100%", height: "100%" }} />
           </Highlight>
           <Highlight
             n="03"
@@ -252,7 +290,7 @@ export function DongDieuTee() {
             n="04"
             kicker="Hai màu áo"
             title="Xanh than và trắng"
-            note="Cùng một thiết kế chữ, đổi sắc độ theo nền vải. Cotton 100%, phom rộng vừa, nhãn in trong cổ."
+            note="Cùng một câu khẩu hiệu, đổi sắc độ theo nền vải. Cotton 100%, phom rộng vừa, nhãn in trong cổ."
           >
             <div className="flex h-full items-center justify-center gap-1 px-3">
               <Back c={NAVY} pad={14} style={{ width: "50%", height: "92%" }} />
