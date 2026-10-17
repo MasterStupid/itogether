@@ -63,6 +63,20 @@ function BackArt({ ink, ink2 }: Ink) {
         </mask>
       </defs>
 
+      {/* A quiet perimeter line gives the back print a finished edge without
+          competing with the slogan; ink follows each garment colorway. */}
+      <rect
+        x={344}
+        y={146}
+        width={312}
+        height={402}
+        rx={14}
+        fill="none"
+        stroke={ink2}
+        strokeWidth={1.4}
+        opacity={0.78}
+      />
+
       {/* voice 1 */}
       <text x={ART.x} y={208} textLength={ART_W} lengthAdjust="spacingAndGlyphs" fontWeight={800} fontSize={50} fill={ink}>
         You can do
