@@ -1,6 +1,6 @@
 import { useId, type ComponentProps, type ReactNode } from "react";
 import { BRAND, PALETTE } from "./_shared/brand";
-import { TeeShirt } from "./_shared/garments";
+import { FitLogo, TeeShirt } from "./_shared/garments";
 
 /* ==================================================================
    Đồng Điệu · áo thun mặc hằng ngày (board label only — never printed)
@@ -106,7 +106,7 @@ function BackArt({ ink, ink2 }: Ink) {
 }
 
 function FrontArt() {
-  return null;
+  return <FitLogo cx={598} cy={238} d={90} />;
 }
 
 /** Tagless neck print, visible inside the back neck in front views. */
