@@ -1,0 +1,172 @@
+.design-credits {
+  --credits-navy: #1f3349;
+  --credits-blue: #35526f;
+  --credits-paper: #f8f5f0;
+  --credits-rule: #d9d0c4;
+  max-width: 1580px;
+  margin: 34px auto 0;
+  overflow: hidden;
+  border: 1px solid #cfc5b8;
+  border-radius: 19px;
+  background: var(--credits-paper);
+  color: #17222e;
+  box-shadow: 0 8px 24px #1f33490b;
+}
+
+.design-credits__mast,
+.design-credits__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 20px;
+  background: var(--credits-navy);
+  color: #f5f0e8;
+}
+
+.design-credits__eyebrow,
+.design-credits__edition,
+.design-credits__foot {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .12em;
+}
+
+.design-credits__eyebrow { color: #d8c5a5; }
+.design-credits__edition { color: #c9d1d9; text-align: right; }
+
+.design-credits__body { padding: 21px 20px 19px; }
+
+.design-credits__intro {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  margin: 0 0 17px;
+}
+
+.design-credits__index {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  flex: 0 0 30px;
+  place-items: center;
+  border: 1px solid #b68a56;
+  border-radius: 50%;
+  color: #88653c;
+  font: 600 10px/1 'JetBrains Mono', monospace;
+}
+
+.design-credits__intro h2 {
+  margin: 0;
+  color: var(--credits-navy);
+  font-size: clamp(19px, 2vw, 23px);
+  font-weight: 800;
+  letter-spacing: -.04em;
+  line-height: 1.15;
+}
+
+.design-credits__intro p {
+  margin: 5px 0 0;
+  color: #65707a;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.design-credits__list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--credits-rule);
+  border-bottom: 1px solid var(--credits-rule);
+}
+
+.design-credits__person {
+  min-width: 0;
+  padding: 14px 15px 13px;
+  border-right: 1px solid var(--credits-rule);
+}
+
+.design-credits__person:first-child { padding-left: 0; }
+.design-credits__person:last-child { padding-right: 0; border-right: 0; }
+
+.design-credits__number {
+  display: block;
+  margin-bottom: 8px;
+  color: #9a7a52;
+  font: 500 9px/1 'JetBrains Mono', monospace;
+  letter-spacing: .08em;
+}
+
+.design-credits__person h3 {
+  margin: 0 0 11px;
+  color: #1f3349;
+  font-size: clamp(12px, 1.15vw, 14px);
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: -.02em;
+  overflow-wrap: anywhere;
+}
+
+.design-credits__person dl { margin: 0; }
+.design-credits__person dl div + div { margin-top: 7px; }
+.design-credits__person dt {
+  margin-bottom: 2px;
+  color: #727a80;
+  font: 500 8px/1.35 'JetBrains Mono', monospace;
+  letter-spacing: .03em;
+}
+
+.design-credits__person dd {
+  margin: 0;
+  color: #34475a;
+  font: 500 10px/1.45 'JetBrains Mono', monospace;
+  overflow-wrap: anywhere;
+}
+
+.design-credits__foot {
+  justify-content: flex-start;
+  gap: 17px;
+  padding: 9px 20px;
+  color: #c9d1d9;
+  font-size: 8px;
+  letter-spacing: .11em;
+}
+
+.design-credits__foot span + span::before {
+  content: "";
+  display: inline-block;
+  width: 13px;
+  height: 1px;
+  margin: 0 12px 3px 0;
+  background: #b68a56;
+}
+
+@media (max-width: 760px) {
+  .design-credits { margin-top: 25px; border-radius: 16px; }
+  .design-credits__mast { padding: 10px 14px; }
+  .design-credits__edition { font-size: 8px; }
+  .design-credits__body { padding: 17px 14px 15px; }
+  .design-credits__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .design-credits__person,
+  .design-credits__person:first-child,
+  .design-credits__person:last-child {
+    padding: 12px 10px;
+    border-right: 1px solid var(--credits-rule);
+  }
+  .design-credits__person:nth-child(2n) { border-right: 0; }
+  .design-credits__person:nth-child(n + 3) { border-top: 1px solid var(--credits-rule); }
+  .design-credits__person h3 { font-size: 13px; }
+  .design-credits__foot { flex-wrap: wrap; gap: 6px 12px; padding: 9px 14px; font-size: 7px; }
+}
+
+@media (max-width: 370px) {
+  .design-credits__edition { max-width: 44%; line-height: 1.5; }
+  .design-credits__person,
+  .design-credits__person:first-child,
+  .design-credits__person:last-child { padding-inline: 7px; }
+  .design-credits__person h3 { font-size: 12px; }
+  .design-credits__person dd { font-size: 9px; }
+}

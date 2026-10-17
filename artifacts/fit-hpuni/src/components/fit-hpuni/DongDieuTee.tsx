@@ -1,6 +1,7 @@
 import { useEffect, useId, useRef, useState, type ComponentProps, type MouseEvent, type ReactNode } from "react";
 import { BRAND, PALETTE } from "./_shared/brand";
 import { FitLogo, PoloShirt } from "./_shared/garments";
+import { DesignCredits } from "./DesignCredits";
 
 const K = {
   deep: PALETTE.navyDeep.hex,
@@ -435,6 +436,7 @@ export function DongDieuTee() {
           </DetailCard>
         </div>
       </section>
+      <DesignCredits />
       {preview && <PreviewDialog preview={preview} colorway={colorway} size={size} onClose={closePreview} />}
     </main>
   );
