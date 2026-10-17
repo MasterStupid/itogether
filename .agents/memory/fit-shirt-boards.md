@@ -29,9 +29,12 @@ description: Rules for the faculty shirt design boards on the canvas (garment fl
 - Viền trang trí Đồng Điệu nằm ở bo cửa tay áo và cổ polo, không phải khung quanh artwork lưng.
   **Why:** người dùng đính chính “không ý tôi viền ở cổ tay áo”, sau đó yêu cầu “thêm ở cổ nữa”.
   **How to apply:** giữ artwork lưng không có khung; cổ giữ cặp sọc trắng cong ở giữa bản cổ, không tự đổi theo các chỉnh sửa riêng cho tay áo.
+- Hai sọc trắng ở cổ Đồng Điệu phải chạy hết tới hai mép cổ, cả mặt trước lẫn mặt sau.
+  **Why:** người dùng chỉ ra sọc mặt sau vẫn dừng ngắn trước mép sau khi yêu cầu hoàn thiện sọc cổ.
+  **How to apply:** giữ độ dày và độ cong đã duyệt; không để khoảng hở ở đầu sọc, cũng không cho sọc tràn ra ngoài cổ.
 - Bo tay Đồng Điệu từ ngoài vào trong: áo xanh than là trắng–xanh than bằng nhau, rồi trắng dày hơn; áo trắng đảo màu. Không có đường nhỏ dư ở ngoài cùng.
   **Why:** người dùng nói lại thiết kế sau khi thấy đường nhỏ ngoài cùng không mong muốn, sau đó xác nhận đúng và yêu cầu tăng nhẹ hai dải nhỏ, giữ nguyên dải lớn.
-  **How to apply:** các dải liền nhau bắt đầu ngay mép tay; giữ thứ tự trên cả hai tay, cả mặt trước lẫn mặt sau. Khi tăng hai dải nhỏ, không thu hẹp dải lớn để bù.
+  **How to apply:** các dải liền nhau bắt đầu ngay mép tay; giữ thứ tự trên cả hai tay, cả mặt trước lẫn mặt sau. Khi tăng hai dải nhỏ, không thu hẹp dải lớn để bù. Không để nét viền thân áo chạy ngang hai đầu bo tay và đè lên các dải trắng.
 - Yêu cầu xóa viền đen đè cổ Đồng Điệu áp dụng cho toàn bộ nét thân áo chồng lên cổ, kể cả hai đầu sát vai, không chỉ cung giữa.
   **Why:** người dùng nhắc “Bạn chưa xóa hết ở viền cổ áo kìa” sau lần chỉ bỏ cung giữa.
   **How to apply:** kiểm tra cả mặt trước và sau; không để viền thân áo vẽ đè lên cổ, nhưng giữ sọc trắng và tem nhãn.

@@ -128,6 +128,7 @@ function DongDieuCollar({ body, stripe, side }: { body: string; stripe: string; 
   const trimId = `collar-trim-${useId().replace(/:/g, "")}`;
   const leftLeaf = "M122,92 L215.18,28 C216.07,125 239.29,240 300,309 L188,348 Q160,225 122,92 Z";
   const rightLeaf = "M610,92 L515.32,28 C512.64,128 485.86,240 418,301 L575,344 Q595,225 610,92 Z";
+  const backBand = "M392,64 Q392,40 420,34 Q500,26 580,34 Q608,40 608,64 L606,84 Q500,102 394,84 Z";
   const collarColor = body === K.white ? K.deep : body;
   const edge = "#142638";
   const opening = body === K.white ? "#d8dce0" : "#162638";
@@ -138,11 +139,16 @@ function DongDieuCollar({ body, stripe, side }: { body: string; stripe: string; 
       {side === "back" ? (
         <g>
           {/* Back view: same width as the front leaves, rounded upper band. */}
-          <path d="M392,64 Q392,40 420,34 Q500,26 580,34 Q608,40 608,64 L606,84 Q500,102 394,84 Z" fill={collarColor} />
+          <defs>
+            <clipPath id={`${trimId}-back`}><path d={backBand} /></clipPath>
+          </defs>
+          <path d={backBand} fill={collarColor} />
           {/* White / navy / white trim centered within the back collar band. */}
-          <path d="M399,53 Q500,70 601,53" fill="none" stroke={K.deep} strokeWidth="10" />
-          <path d="M400,48 Q500,65 600,48" fill="none" stroke={stripe} strokeWidth="4.8" />
-          <path d="M398,58 Q500,75 602,58" fill="none" stroke={stripe} strokeWidth="4.8" />
+          <g clipPath={`url(#${trimId}-back)`} fill="none" strokeLinecap="butt">
+            <path d="M378.8,49.26 Q500,73.74 621.2,49.26" stroke={K.deep} strokeWidth="10" />
+            <path d="M380,44.26 Q500,68.74 620,44.26" stroke={stripe} strokeWidth="4.8" />
+            <path d="M377.6,54.26 Q500,78.74 622.4,54.26" stroke={stripe} strokeWidth="4.8" />
+          </g>
         </g>
       ) : (
         /* Traced in the 661×627 reference image space, then mapped uniformly:

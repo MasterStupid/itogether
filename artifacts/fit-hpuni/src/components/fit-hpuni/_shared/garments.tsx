@@ -347,6 +347,7 @@ interface GarmentCommon {
 function GarmentSvg({
   silhouette,
   outlinePath,
+  outlineCutout,
   body,
   pad,
   crop,
@@ -361,6 +362,7 @@ function GarmentSvg({
 }: {
   silhouette: string;
   outlinePath?: string;
+  outlineCutout?: string;
   body: string;
   pad?: Pad;
   crop?: { x: number; y: number; w: number; h: number };
@@ -393,6 +395,12 @@ function GarmentSvg({
       aria-label={title}
     >
       <defs>
+        {outlineCutout && (
+          <mask id={`${uid}-outline`} maskUnits="userSpaceOnUse" x="0" y="0" width={GARMENT_W} height={GARMENT_H}>
+            <rect width={GARMENT_W} height={GARMENT_H} fill="white" />
+            <path d={outlineCutout} fill="black" stroke="black" strokeWidth="3" strokeLinejoin="round" />
+          </mask>
+        )}
         <clipPath id={ids.clip}>
           <path d={silhouette} />
         </clipPath>
@@ -493,7 +501,7 @@ function GarmentSvg({
       </g>
 
       {/* Custom collars also cover the shoulder outline at their outer edges. */}
-      {outlinePath && <path d={outlinePath} fill="none" stroke={outline} strokeWidth={2.2} strokeLinejoin="round" />}
+      {outlinePath && <path d={outlinePath} fill="none" stroke={outline} strokeWidth={2.2} strokeLinejoin="round" mask={outlineCutout ? `url(#${uid}-outline)` : undefined} />}
       {construction}
       {!outlinePath && <path d={silhouette} fill="none" stroke={outline} strokeWidth={2.2} strokeLinejoin="round" />}
       {annotations}
@@ -740,6 +748,7 @@ export function PoloShirt({
     <GarmentSvg
       silhouette={poloSilhouette(side)}
       outlinePath={collarOverlay || cuffOverlay ? customOutline : undefined}
+      outlineCutout={cuffOverlay ? "M72,189 L131,359 L155.2,345.8 L97.3,176.9 Z M928,189 L869,359 L844.8,345.8 L902.7,176.9 Z" : undefined}
       body={body}
       pad={pad}
       crop={crop}
