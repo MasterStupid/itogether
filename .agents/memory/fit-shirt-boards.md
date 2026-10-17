@@ -34,7 +34,7 @@ description: Rules for the faculty shirt design boards on the canvas (garment fl
   **How to apply:** giữ độ dày và độ cong đã duyệt; không để khoảng hở ở đầu sọc, cũng không cho sọc tràn ra ngoài cổ.
 - Cổ sau Đồng Điệu phải đứng và cứng dáng, không mềm, hạ thấp hoặc làm nằm xuống.
   **Why:** người dùng đính chính “tôi muốn nó đứng hơn vì đây là áo polo”, “tôi muốn nó cứng hơn thay vì mềm”, và chỉ rõ “cứng như cổ ở đằng trước”.
-  **How to apply:** ảnh mẫu người dùng gửi sau cùng là chuẩn hình dáng: hai đầu cổ cao, mép trên võng nhẹ giữa gáy, chân cổ xòe rộng và cong xuống giữa; hai sọc đi theo bản cổ. Hai cạnh bên phải chéo thẳng xuống, không bo cong theo đính chính của người dùng. Không tiếp tục dùng dải ngang hình hộp để diễn giải độ cứng.
+  **How to apply:** dùng cổ trước làm chuẩn độ cứng, với bản phẳng và góc gấp rõ; không chỉ tăng chiều cao dải cổ, không diễn giải “tự nhiên hơn” thành cổ thấp hoặc bo mềm.
 - Bo tay Đồng Điệu từ ngoài vào trong: áo xanh than là trắng–xanh than bằng nhau, rồi trắng dày hơn; áo trắng đảo màu. Không có đường nhỏ dư ở ngoài cùng.
   **Why:** người dùng nói lại thiết kế sau khi thấy đường nhỏ ngoài cùng không mong muốn, sau đó xác nhận đúng và yêu cầu tăng nhẹ hai dải nhỏ, giữ nguyên dải lớn. Người dùng nhắc sửa nốt cả nét đen rất mảnh còn sót ở mép trên bo tay.
   **How to apply:** các dải liền nhau bắt đầu ngay mép tay; giữ thứ tự trên cả hai tay, cả mặt trước lẫn mặt sau. Khi tăng hai dải nhỏ, không thu hẹp dải lớn để bù. Không để nét viền thân áo chạy ngang hai đầu bo tay và đè lên các dải trắng.
