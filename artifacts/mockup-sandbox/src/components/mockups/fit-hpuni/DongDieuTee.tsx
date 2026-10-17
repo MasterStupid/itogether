@@ -3,7 +3,7 @@ import { BRAND, PALETTE } from "./_shared/brand";
 import { FitLogo, PoloShirt } from "./_shared/garments";
 
 /* ==================================================================
-   Đồng Điệu · áo polo mặc hằng ngày (board label only — never printed)
+   ITogether · Chung nhịp công nghệ (board label only — never printed)
    One focal motif: the faculty slogan set as a two-voice dialogue —
    the student's "You can do IT," answered by the faculty's promise.
    1 SVG unit = 1 mm on size L. All callouts read from the constants below.
@@ -337,7 +337,7 @@ export function DongDieuTee() {
             Điểm nổi bật <span style={{ color: K.navy, fontWeight: 500 }}>của chiếc áo</span>
           </h2>
           <span className="text-[22px] font-semibold" style={{ color: K.navy, fontFamily: SANS }}>
-            {BRAND.short} · {BRAND.slogan}
+            ITogether · Chung nhịp công nghệ
           </span>
         </div>
         <div className="grid grid-cols-[1.25fr_1fr_1fr_1fr] gap-3">
