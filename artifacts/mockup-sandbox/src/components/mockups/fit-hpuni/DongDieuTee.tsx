@@ -127,12 +127,26 @@ function FrontArt() {
 /** Tagless neck print, visible inside the back neck in front views. */
 function NeckLabel({ color }: { color: string }) {
   return (
-    <g fontFamily={SANS} fill={color} textAnchor="middle" opacity={0.9}>
-      <text x={500} y={LABEL.y + 6.5} fontSize={6.4} fontWeight={800} textLength={47} lengthAdjust="spacingAndGlyphs">
+    <g fontFamily={SANS} fill={color} opacity={0.92}>
+      {/* Slim woven label: a quiet frame and a dedicated size cell keep the
+          neckline legible without competing with the oversized back graphic. */}
+      <rect
+        x={471}
+        y={LABEL.y + 1}
+        width={58}
+        height={15}
+        rx={1.8}
+        fill="none"
+        stroke={color}
+        strokeWidth={0.7}
+        opacity={0.68}
+      />
+      <path d={`M512 ${LABEL.y + 1}v15`} stroke={color} strokeWidth={0.55} opacity={0.62} />
+      <text x={491.5} y={LABEL.y + 10.2} textAnchor="middle" fontSize={4.5} fontWeight={800} textLength={34} lengthAdjust="spacingAndGlyphs" letterSpacing={0.15}>
         FIT - HPUni
       </text>
-      <text x={500} y={LABEL.y + 13} fontSize={4.4} fontWeight={600}>
-        SIZE L
+      <text x={520.5} y={LABEL.y + 10.2} textAnchor="middle" fontSize={4.8} fontWeight={700} letterSpacing={0.35}>
+        L
       </text>
     </g>
   );
