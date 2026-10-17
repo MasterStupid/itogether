@@ -278,10 +278,10 @@ export function DongDieuTee() {
             n="03"
             kicker="Tem nhãn trong cổ"
             title="FIT - HPUni · Size L"
-            note="Nhãn in gọn bên trong cổ áo, chỉ giữ tên khoa và size để mặc thoải mái, không vướng chi tiết thừa."
+            note="Ảnh phóng lớn nhãn cổ: FIT - HPUni, Information Technology và size L."
           >
             <Front
-              crop={{ x: 390, y: 28, w: 220, h: 138 }}
+              crop={{ x: 450, y: 70, w: 100, h: 40 }}
               annotations={<NeckLabel color={K.white} />}
               style={{ width: "100%", height: "100%" }}
             />
