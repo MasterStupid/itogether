@@ -20,3 +20,6 @@ description: Rules for the faculty shirt design boards on the canvas (garment fl
 - Với cổ polo Đồng Điệu, vẽ cổ rộng hơn để chứa tem, không thu nhỏ tem để tránh chồng lấn.
   **Why:** người dùng sửa lại hướng xử lý: “tôi muốn vẽ lại cổ cho rộng ra thay vì chỉnh nhỏ tem”.
   **How to apply:** giữ tem dễ đọc và điều chỉnh hình học cổ khi xử lý khoảng trống quanh tem.
+- Tem cổ Đồng Điệu phải giữ đầy đủ “INFORMATION TECHNOLOGY” trên một dòng, không viết tắt và không tách hai từ thành hai dòng.
+  **Why:** người dùng yêu cầu trả lại từ đầy đủ và sau đó sửa yêu cầu dàn ba dòng thành “tôi muốn trên 1 dòng”.
+  **How to apply:** giữ tên FIT - HPUni ở dòng riêng; không tự chia dòng tên ngành khi cải thiện độ dễ đọc.

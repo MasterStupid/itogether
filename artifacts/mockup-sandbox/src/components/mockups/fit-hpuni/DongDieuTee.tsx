@@ -137,11 +137,8 @@ function NeckLabel({ color }: { color: string }) {
       <text x={500} y={LABEL.y + 7.5} textAnchor="middle" fontSize={4.4} fontWeight={800} textLength={46} lengthAdjust="spacingAndGlyphs" letterSpacing={0.12}>
         FIT - HPUni
       </text>
-      <text x={500} y={LABEL.y + 15} textAnchor="middle" fontSize={3.4} fontWeight={600}>
-        INFORMATION
-      </text>
-      <text x={500} y={LABEL.y + 22} textAnchor="middle" fontSize={3.4} fontWeight={600}>
-        TECHNOLOGY · L
+      <text x={500} y={LABEL.y + 19} textAnchor="middle" fontSize={3.4} fontWeight={600} textLength={62} lengthAdjust="spacingAndGlyphs">
+        INFORMATION TECHNOLOGY · L
       </text>
       </g>
     </g>
