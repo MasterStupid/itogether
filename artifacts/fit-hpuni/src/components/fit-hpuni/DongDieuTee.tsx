@@ -128,7 +128,7 @@ function DongDieuCollar({ body, stripe, side }: { body: string; stripe: string; 
   const trimId = `collar-trim-${useId().replace(/:/g, "")}`;
   const leftLeaf = "M122,92 L215.18,28 C216.07,125 239.29,240 300,309 L188,348 Q160,225 122,92 Z";
   const rightLeaf = "M610,92 L515.32,28 C512.64,128 485.86,240 418,301 L575,344 Q595,225 610,92 Z";
-  const backBand = "M412,22 L588,22 L608,42 L604,84 L576,90 L424,90 L396,84 L392,42 Z";
+  const backBand = "M396,84 L392,30 Q392,24 398,24 Q500,20 602,24 Q608,24 608,30 L604,84 Q500,94 396,84 Z";
   const collarColor = body === K.white ? K.deep : body;
   const edge = "#142638";
   const opening = body === K.white ? "#d8dce0" : "#162638";
@@ -138,12 +138,11 @@ function DongDieuCollar({ body, stripe, side }: { body: string; stripe: string; 
     <g pointerEvents="none" strokeLinejoin="round">
       {side === "back" ? (
         <g>
-          {/* Match the front's stiff folded leaves with flat planes and angular ends. */}
+          {/* Structured standing collar: level crown, crisp corners and straight sides. */}
           <defs>
             <clipPath id={`${trimId}-back`}><path d={backBand} /></clipPath>
           </defs>
           <path d={backBand} fill={collarColor} />
-          <path d="M412,22 L402,44 L406,86 L396,84 L392,42 Z M588,22 L598,44 L594,86 L604,84 L608,42 Z" fill={edge} fillOpacity="0.32" />
           {/* White / navy / white trim centered within the back collar band. */}
           <g clipPath={`url(#${trimId}-back)`} fill="none" strokeLinecap="butt">
             <path d="M378.8,49.26 Q500,73.74 621.2,49.26" stroke={K.deep} strokeWidth="10" />
