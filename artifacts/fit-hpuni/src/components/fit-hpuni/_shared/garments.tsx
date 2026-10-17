@@ -188,10 +188,11 @@ const TEE_BACK = {
   coverstitch: "M409,86 Q500,102 591,86",
 };
 
-function poloSilhouette(side: GarmentSide) {
-  if (side === "front")
-    return "M410,60 Q332,74 262,100 Q165,138 72,189 L131,359 Q180,331 230,300 L234,780 Q500,792 766,780 L770,300 Q820,331 869,359 L928,189 Q835,138 738,100 Q668,74 590,60 Q500,30 410,60 Z";
-  return "M410,60 Q332,74 262,100 Q165,138 72,189 L131,359 Q180,331 230,300 L233,725 L236,800 Q500,822 764,800 L767,725 L770,300 Q820,331 869,359 L928,189 Q835,138 738,100 Q668,74 590,60 Q500,70 410,60 Z";
+function poloSilhouette(side: GarmentSide, closeNeck = true) {
+  const perimeter = side === "front"
+    ? "M410,60 Q332,74 262,100 Q165,138 72,189 L131,359 Q180,331 230,300 L234,780 Q500,792 766,780 L770,300 Q820,331 869,359 L928,189 Q835,138 738,100 Q668,74 590,60"
+    : "M410,60 Q332,74 262,100 Q165,138 72,189 L131,359 Q180,331 230,300 L233,725 L236,800 Q500,822 764,800 L767,725 L770,300 Q820,331 869,359 L928,189 Q835,138 738,100 Q668,74 590,60";
+  return closeNeck ? `${perimeter} Q500,${side === "front" ? 30 : 70} 410,60 Z` : perimeter;
 }
 
 const POLO = {
@@ -345,6 +346,7 @@ interface GarmentCommon {
 
 function GarmentSvg({
   silhouette,
+  outlinePath,
   body,
   pad,
   crop,
@@ -358,6 +360,7 @@ function GarmentSvg({
   annotations,
 }: {
   silhouette: string;
+  outlinePath?: string;
   body: string;
   pad?: Pad;
   crop?: { x: number; y: number; w: number; h: number };
@@ -490,7 +493,7 @@ function GarmentSvg({
       </g>
 
       {construction}
-      <path d={silhouette} fill="none" stroke={outline} strokeWidth={2.2} strokeLinejoin="round" />
+      <path d={outlinePath ?? silhouette} fill="none" stroke={outline} strokeWidth={2.2} strokeLinejoin="round" />
       {annotations}
     </svg>
   );
@@ -719,6 +722,7 @@ export function PoloShirt({
   return (
     <GarmentSvg
       silhouette={poloSilhouette(side)}
+      outlinePath={collarOverlay ? poloSilhouette(side, false) : undefined}
       body={body}
       pad={pad}
       crop={crop}
