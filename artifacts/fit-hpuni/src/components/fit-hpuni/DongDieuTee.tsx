@@ -309,7 +309,7 @@ function PreviewDialog({ preview, colorway, size, onClose }: { preview: Preview;
     <div className="dialog-backdrop" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) onClose(); }}>
       <div className="detail-dialog" role="dialog" aria-modal="true" aria-labelledby="preview-dialog-title" aria-describedby="preview-dialog-description" ref={dialogRef} data-testid="dialog-preview">
         <div className="dialog-head">
-          <div><p className="eyebrow">FIT-HPUni · Đồng Điệu</p><h2 id="preview-dialog-title">{title}</h2><p id="preview-dialog-description">{description}</p></div>
+          <div><p className="eyebrow">FIT-HPUni · ITogether</p><h2 id="preview-dialog-title">{title}</h2><p id="preview-dialog-description">{description}</p></div>
           <button className="close-button" type="button" onClick={onClose} ref={closeRef} aria-label="Đóng cửa sổ xem trước" data-testid="button-close-preview">×</button>
         </div>
         <div className="dialog-art"><PreviewArt preview={preview} colorway={colorway} size={size} large /></div>
@@ -358,7 +358,7 @@ export function DongDieuTee() {
       <header className="masthead">
         <div className="brand-lockup">
           <img className="brand-mark" src={BRAND.logo} alt="Logo chính thức FIT-HPUni" />
-          <div><p className="eyebrow">Khoa Công nghệ Thông tin · Đại học Hải Phòng</p><h1 className="brand-title">Áo polo Đồng Điệu</h1></div>
+          <div><p className="eyebrow">Khoa Công nghệ Thông tin · Đại học Hải Phòng</p><h1 className="brand-title">Áo polo ITogether</h1></div>
         </div>
         <div className="masthead-actions">
           <button className="print-button" type="button" onClick={() => window.print()} data-testid="button-print">
