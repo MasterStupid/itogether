@@ -129,8 +129,8 @@ function NeckLabel({ color }: { color: string }) {
       <text x={490.5} y={LABEL.y + 9} textAnchor="middle" fontSize={4.5} fontWeight={800} textLength={37} lengthAdjust="spacingAndGlyphs" letterSpacing={0.15}>
         FIT - HPUni
       </text>
-      <text x={490.5} y={LABEL.y + 17} textAnchor="middle" fontSize={3.4} fontWeight={600} textLength={45} lengthAdjust="spacingAndGlyphs" letterSpacing={0.1}>
-        DÁM NGHĨ, DÁM LÀM
+      <text x={490.5} y={LABEL.y + 17} textAnchor="middle" fontSize={3.1} fontWeight={600} textLength={54} lengthAdjust="spacingAndGlyphs">
+        Information Technology
       </text>
       <text x={529} y={LABEL.y + 13.5} textAnchor="middle" fontSize={4.8} fontWeight={700} letterSpacing={0.35}>
         L
