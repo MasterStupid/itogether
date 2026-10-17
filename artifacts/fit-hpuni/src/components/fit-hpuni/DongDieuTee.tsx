@@ -128,15 +128,12 @@ function DongDieuCollar({ body, stripe, side }: { body: string; stripe: string; 
   const edge = "#142638";
   const opening = body === K.white ? "#d8dce0" : "#162638";
   const placket = body === K.white ? K.deep : "#162638";
-  const bandRib = "#2a425c";
   return (
     <g pointerEvents="none" strokeLinejoin="round">
       {side === "back" ? (
         <g>
           {/* Back view: soft folded band whose top edge dips gently at centre back. */}
-          <path d="M392,64 C394,46 404,38 420,37 Q500,48 580,37 C596,38 606,46 608,64 L606,86 Q500,104 394,86 Z" fill={collarColor} stroke={edge} strokeWidth="2" />
-          {/* Fold line near the attachment edge. */}
-          <path d="M404,51 Q500,60 596,51" fill="none" stroke={edge} strokeWidth="1.5" opacity="0.8" />
+          <path d="M392,64 C394,46 404,38 420,37 Q500,48 580,37 C596,38 606,46 608,64 L606,86 Q500,104 394,86 Z" fill={collarColor} />
           {/* Twin tipping follows the exposed lower free edge, 6 mm apart. */}
           <path d="M398,74 Q500,92 602,74" fill="none" stroke={stripe} strokeWidth="2.5" />
           <path d="M396,80 Q500,98 604,80" fill="none" stroke={stripe} strokeWidth="2.5" />
@@ -147,22 +144,18 @@ function DongDieuCollar({ body, stripe, side }: { body: string; stripe: string; 
           <path d="M484,170 L516,170 L516,284 L484,284 Z" fill={placket} stroke={edge} strokeWidth="1.6" />
           <path d="M511,186 V279" fill="none" stroke={stripe} strokeOpacity="0.32" strokeWidth="0.9" strokeDasharray="3.6 2.7" />
           {/* Upper band: soft curve dipping at centre, no squared stand. */}
-          <path d="M392,64 C394,46 404,38 420,37 Q500,48 580,37 C596,38 606,46 608,64 L580,68 Q500,80 420,68 Z" fill={collarColor} stroke={edge} strokeWidth="1.8" />
+          <path d="M392,64 C394,46 404,38 420,37 Q500,48 580,37 C596,38 606,46 608,64 L580,68 Q500,80 420,68 Z" fill={collarColor} />
           {/* Inner neckline: curved sides tapering to a central V at the placket. */}
-          <path d="M420,66 Q500,80 580,66 C578,104 552,144 500,180 C448,144 422,104 420,66 Z" fill={opening} stroke={edge} strokeWidth="1.6" />
-          <path d="M424,72 Q500,86 576,72" fill="none" stroke={edge} strokeOpacity="0.45" strokeWidth="1.2" />
+          <path d="M420,66 Q500,80 580,66 C578,104 552,144 500,180 C448,144 422,104 420,66 Z" fill={opening} />
           {/* Broad folded leaves, tapering inward to meet over the placket. */}
-          <path d="M390,62 C386,100 392,138 403,168 Q452,178 498,186 C446,148 422,106 420,66 C410,60 400,58 390,62 Z" fill={collarColor} stroke={edge} strokeWidth="1.8" />
-          <path d="M610,62 C614,100 608,138 597,168 Q548,178 502,186 C554,148 578,106 580,66 C590,60 600,58 610,62 Z" fill={collarColor} stroke={edge} strokeWidth="1.8" />
-          {/* Soft roll shading along the fold of each leaf. */}
-          <path d="M420,66 C422,106 446,148 498,186" fill="none" stroke="#000" strokeOpacity="0.22" strokeWidth="2.2" />
-          <path d="M580,66 C578,106 554,148 502,186" fill="none" stroke="#000" strokeOpacity="0.22" strokeWidth="2.2" />
+          <path d="M390,62 C386,100 392,138 403,168 Q452,178 498,186 C446,148 422,106 420,66 C410,60 400,58 390,62 Z" fill={collarColor} />
+          <path d="M610,62 C614,100 608,138 597,168 Q548,178 502,186 C554,148 578,106 580,66 C590,60 600,58 610,62 Z" fill={collarColor} />
           {/* Double white tipping tracks the natural outer edges. */}
           <g fill="none" stroke={stripe} strokeWidth="2.5" strokeLinecap="butt">
-            <path d="M396,61 C392,99 398,137 408,168" />
-            <path d="M402,60 C398,98 404,136 414,169" />
-            <path d="M604,61 C608,99 602,137 592,168" />
-            <path d="M598,60 C602,98 596,136 586,169" />
+            <path d="M396,60 C392,99 398,137 408,169" />
+            <path d="M402,60 C398,98 404,136 414,170" />
+            <path d="M604,60 C608,99 602,137 592,169" />
+            <path d="M598,60 C602,98 596,136 586,170" />
           </g>
           {/* Buttons and ivory end bar. */}
           {[204, 244].map((y) => (
