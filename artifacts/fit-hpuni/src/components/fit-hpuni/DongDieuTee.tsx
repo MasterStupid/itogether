@@ -122,16 +122,17 @@ function NeckLabel({ color, size }: { color: string; size: Size }) {
  * board only, leaving every other garment's construction untouched.
  */
 function DongDieuCollar({ body, stripe, side }: { body: string; stripe: string; side: "front" | "back" }) {
-  const edge = body === K.white ? "#aebbc7" : "#142638";
+  const collarColor = body === K.white ? K.deep : body;
+  const edge = "#142638";
   const opening = body === K.white ? "#d8dce0" : "#162638";
   const placket = body === K.white ? K.deep : "#162638";
-  const bandRib = body === K.white ? "#e9edf0" : "#2a425c";
+  const bandRib = "#2a425c";
   return (
     <g pointerEvents="none" strokeLinejoin="round">
       {side === "back" ? (
         <g>
           {/* Back view: same width as the front leaves, rounded upper band. */}
-          <path d="M392,64 Q392,40 420,34 Q500,26 580,34 Q608,40 608,64 L606,84 Q500,102 394,84 Z" fill={body} stroke={edge} strokeWidth="2" />
+          <path d="M392,64 Q392,40 420,34 Q500,26 580,34 Q608,40 608,64 L606,84 Q500,102 394,84 Z" fill={collarColor} stroke={edge} strokeWidth="2" />
           {/* Interior construction seams stay up by the attachment edge. */}
           <path d="M404,49 Q500,40 596,49" fill="none" stroke={edge} strokeWidth="1.7" />
           <path d="M402,57 Q500,48 598,57" fill="none" stroke={edge} strokeWidth="1.7" />
@@ -146,13 +147,13 @@ function DongDieuCollar({ body, stripe, side }: { body: string; stripe: string; 
           {/* Long dark placket base. */}
           <path d="M330,300 L408,300 L408,598 L330,598 Z" fill={placket} stroke={edge} strokeWidth="3.5" />
           {/* Rounded upper back band and its interior rib strip. */}
-          <path d="M200,98 L200,42 Q200,14 230,13 L500,13 Q530,14 530,42 L530,98 Z" fill={body} stroke={edge} strokeWidth="4" />
+          <path d="M200,98 L200,42 Q200,14 230,13 L500,13 Q530,14 530,42 L530,98 Z" fill={collarColor} stroke={edge} strokeWidth="4" />
           <path d="M212,90 Q365,99 518,90 L518,104 Q365,114 212,104 Z" fill={bandRib} stroke={edge} strokeWidth="3" />
           {/* Deep U interior opening. */}
           <path d="M212,104 Q365,114 518,104 C510,185 470,262 418,302 L300,309 C252,258 216,180 212,104 Z" fill={opening} stroke={edge} strokeWidth="3.5" />
           {/* Broad leaves with near-straight sloping lower edges. */}
-          <path d="M122,92 L205,28 C206,125 232,240 300,309 L188,348 Q160,225 122,92 Z" fill={body} stroke={edge} strokeWidth="4" />
-          <path d="M610,92 L527,28 C524,128 494,240 418,301 L575,344 Q595,225 610,92 Z" fill={body} stroke={edge} strokeWidth="4" />
+          <path d="M122,92 L205,28 C206,125 232,240 300,309 L188,348 Q160,225 122,92 Z" fill={collarColor} stroke={edge} strokeWidth="4" />
+          <path d="M610,92 L527,28 C524,128 494,240 418,301 L575,344 Q595,225 610,92 Z" fill={collarColor} stroke={edge} strokeWidth="4" />
           {/* Paired ivory tipping, parallel to the outer leaf edges only. */}
           <g fill="none" stroke={stripe} strokeWidth="7" strokeLinecap="butt">
             <path d="M140,79 Q168,212 202,343" />
@@ -205,7 +206,7 @@ function Back({
     <PoloShirt
       side="back"
       body={c.body}
-      collarOverlay={<DongDieuCollar body={c.body} stripe={c.body === K.white ? K.navy : K.white} side="back" />}
+      collarOverlay={<DongDieuCollar body={c.body} stripe={K.white} side="back" />}
       {...rest}
       annotations={
         <>
@@ -230,7 +231,7 @@ function Front({
     <PoloShirt
       side="front"
       body={c.body}
-      collarOverlay={<DongDieuCollar body={c.body} stripe={c.body === K.white ? K.navy : K.white} side="front" />}
+      collarOverlay={<DongDieuCollar body={c.body} stripe={K.white} side="front" />}
       {...rest}
       annotations={
         <>
