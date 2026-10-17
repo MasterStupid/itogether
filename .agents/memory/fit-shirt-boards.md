@@ -20,9 +20,9 @@ description: Rules for the faculty shirt design boards on the canvas (garment fl
 - For the Đồng Điệu direction, omit city symbols and focus on the faculty slogan: “You can do IT, we are ready to accompany”.
   **Why:** the user explicitly redirected this selected design away from city imagery.
   **How to apply:** keep future refinements of this direction slogan-led; this does not require changing the other concept boards.
-- Cổ polo ITogether phải theo ảnh tham chiếu mới nhất: lá cổ mềm tự nhiên, gáy cong nhẹ, lòng cổ thu vào chữ V và nẹp thẳng; hai sọc dọc mép ngoài.
-  **Why:** người dùng thay mẫu cổ mở lệch lộ lót kem bằng ảnh cổ tự nhiên và yêu cầu “vẽ lại cổ áo cho tự nhiên”.
-  **How to apply:** không khôi phục nẹp lệch/lót kem theo ảnh cũ; giữ tem chia ngăn và phối cổ xanh than trên áo trắng.
+- Cổ polo Đồng Điệu phải bám ảnh cận cảnh: lá cổ bản rộng, mép dưới gần thẳng, hai sọc kem dọc mép ngoài, lòng cổ chữ U sâu, nẹp mở lệch lộ lót kem; tem chia ngăn.
+  **Why:** người dùng bác bản lá cổ cong nhỏ là “xấu quá” và yêu cầu “thiết kế lại cổ áo theo đúng mẫu”; không muốn diễn giải lại dáng cổ.
+  **How to apply:** dựng hình theo tỷ lệ ảnh, không dùng lá cổ cong cuộn hoặc viền bao toàn bộ lá cổ; giữ tên ngành bên trái và size lớn bên phải trên tem.
 - Tem cổ Đồng Điệu phải giữ đầy đủ “INFORMATION TECHNOLOGY” trên một dòng, không viết tắt và không tách hai từ thành hai dòng.
   **Why:** người dùng yêu cầu trả lại từ đầy đủ và sau đó sửa yêu cầu dàn ba dòng thành “tôi muốn trên 1 dòng”.
   **How to apply:** giữ tên FIT - HPUni ở dòng riêng trong ngăn trái của tem; không tự chia dòng tên ngành khi cải thiện độ dễ đọc.

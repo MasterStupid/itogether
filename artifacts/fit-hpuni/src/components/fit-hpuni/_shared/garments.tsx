@@ -674,7 +674,7 @@ export function PoloShirt({
       <Tipped shape={POLO.cuffL} edge={POLO.cuffEdgeL} base={cuffC} stripes={tipping} outline={cuffOutline} />
       <Tipped shape={POLO.cuffR} edge={POLO.cuffEdgeR} base={cuffC} stripes={tipping} outline={cuffOutline} />
 
-      {collarOverlay ? null : side === "front" ? (
+      {collarOverlay ? collarOverlay : side === "front" ? (
         <g>
           <path d={POLO.placket} fill={placketC} stroke={placketOutline} strokeWidth={1.4} />
           {placketInner && <path d={POLO.placketInner} fill={placketInner} />}
@@ -728,7 +728,7 @@ export function PoloShirt({
       style={style}
       title={title ?? `Polo ${side}`}
       construction={construction}
-      annotations={<>{collarOverlay}{annotations}</>}
+      annotations={annotations}
     >
       {children}
     </GarmentSvg>
