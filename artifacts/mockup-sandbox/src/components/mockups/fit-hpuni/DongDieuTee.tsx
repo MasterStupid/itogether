@@ -298,12 +298,12 @@ export function DongDieuTee() {
           <Highlight
             n="04"
             kicker="Hai màu áo"
-            title="Xanh than và trắng"
-            note="Cùng một câu khẩu hiệu, đổi sắc độ theo nền vải. Pique cotton 100%, cổ bẻ, nẹp ba nút và bo tay dệt."
+            title="Polo xanh than và trắng"
+            note="Cùng một mẫu polo, đổi màu thân áo. Cổ bẻ, nẹp ba nút và bo tay dệt đồng bộ ở cả hai phối màu."
           >
             <div className="flex h-full items-center justify-center gap-1 px-3">
-              <Back c={NAVY} pad={14} style={{ width: "50%", height: "92%" }} />
-              <Back c={WHITE} pad={14} style={{ width: "50%", height: "92%" }} />
+              <Front c={NAVY} pad={14} style={{ width: "50%", height: "92%" }} />
+              <Front c={WHITE} pad={14} style={{ width: "50%", height: "92%" }} />
             </div>
           </Highlight>
         </div>
