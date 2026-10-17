@@ -103,15 +103,15 @@ function FrontArt() {
 function NeckLabel({ color, size }: { color: string; size: Size }) {
   return (
     <g fontFamily={SANS} fill={color}>
-      <rect x="452" y="69" width="96" height="25" rx="1.4" fill="none" stroke={color} strokeWidth="1.25" />
-      <path d="M521,69 V94" fill="none" stroke={color} strokeWidth="1.1" />
-      <text x="486" y="79.2" textAnchor="middle" fontSize="5.3" fontWeight="800" textLength="50" lengthAdjust="spacingAndGlyphs">
+      <rect x="452" y="39" width="96" height="24" rx="1.4" fill="none" stroke={color} strokeWidth="1.25" />
+      <path d="M521,39 V63" fill="none" stroke={color} strokeWidth="1.1" />
+      <text x="486" y="49" textAnchor="middle" fontSize="5.3" fontWeight="800" textLength="50" lengthAdjust="spacingAndGlyphs">
         FIT - HPUni
       </text>
-      <text x="486" y="88.2" textAnchor="middle" fontSize="3.25" fontWeight="700" textLength="64" lengthAdjust="spacingAndGlyphs">
+      <text x="486" y="58" textAnchor="middle" fontSize="3.25" fontWeight="700" textLength="64" lengthAdjust="spacingAndGlyphs">
         INFORMATION TECHNOLOGY
       </text>
-      <text x="534.5" y="86.3" textAnchor="middle" fontSize="12.2" fontWeight="800">{size}</text>
+      <text x="534.5" y="57.3" textAnchor="middle" fontSize="12.2" fontWeight="800">{size}</text>
     </g>
   );
 }
@@ -122,38 +122,52 @@ function NeckLabel({ color, size }: { color: string; size: Size }) {
  * board only, leaving every other garment's construction untouched.
  */
 function DongDieuCollar({ body, stripe, side }: { body: string; stripe: string; side: "front" | "back" }) {
+  const edge = body === K.white ? "#aebbc7" : "#142638";
+  const opening = body === K.white ? "#d8dce0" : "#162638";
+  const placket = body === K.white ? K.deep : "#162638";
   return (
-    <g pointerEvents="none">
+    <g pointerEvents="none" strokeLinejoin="round">
       {side === "back" ? (
         <g>
-          <path d="M414,43 Q500,19 586,43 L597,105 Q500,127 403,105 Z" fill={body} stroke={body === K.white ? "#b8c4d0" : "#142638"} strokeWidth="1.8" />
-          <path d="M414,43 Q500,19 586,43" fill="none" stroke={stripe} strokeWidth="2.2" />
-          <path d="M418,49 Q500,27 582,49" fill="none" stroke={stripe} strokeWidth="2.2" />
-          <path d="M403,105 Q500,127 597,105" fill="none" stroke={body === K.white ? "#aebbc7" : "#142638"} strokeWidth="1.7" />
+          {/* Back view of the same deep band: full height through the rib rows. */}
+          <path d="M420,36 Q500,29 580,36 L582,80 Q500,96 418,80 Z" fill={body} stroke={edge} strokeWidth="2" />
+          <path d="M420,68 Q500,84 582,68" fill="none" stroke={edge} strokeWidth="1.7" />
+          <path d="M419,77 Q500,95 581,77" fill="none" stroke={edge} strokeWidth="1.7" />
         </g>
       ) : (
         <g>
-          {/* The inset is a rounded U, open into a long dark placket. */}
-          <path d="M425,59 Q500,34 575,59 C557,68 544,79 533,93 L516,119 H484 L467,93 C456,79 443,68 425,59 Z" fill={body === K.white ? "#d8dce0" : "#162638"} />
-          {/* Deep, narrow leaves: tall sides taper down toward the placket. */}
-          <path d="M414,41 C398,50 388,68 389,86 C390,104 408,131 428,155 L466,177 L490,112 C476,96 462,82 447,70 C433,59 422,48 414,41 Z" fill={body} stroke={body === K.white ? "#aebbc7" : "#142638"} strokeWidth="1.7" strokeLinejoin="round" />
-          <path d="M586,41 C602,50 612,68 611,86 C610,104 592,131 572,155 L534,177 L510,112 C524,96 538,82 553,70 C567,59 578,48 586,41 Z" fill={body} stroke={body === K.white ? "#aebbc7" : "#142638"} strokeWidth="1.7" strokeLinejoin="round" />
-          {/* Parallel tipping follows only the outside run of each leaf. */}
-          <path d="M414,42 C400,51 392,68 393,85 C394,101 411,127 430,151" fill="none" stroke={stripe} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-          <path d="M420,48 C407,56 399,70 400,85 C402,99 417,122 435,146" fill="none" stroke={stripe} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-          <path d="M586,42 C600,51 608,68 607,85 C606,101 589,127 570,151" fill="none" stroke={stripe} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-          <path d="M580,48 C593,56 601,70 600,85 C598,99 583,122 565,146" fill="none" stroke={stripe} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-          {/* Offset ivory facing at the opening; dark placket continues below it. */}
-          <path d="M483,107 L518,107 L520,260 L480,260 Z" fill={body === K.white ? "#d8dce0" : "#162638"} stroke={body === K.white ? "#9aa9b8" : "#0e1a27"} strokeWidth="1.5" />
-          <path d="M500,103 L521,110 L521,146 L500,146 Z" fill={stripe} />
-          <path d="M500,146 H520 V254 H500 Z" fill={body} />
-          {[121, 153, 185].map((y) => (
-            <g key={y}>
-              <circle cx="509" cy={y} r="3.7" fill={body === K.white ? "#d8dce0" : "#162638"} stroke={stripe} strokeWidth="1.2" />
-              <circle cx="508" cy={y} r="0.7" fill={stripe} />
-            </g>
-          ))}
-          <path d="M480,254 H520 V261 H480 Z" fill={stripe} />
+          {/* Top of the inner back band; label sits on this flat area. */}
+          <path d="M420,36 Q500,29 580,36 L582,80 Q500,96 418,80 Z" fill={body} stroke={edge} strokeWidth="2" />
+          <path d="M420,68 Q500,84 582,68" fill="none" stroke={edge} strokeWidth="1.7" />
+          <path d="M419,77 Q500,95 581,77" fill="none" stroke={edge} strokeWidth="1.7" />
+          {/* Deep U opening, translated from the reference's inside neckline. */}
+          <path d="M420,67 C432,112 462,151 500,166 C538,151 568,112 580,67 Q500,84 420,67 Z" fill={opening} stroke={edge} strokeWidth="1.7" />
+          {/* Band rib seams remain visible across the top of the open U. */}
+          <path d="M420,68 Q500,84 582,68" fill="none" stroke={edge} strokeWidth="1.7" />
+          <path d="M419,77 Q500,95 581,77" fill="none" stroke={edge} strokeWidth="1.7" />
+          {/* Broad, flat leaves. Their lower edges are nearly straight, not curled. */}
+          <path d="M391,59 C396,101 405,146 413,178 L469,161 L420,67 Q404,60 391,59 Z" fill={body} stroke={edge} strokeWidth="2" />
+          <path d="M609,59 C604,101 595,146 587,178 L531,161 L580,67 Q596,60 609,59 Z" fill={body} stroke={edge} strokeWidth="2" />
+          {/* Paired ivory tipping tracks the near-vertical outer edges only. */}
+          <path d="M391,59 C396,101 405,146 413,178" fill="none" stroke={stripe} strokeWidth="2.5" />
+          <path d="M397,61 C402,102 411,145 419,176" fill="none" stroke={stripe} strokeWidth="2.5" />
+          <path d="M609,59 C604,101 595,146 587,178" fill="none" stroke={stripe} strokeWidth="2.5" />
+          <path d="M603,61 C598,102 589,145 581,176" fill="none" stroke={stripe} strokeWidth="2.5" />
+          {/* Reference asymmetry: ivory underlap, diagonal navy overlap, long lower placket. */}
+          <path d="M469,159 L495,157 L503,177 L482,240 Z" fill={stripe} stroke={edge} strokeWidth="1.2" />
+          <path d="M530,155 L500,182 Q489,195 482,240 L516,240 L516,174 L530,166 Z" fill={placket} stroke={edge} strokeWidth="1.6" />
+          <path d="M482,239 L516,239 L516,284 L482,284 Z" fill={placket} stroke={edge} strokeWidth="1.6" />
+          {/* X-marked contrast button on the facing and four-hole button below. */}
+          <circle cx="487" cy="171" r="5.3" fill={stripe} stroke={edge} strokeWidth="1" />
+          <path d="M484.7,168.7 L489.3,173.3 M489.3,168.7 L484.7,173.3" stroke={edge} strokeWidth="0.9" />
+          <circle cx="500" cy="227" r="5.5" fill={placket} stroke={stripe} strokeWidth="1.2" />
+          <g fill={body === K.white ? K.white : stripe}>
+            <circle cx="498" cy="225" r="0.8" />
+            <circle cx="502" cy="225" r="0.8" />
+            <circle cx="498" cy="229" r="0.8" />
+            <circle cx="502" cy="229" r="0.8" />
+          </g>
+          <path d="M484,281 H516 V285 H484 Z" fill={stripe} />
         </g>
       )}
     </g>
@@ -252,7 +266,7 @@ function PreviewArt({ preview, colorway, size, large = false }: { preview: Previ
   if (preview === "back") return <Back colorway={colorway} pad={PAD} style={detailStyle} title="Áo FIT-HPUni, mặt sau" />;
   if (preview === "detail-1") return <Back colorway={colorway} crop={{ x: 255, y: 148, w: 490, h: 214 }} style={detailStyle} title="Cận cảnh chữ IT để trống, lộ màu vải" />;
   if (preview === "detail-2") return <Back colorway={colorway} crop={{ x: 320, y: 356, w: 350, h: 192 }} style={detailStyle} title="Cận cảnh câu slogan phía sau" />;
-  if (preview === "detail-3") return <Front colorway={colorway} size={size} crop={large ? { x: 442, y: 62, w: 116, h: 42 } : { x: 446, y: 64, w: 108, h: 36 }} style={detailStyle} title="Cận cảnh nhãn trong cổ FIT-HPUni" />;
+  if (preview === "detail-3") return <Front colorway={colorway} size={size} crop={large ? { x: 442, y: 32, w: 116, h: 38 } : { x: 446, y: 35, w: 108, h: 32 }} style={detailStyle} title="Cận cảnh nhãn trong cổ FIT-HPUni" />;
   return <Front colorway={colorway} size={size} crop={{ x: 170, y: 30, w: 660, h: 730 }} style={detailStyle} title={`Màu áo ${colorway.body === K.deep ? "xanh than" : "trắng"}`} />;
 }
 
