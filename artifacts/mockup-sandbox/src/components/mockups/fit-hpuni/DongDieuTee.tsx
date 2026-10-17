@@ -63,20 +63,6 @@ function BackArt({ ink, ink2 }: Ink) {
         </mask>
       </defs>
 
-      {/* A quiet perimeter line gives the back print a finished edge without
-          competing with the slogan; ink follows each garment colorway. */}
-      <rect
-        x={344}
-        y={146}
-        width={312}
-        height={402}
-        rx={14}
-        fill="none"
-        stroke={ink2}
-        strokeWidth={1.4}
-        opacity={0.78}
-      />
-
       {/* voice 1 */}
       <text x={ART.x} y={208} textLength={ART_W} lengthAdjust="spacingAndGlyphs" fontWeight={800} fontSize={50} fill={ink}>
         You can do
@@ -167,17 +153,55 @@ const NAVY: Ink = { body: K.deep, ink: K.white, ink2: K.silver };
 const WHITE: Ink = { body: K.white, ink: K.deep, ink2: K.navy };
 const PAD = { top: 4, right: 6, bottom: 8, left: 6 };
 
-function Back({ c = NAVY, ...rest }: { c?: Ink } & Omit<ComponentProps<typeof PoloShirt>, "body">) {
+/** Continuous fine piping, inset just inside each angled sleeve-cuff opening. */
+function SleeveCuffTrim({ color }: { color: string }) {
   return (
-    <PoloShirt side="back" body={c.body} {...rest}>
+    <g pointerEvents="none" fill="none" stroke={color} strokeWidth={3.2} strokeLinecap="butt" opacity={0.96}>
+      <path d="M73.5,186.5 L132.5,356.5" />
+      <path d="M926.5,186.5 L867.5,356.5" />
+    </g>
+  );
+}
+
+function Back({
+  c = NAVY,
+  annotations,
+  ...rest
+}: { c?: Ink } & Omit<ComponentProps<typeof PoloShirt>, "body">) {
+  return (
+    <PoloShirt
+      side="back"
+      body={c.body}
+      {...rest}
+      annotations={
+        <>
+          {annotations}
+          <SleeveCuffTrim color={c.body === K.white ? K.navy : K.silver} />
+        </>
+      }
+    >
       <BackArt {...c} />
     </PoloShirt>
   );
 }
 
-function Front({ c = NAVY, ...rest }: { c?: Ink } & Omit<ComponentProps<typeof PoloShirt>, "body">) {
+function Front({
+  c = NAVY,
+  annotations,
+  ...rest
+}: { c?: Ink } & Omit<ComponentProps<typeof PoloShirt>, "body">) {
   return (
-    <PoloShirt side="front" body={c.body} {...rest}>
+    <PoloShirt
+      side="front"
+      body={c.body}
+      {...rest}
+      annotations={
+        <>
+          {annotations}
+          <SleeveCuffTrim color={c.body === K.white ? K.navy : K.silver} />
+        </>
+      }
+    >
       <FrontArt />
     </PoloShirt>
   );
