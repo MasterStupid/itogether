@@ -135,9 +135,10 @@ function DongDieuCollar({ body, stripe, side }: { body: string; stripe: string; 
         <g>
           {/* Back view: same width as the front leaves, rounded upper band. */}
           <path d="M392,64 Q392,40 420,34 Q500,26 580,34 Q608,40 608,64 L606,84 Q500,102 394,84 Z" fill={collarColor} />
-          {/* Twin tipping follows the exposed lower free edge, 6 mm apart. */}
-          <path d="M400,72 Q500,89 600,72" fill="none" stroke={stripe} strokeWidth="2.5" />
-          <path d="M398,78 Q500,95 602,78" fill="none" stroke={stripe} strokeWidth="2.5" />
+          {/* White / wider navy / white trim follows the free collar edge. */}
+          <path d="M399,73 Q500,90 601,73" fill="none" stroke={K.deep} strokeWidth="10" />
+          <path d="M400,68 Q500,85 600,68" fill="none" stroke={stripe} strokeWidth="4.8" />
+          <path d="M398,78 Q500,95 602,78" fill="none" stroke={stripe} strokeWidth="4.8" />
         </g>
       ) : (
         /* Traced in the 661×627 reference image space, then mapped uniformly:
@@ -153,8 +154,13 @@ function DongDieuCollar({ body, stripe, side }: { body: string; stripe: string; 
           {/* Broad leaves with near-straight sloping lower edges. */}
           <path d="M122,92 L205,28 C206,125 232,240 300,309 L188,348 Q160,225 122,92 Z" fill={collarColor} stroke={edge} strokeWidth="4" />
           <path d="M610,92 L527,28 C524,128 494,240 418,301 L575,344 Q595,225 610,92 Z" fill={collarColor} stroke={edge} strokeWidth="4" />
-          {/* Paired ivory tipping, parallel to the outer leaf edges only. */}
-          <g fill="none" stroke={stripe} strokeWidth="7" strokeLinecap="butt">
+          {/* Wider navy center between the two white collar stripes. */}
+          <g fill="none" stroke={K.deep} strokeWidth="14" strokeLinecap="butt">
+            <path d="M150,71.5 Q177.5,209 211,340" />
+            <path d="M582.5,71.5 Q565,209 547,336.5" />
+          </g>
+          {/* Paired white tipping, parallel to the outer leaf edges only. */}
+          <g fill="none" stroke={stripe} strokeWidth="10.8" strokeLinecap="butt">
             <path d="M140,79 Q168,212 202,343" />
             <path d="M160,64 Q187,206 220,337" />
             <path d="M592,79 Q574,212 556,339" />
@@ -186,12 +192,23 @@ function DongDieuCollar({ body, stripe, side }: { body: string; stripe: string; 
 
 
 
-/** Continuous fine piping, inset just inside each angled sleeve-cuff opening. */
-function SleeveCuffTrim({ color }: { color: string }) {
+/** Matching white / wider navy / white bands, clipped to the sleeve cuffs. */
+function SleeveCuffTrim() {
+  const clipId = `cuff-trim-${useId().replace(/:/g, "")}`;
   return (
-    <g pointerEvents="none" fill="none" stroke={color} strokeWidth={6} strokeLinecap="butt" opacity={0.98}>
-      <path d="M73.5,186.5 L132.5,356.5" />
-      <path d="M926.5,186.5 L867.5,356.5" />
+    <g pointerEvents="none">
+      <defs>
+        <clipPath id={clipId}>
+          <path d="M72,189 L131,359 L153,347 L95,178 Z M928,189 L869,359 L847,347 L905,178 Z" />
+        </clipPath>
+      </defs>
+      <g clipPath={`url(#${clipId})`}>
+        <path d="M72,189 L131,359 L153,347 L95,178 Z M928,189 L869,359 L847,347 L905,178 Z" fill={K.deep} />
+        <g fill="none" stroke={K.white} strokeWidth={6.2} strokeLinecap="butt">
+          <path d="M77,184 L137,357 M90,179 L150,352" />
+          <path d="M923,184 L863,357 M910,179 L850,352" />
+        </g>
+      </g>
     </g>
   );
 }
@@ -210,7 +227,7 @@ function Back({
       annotations={
         <>
           {annotations}
-          <SleeveCuffTrim color={c.body === K.white ? K.navy : K.silver} />
+          <SleeveCuffTrim />
         </>
       }
     >
@@ -236,7 +253,7 @@ function Front({
         <>
           {wideCollar && <NeckLabel color={c.body === K.white ? K.deep : K.white} size={size} />}
           {annotations}
-          <SleeveCuffTrim color={c.body === K.white ? K.navy : K.silver} />
+          <SleeveCuffTrim />
         </>
       }
     >

@@ -27,8 +27,8 @@ description: Rules for the faculty shirt design boards on the canvas (garment fl
   **Why:** người dùng yêu cầu trả lại từ đầy đủ và sau đó sửa yêu cầu dàn ba dòng thành “tôi muốn trên 1 dòng”.
   **How to apply:** giữ tên FIT - HPUni ở dòng riêng trong ngăn trái của tem; không tự chia dòng tên ngành khi cải thiện độ dễ đọc.
 - Viền trang trí Đồng Điệu nằm ở bo cửa tay áo và mép cổ polo, không phải khung quanh artwork lưng.
-  **Why:** người dùng đính chính “không ý tôi viền ở cổ tay áo”, sau đó yêu cầu “thêm ở cổ nữa”.
-  **How to apply:** giữ artwork lưng không có khung; đồng bộ viền cổ và bo tay.
+  **Why:** người dùng đính chính “không ý tôi viền ở cổ tay áo”, sau đó yêu cầu “thêm ở cổ nữa”; yêu cầu mới là hai viền trắng kẹp một viền xanh ở giữa hơi to hơn.
+  **How to apply:** giữ artwork lưng không có khung; đồng bộ cổ và bo tay theo trắng–xanh–trắng, dải xanh giữa rộng hơn mỗi sọc trắng.
 - Yêu cầu xóa viền đen đè cổ Đồng Điệu áp dụng cho toàn bộ nét thân áo chồng lên cổ, kể cả hai đầu sát vai, không chỉ cung giữa.
   **Why:** người dùng nhắc “Bạn chưa xóa hết ở viền cổ áo kìa” sau lần chỉ bỏ cung giữa.
   **How to apply:** kiểm tra cả mặt trước và sau; không để viền thân áo vẽ đè lên cổ, nhưng giữ sọc trắng và tem nhãn.
