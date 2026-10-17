@@ -133,51 +133,50 @@ function DongDieuCollar({ body, stripe, side }: { body: string; stripe: string; 
     <g pointerEvents="none" strokeLinejoin="round">
       {side === "back" ? (
         <g>
-          {/* Back view: same width as the front leaves, rounded upper band. */}
-          <path d="M392,64 Q392,40 420,34 Q500,26 580,34 Q608,40 608,64 L606,84 Q500,102 394,84 Z" fill={collarColor} stroke={edge} strokeWidth="2" />
-          {/* Interior construction seams stay up by the attachment edge. */}
-          <path d="M404,49 Q500,40 596,49" fill="none" stroke={edge} strokeWidth="1.7" />
-          <path d="M402,57 Q500,48 598,57" fill="none" stroke={edge} strokeWidth="1.7" />
+          {/* Back view: soft folded band whose top edge dips gently at centre back. */}
+          <path d="M392,64 C394,46 404,38 420,37 Q500,48 580,37 C596,38 606,46 608,64 L606,86 Q500,104 394,86 Z" fill={collarColor} stroke={edge} strokeWidth="2" />
+          {/* Fold line near the attachment edge. */}
+          <path d="M404,51 Q500,60 596,51" fill="none" stroke={edge} strokeWidth="1.5" opacity="0.8" />
           {/* Twin tipping follows the exposed lower free edge, 6 mm apart. */}
-          <path d="M400,72 Q500,89 600,72" fill="none" stroke={stripe} strokeWidth="2.5" />
-          <path d="M398,78 Q500,95 602,78" fill="none" stroke={stripe} strokeWidth="2.5" />
+          <path d="M398,74 Q500,92 602,74" fill="none" stroke={stripe} strokeWidth="2.5" />
+          <path d="M396,80 Q500,98 604,80" fill="none" stroke={stripe} strokeWidth="2.5" />
         </g>
       ) : (
-        /* Traced in the 661×627 reference image space, then mapped uniformly:
-           garment = translate(335.75, 24.6) · scale(0.45) · reference. */
-        <g transform="translate(335.75 24.6) scale(0.45)">
-          {/* Long dark placket base. */}
-          <path d="M330,300 L408,300 L408,598 L330,598 Z" fill={placket} stroke={edge} strokeWidth="3.5" />
-          {/* Rounded upper back band and its interior rib strip. */}
-          <path d="M200,98 L200,42 Q200,14 230,13 L500,13 Q530,14 530,42 L530,98 Z" fill={collarColor} stroke={edge} strokeWidth="4" />
-          <path d="M212,90 Q365,99 518,90 L518,104 Q365,114 212,104 Z" fill={bandRib} stroke={edge} strokeWidth="3" />
-          {/* Deep U interior opening. */}
-          <path d="M212,104 Q365,114 518,104 C510,185 470,262 418,302 L300,309 C252,258 216,180 212,104 Z" fill={opening} stroke={edge} strokeWidth="3.5" />
-          {/* Broad leaves with near-straight sloping lower edges. */}
-          <path d="M122,92 L205,28 C206,125 232,240 300,309 L188,348 Q160,225 122,92 Z" fill={collarColor} stroke={edge} strokeWidth="4" />
-          <path d="M610,92 L527,28 C524,128 494,240 418,301 L575,344 Q595,225 610,92 Z" fill={collarColor} stroke={edge} strokeWidth="4" />
-          {/* Paired ivory tipping, parallel to the outer leaf edges only. */}
-          <g fill="none" stroke={stripe} strokeWidth="7" strokeLinecap="butt">
-            <path d="M140,79 Q168,212 202,343" />
-            <path d="M160,64 Q187,206 220,337" />
-            <path d="M592,79 Q574,212 556,339" />
-            <path d="M573,64 Q556,206 538,334" />
+        <g>
+          {/* Slim placket, sitting beneath the point where the leaves meet. */}
+          <path d="M484,170 L516,170 L516,284 L484,284 Z" fill={placket} stroke={edge} strokeWidth="1.6" />
+          <path d="M511,186 V279" fill="none" stroke={stripe} strokeOpacity="0.32" strokeWidth="0.9" strokeDasharray="3.6 2.7" />
+          {/* Upper band: soft curve dipping at centre, no squared stand. */}
+          <path d="M392,64 C394,46 404,38 420,37 Q500,48 580,37 C596,38 606,46 608,64 L580,68 Q500,80 420,68 Z" fill={collarColor} stroke={edge} strokeWidth="1.8" />
+          {/* Inner neckline: curved sides tapering to a central V at the placket. */}
+          <path d="M420,66 Q500,80 580,66 C578,104 552,144 500,180 C448,144 422,104 420,66 Z" fill={opening} stroke={edge} strokeWidth="1.6" />
+          <path d="M424,72 Q500,86 576,72" fill="none" stroke={edge} strokeOpacity="0.45" strokeWidth="1.2" />
+          {/* Broad folded leaves, tapering inward to meet over the placket. */}
+          <path d="M390,62 C386,100 392,138 403,168 Q452,178 498,186 C446,148 422,106 420,66 C410,60 400,58 390,62 Z" fill={collarColor} stroke={edge} strokeWidth="1.8" />
+          <path d="M610,62 C614,100 608,138 597,168 Q548,178 502,186 C554,148 578,106 580,66 C590,60 600,58 610,62 Z" fill={collarColor} stroke={edge} strokeWidth="1.8" />
+          {/* Soft roll shading along the fold of each leaf. */}
+          <path d="M420,66 C422,106 446,148 498,186" fill="none" stroke="#000" strokeOpacity="0.22" strokeWidth="2.2" />
+          <path d="M580,66 C578,106 554,148 502,186" fill="none" stroke="#000" strokeOpacity="0.22" strokeWidth="2.2" />
+          {/* Double white tipping tracks the natural outer edges. */}
+          <g fill="none" stroke={stripe} strokeWidth="2.5" strokeLinecap="butt">
+            <path d="M396,61 C392,99 398,137 408,168" />
+            <path d="M402,60 C398,98 404,136 414,169" />
+            <path d="M604,61 C608,99 602,137 592,168" />
+            <path d="M598,60 C602,98 596,136 586,169" />
           </g>
-          {/* Cream underlap, top X button, and the diagonal dark overlap flap. */}
-          <path d="M300,309 L356,305 L362,330 Q340,382 333,470 Q316,425 305,392 Z" fill={stripe} stroke={edge} strokeWidth="3" />
-          <circle cx="338" cy="332" r="12" fill={stripe} stroke={edge} strokeWidth="3" />
-          <path d="M332,326 L344,338 M344,326 L332,338" stroke={edge} strokeWidth="2.6" strokeLinecap="round" />
-          <path d="M418,301 Q394,322 362,342 Q340,382 333,470 L333,598 L408,598 L408,330 Q410,313 418,301 Z" fill={placket} stroke={edge} strokeWidth="3.5" />
-          <path d="M398,338 L398,582 M343,474 L343,582" fill="none" stroke={stripe} strokeOpacity="0.35" strokeWidth="2" strokeDasharray="8 6" />
-          {/* Lower four-hole button and ivory end bar. */}
-          <circle cx="366" cy="462" r="11.5" fill={stripe} stroke={edge} strokeWidth="2.5" />
-          <g fill={placket}>
-            <circle cx="362" cy="458" r="1.8" />
-            <circle cx="370" cy="458" r="1.8" />
-            <circle cx="362" cy="466" r="1.8" />
-            <circle cx="370" cy="466" r="1.8" />
-          </g>
-          <path d="M330,584 L408,584 L408,598 L330,598 Z" fill={stripe} stroke={edge} strokeWidth="2.5" />
+          {/* Buttons and ivory end bar. */}
+          {[204, 244].map((y) => (
+            <g key={y}>
+              <circle cx="500" cy={y} r="5.2" fill={stripe} stroke={edge} strokeWidth="1.1" />
+              <g fill={placket}>
+                <circle cx="498.3" cy={y - 1.7} r="0.8" />
+                <circle cx="501.7" cy={y - 1.7} r="0.8" />
+                <circle cx="498.3" cy={y + 1.7} r="0.8" />
+                <circle cx="501.7" cy={y + 1.7} r="0.8" />
+              </g>
+            </g>
+          ))}
+          <path d="M484,278 H516 V284 H484 Z" fill={stripe} stroke={edge} strokeWidth="1.1" />
         </g>
       )}
     </g>
