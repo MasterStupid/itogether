@@ -217,12 +217,21 @@ function DongDieuCollar({ body, stripe, side }: { body: string; stripe: string; 
 
 /** Equal outer/middle bands widened 20%; the inner band's width stays unchanged. */
 function SleeveCuffTrim({ body }: { body: string }) {
+  const clipId = `cuff-edge-${useId().replace(/:/g, "")}`;
   const outer = body === K.white ? K.deep : K.white;
   const middle = body === K.white ? K.white : K.deep;
   return (
     <g pointerEvents="none" stroke="none">
-      <path d="M72,189 L131,359 L155.2,345.8 L97.3,176.9 Z M928,189 L869,359 L844.8,345.8 L902.7,176.9 Z" fill={outer} />
-      <path d="M78.9,185.7 L137.6,355.4 L144.2,351.8 L85.8,182.4 Z M921.1,185.7 L862.4,355.4 L855.8,351.8 L914.2,182.4 Z" fill={middle} />
+      <defs>
+        <clipPath id={clipId}>
+          <path d="M262,100 Q165,138 72,189 L131,359 Q180,331 230,300 L770,300 Q820,331 869,359 L928,189 Q835,138 738,100 Z" />
+        </clipPath>
+      </defs>
+      {/* Overshoot the curved sleeve edge, then clip flush to it without a dark gap. */}
+      <g clipPath={`url(#${clipId})`}>
+        <path d="M68.53,179 L131,359 L155.2,345.8 L93.87,166.9 Z M931.47,179 L869,359 L844.8,345.8 L906.13,166.9 Z" fill={outer} />
+        <path d="M75.44,175.7 L137.6,355.4 L144.2,351.8 L82.35,172.4 Z M924.56,175.7 L862.4,355.4 L855.8,351.8 L917.65,172.4 Z" fill={middle} />
+      </g>
     </g>
   );
 }

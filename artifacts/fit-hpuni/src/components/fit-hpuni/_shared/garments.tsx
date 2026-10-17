@@ -398,7 +398,7 @@ function GarmentSvg({
         {outlineCutout && (
           <mask id={`${uid}-outline`} maskUnits="userSpaceOnUse" x="0" y="0" width={GARMENT_W} height={GARMENT_H}>
             <rect width={GARMENT_W} height={GARMENT_H} fill="white" />
-            <path d={outlineCutout} fill="black" stroke="black" strokeWidth="3" strokeLinejoin="round" />
+            <path d={outlineCutout} fill="black" stroke="black" strokeWidth="8" strokeLinejoin="round" />
           </mask>
         )}
         <clipPath id={ids.clip}>

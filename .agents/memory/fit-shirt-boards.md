@@ -33,7 +33,7 @@ description: Rules for the faculty shirt design boards on the canvas (garment fl
   **Why:** người dùng chỉ ra sọc mặt sau vẫn dừng ngắn trước mép sau khi yêu cầu hoàn thiện sọc cổ.
   **How to apply:** giữ độ dày và độ cong đã duyệt; không để khoảng hở ở đầu sọc, cũng không cho sọc tràn ra ngoài cổ.
 - Bo tay Đồng Điệu từ ngoài vào trong: áo xanh than là trắng–xanh than bằng nhau, rồi trắng dày hơn; áo trắng đảo màu. Không có đường nhỏ dư ở ngoài cùng.
-  **Why:** người dùng nói lại thiết kế sau khi thấy đường nhỏ ngoài cùng không mong muốn, sau đó xác nhận đúng và yêu cầu tăng nhẹ hai dải nhỏ, giữ nguyên dải lớn.
+  **Why:** người dùng nói lại thiết kế sau khi thấy đường nhỏ ngoài cùng không mong muốn, sau đó xác nhận đúng và yêu cầu tăng nhẹ hai dải nhỏ, giữ nguyên dải lớn. Người dùng nhắc sửa nốt cả nét đen rất mảnh còn sót ở mép trên bo tay.
   **How to apply:** các dải liền nhau bắt đầu ngay mép tay; giữ thứ tự trên cả hai tay, cả mặt trước lẫn mặt sau. Khi tăng hai dải nhỏ, không thu hẹp dải lớn để bù. Không để nét viền thân áo chạy ngang hai đầu bo tay và đè lên các dải trắng.
 - Yêu cầu xóa viền đen đè cổ Đồng Điệu áp dụng cho toàn bộ nét thân áo chồng lên cổ, kể cả hai đầu sát vai, không chỉ cung giữa.
   **Why:** người dùng nhắc “Bạn chưa xóa hết ở viền cổ áo kìa” sau lần chỉ bỏ cung giữa.
