@@ -134,10 +134,7 @@ function DongDieuCollar({ body, stripe, side }: { body: string; stripe: string; 
       {side === "back" ? (
         <g>
           {/* Back view: same width as the front leaves, rounded upper band. */}
-          <path d="M392,64 Q392,40 420,34 Q500,26 580,34 Q608,40 608,64 L606,84 Q500,102 394,84 Z" fill={collarColor} stroke={edge} strokeWidth="2" />
-          {/* Interior construction seams stay up by the attachment edge. */}
-          <path d="M404,49 Q500,40 596,49" fill="none" stroke={edge} strokeWidth="1.7" />
-          <path d="M402,57 Q500,48 598,57" fill="none" stroke={edge} strokeWidth="1.7" />
+          <path d="M392,64 Q392,40 420,34 Q500,26 580,34 Q608,40 608,64 L606,84 Q500,102 394,84 Z" fill={collarColor} />
           {/* Twin tipping follows the exposed lower free edge, 6 mm apart. */}
           <path d="M400,72 Q500,89 600,72" fill="none" stroke={stripe} strokeWidth="2.5" />
           <path d="M398,78 Q500,95 602,78" fill="none" stroke={stripe} strokeWidth="2.5" />
