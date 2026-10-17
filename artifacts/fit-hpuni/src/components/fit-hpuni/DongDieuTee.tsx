@@ -181,17 +181,17 @@ function DongDieuCollar({ body, stripe, side }: { body: string; stripe: string; 
 
 
 
-/** Continuous fine piping, inset just inside each angled sleeve-cuff opening. */
+/** White outer edge, navy separator and inner white stripe on each cuff. */
 function SleeveCuffTrim() {
   return (
     <g pointerEvents="none">
       <path d="M72,189 L131,359 L153,347 L95,178 Z" fill={K.deep} />
       <path d="M928,189 L869,359 L847,347 L905,178 Z" fill={K.deep} />
       <g fill="none" stroke={K.white} strokeWidth={4.5} strokeLinecap="butt">
-        <path d="M78,186 L137,356" />
-        <path d="M86,182 L145,352" />
-        <path d="M922,186 L863,356" />
-        <path d="M914,182 L855,352" />
+        <path d="M74.2,187.95 L133.2,357.8" />
+        <path d="M82.2,184.1 L141.2,353.4" />
+        <path d="M925.8,187.95 L866.8,357.8" />
+        <path d="M917.8,184.1 L858.8,353.4" />
       </g>
     </g>
   );
