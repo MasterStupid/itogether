@@ -1,9 +1,9 @@
 import { useId, type ComponentProps, type ReactNode } from "react";
 import { BRAND, PALETTE } from "./_shared/brand";
-import { FitLogo, TeeShirt } from "./_shared/garments";
+import { FitLogo, PoloShirt } from "./_shared/garments";
 
 /* ==================================================================
-   Đồng Điệu · áo thun mặc hằng ngày (board label only — never printed)
+   Đồng Điệu · áo polo mặc hằng ngày (board label only — never printed)
    One focal motif: the faculty slogan set as a two-voice dialogue —
    the student's "You can do IT," answered by the faculty's promise.
    1 SVG unit = 1 mm on size L. All callouts read from the constants below.
@@ -144,19 +144,19 @@ const NAVY: Ink = { body: K.deep, ink: K.white, ink2: K.silver };
 const WHITE: Ink = { body: K.white, ink: K.deep, ink2: K.navy };
 const PAD = { top: 4, right: 6, bottom: 8, left: 6 };
 
-function Back({ c = NAVY, ...rest }: { c?: Ink } & Omit<ComponentProps<typeof TeeShirt>, "body">) {
+function Back({ c = NAVY, ...rest }: { c?: Ink } & Omit<ComponentProps<typeof PoloShirt>, "body">) {
   return (
-    <TeeShirt side="back" body={c.body} {...rest}>
+    <PoloShirt side="back" body={c.body} {...rest}>
       <BackArt {...c} />
-    </TeeShirt>
+    </PoloShirt>
   );
 }
 
-function Front({ c = NAVY, ...rest }: { c?: Ink } & Omit<ComponentProps<typeof TeeShirt>, "body">) {
+function Front({ c = NAVY, ...rest }: { c?: Ink } & Omit<ComponentProps<typeof PoloShirt>, "body">) {
   return (
-    <TeeShirt side="front" body={c.body} {...rest}>
+    <PoloShirt side="front" body={c.body} {...rest}>
       <FrontArt />
-    </TeeShirt>
+    </PoloShirt>
   );
 }
 
@@ -262,7 +262,7 @@ export function DongDieuTee() {
             dark
             kicker="Chữ là hình"
             title="Chữ IT để trống, lộ màu vải"
-            note="Khối mực đặc, riêng chữ IT không in — điểm nhìn mạnh nhất áo, vải vẫn mềm và thoáng."
+            note="Khối mực đặc, riêng chữ IT không in — điểm nhìn mạnh nhất áo, vải pique vẫn mềm và thoáng."
           >
             <Back crop={{ x: 255, y: 148, w: 490, h: 214 }} style={{ width: "100%", height: "100%" }} />
           </Highlight>
@@ -278,7 +278,7 @@ export function DongDieuTee() {
             n="03"
             kicker="Tem nhãn trong cổ"
             title="FIT - HPUni · Size L"
-            note="Ảnh phóng lớn nhãn cổ: FIT - HPUni, Information Technology và size L."
+            note="Nhãn in gọn bên trong cổ áo polo: FIT - HPUni, Information Technology và size L."
           >
             <Front
               crop={{ x: 450, y: 70, w: 100, h: 40 }}
@@ -290,7 +290,7 @@ export function DongDieuTee() {
             n="04"
             kicker="Hai màu áo"
             title="Xanh than và trắng"
-            note="Cùng một câu khẩu hiệu, đổi sắc độ theo nền vải. Cotton 100%, phom rộng vừa, nhãn in trong cổ."
+            note="Cùng một câu khẩu hiệu, đổi sắc độ theo nền vải. Pique cotton 100%, cổ bẻ, nẹp ba nút và bo tay dệt."
           >
             <div className="flex h-full items-center justify-center gap-1 px-3">
               <Back c={NAVY} pad={14} style={{ width: "50%", height: "92%" }} />
