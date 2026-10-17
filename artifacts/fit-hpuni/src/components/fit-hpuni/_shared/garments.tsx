@@ -611,6 +611,8 @@ export interface PoloProps extends GarmentCommon {
   placketInner?: string;
   buttons?: string;
   buttonCount?: 2 | 3;
+  /** Optional replacement for the standard collar/placket construction. */
+  collarOverlay?: React.ReactNode;
 }
 
 export function PoloShirt({
@@ -623,6 +625,7 @@ export function PoloShirt({
   placketInner,
   buttons,
   buttonCount = 3,
+  collarOverlay,
   stitch,
   children,
   annotations,
@@ -671,7 +674,7 @@ export function PoloShirt({
       <Tipped shape={POLO.cuffL} edge={POLO.cuffEdgeL} base={cuffC} stripes={tipping} outline={cuffOutline} />
       <Tipped shape={POLO.cuffR} edge={POLO.cuffEdgeR} base={cuffC} stripes={tipping} outline={cuffOutline} />
 
-      {side === "front" ? (
+      {collarOverlay ? collarOverlay : side === "front" ? (
         <g>
           <path d={POLO.placket} fill={placketC} stroke={placketOutline} strokeWidth={1.4} />
           {placketInner && <path d={POLO.placketInner} fill={placketInner} />}

@@ -17,12 +17,12 @@ description: Rules for the faculty shirt design boards on the canvas (garment fl
 - For the Đồng Điệu direction, omit city symbols and focus on the faculty slogan: “You can do IT, we are ready to accompany”.
   **Why:** the user explicitly redirected this selected design away from city imagery.
   **How to apply:** keep future refinements of this direction slogan-led; this does not require changing the other concept boards.
-- Với cổ polo Đồng Điệu, vẽ cổ rộng hơn để chứa tem, không thu nhỏ tem để tránh chồng lấn.
-  **Why:** người dùng sửa lại hướng xử lý: “tôi muốn vẽ lại cổ cho rộng ra thay vì chỉnh nhỏ tem”.
-  **How to apply:** giữ tem dễ đọc và điều chỉnh hình học cổ khi xử lý khoảng trống quanh tem.
+- Cổ polo Đồng Điệu theo ảnh tham chiếu: lá cổ gọn với hai sọc sáng, cổ mở tròn và nẹp nút lót sáng; tem chữ nhật chia ngăn, tên ngành bên trái và size lớn bên phải.
+  **Why:** người dùng yêu cầu “tôi muốn thiết kế cổ theo hình này” với hai ảnh, thay thế hướng cổ rộng và tem ba dòng trước đó.
+  **How to apply:** ưu tiên ảnh tham chiếu mới khi chỉnh cổ và tem; không tự thêm họa tiết tay áo trong ảnh vào thiết kế.
 - Tem cổ Đồng Điệu phải giữ đầy đủ “INFORMATION TECHNOLOGY” trên một dòng, không viết tắt và không tách hai từ thành hai dòng.
   **Why:** người dùng yêu cầu trả lại từ đầy đủ và sau đó sửa yêu cầu dàn ba dòng thành “tôi muốn trên 1 dòng”.
-  **How to apply:** giữ tên FIT - HPUni ở dòng riêng; không tự chia dòng tên ngành khi cải thiện độ dễ đọc.
+  **How to apply:** giữ tên FIT - HPUni ở dòng riêng trong ngăn trái của tem; không tự chia dòng tên ngành khi cải thiện độ dễ đọc.
 - Viền trang trí Đồng Điệu nằm ở bo cửa tay áo và mép cổ polo, không phải khung quanh artwork lưng.
   **Why:** người dùng đính chính “không ý tôi viền ở cổ tay áo”, sau đó yêu cầu “thêm ở cổ nữa”.
   **How to apply:** giữ artwork lưng không có khung; đồng bộ viền cổ và bo tay.

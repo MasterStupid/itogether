@@ -16,7 +16,6 @@ const K = {
 const SANS = "'Be Vietnam Pro', sans-serif";
 const MONO = "'JetBrains Mono', monospace";
 const PAD = { top: 4, right: 6, bottom: 8, left: 6 };
-const LABEL = { x: 466, y: 70, w: 68, h: 25 };
 const ART = { x: 360, right: 640 };
 const ART_W = ART.right - ART.x;
 const BLOCK = { x: 360, y: 222, w: 220, h: 130 };
@@ -100,40 +99,63 @@ function FrontArt() {
   return <FitLogo cx={598} cy={238} d={90} />;
 }
 
-/** Tagless neck print, visible inside the back neck in front views. */
+/** A compact, rib-knit tipped collar and the matching two-compartment neck label. */
 function NeckLabel({ color, size }: { color: string; size: Size }) {
   return (
-    <g fontFamily={SANS}>
-      {/* Broaden the collar leaves around the full-width neck label. These
-          overlay paths stay local to this concept and do not alter shared flats. */}
-      <path d="M390,58 Q500,18 610,58 L575,73 Q500,49 425,73 Z" fill="#20354B" stroke="#142638" strokeWidth="1.7" />
-      <path d="M420,65 Q500,43 580,65 Q570,73 560,81 Q540,94 524,110 L500,142 L476,110 Q460,94 440,81 Q430,73 420,65 Z" fill="#111D2A" />
-      <path d="M390,58 C363,72 350,96 365,122 L420,180 L488,108 C479,93 465,82 448,75 C438,71 428,67 420,65 Z" fill="#20354B" stroke="#142638" strokeWidth="1.8" />
-      <path d="M610,58 C637,72 650,96 635,122 L580,180 L512,108 C521,93 535,82 552,75 C562,71 572,67 580,65 Z" fill="#20354B" stroke="#142638" strokeWidth="1.8" />
-      <path d="M488,108 C479,93 465,82 448,75 C438,71 428,67 420,65" fill="none" stroke="#101A26" strokeWidth="2.1" />
-      <path d="M512,108 C521,93 535,82 552,75 C562,71 572,67 580,65" fill="none" stroke="#101A26" strokeWidth="2.1" />
-      <g fill={color} opacity={0.94}>
-      <rect
-        x={LABEL.x}
-        y={LABEL.y}
-        width={LABEL.w}
-        height={LABEL.h}
-        rx={1.8}
-        fill="none"
-        stroke={color}
-        strokeWidth={0.55}
-        opacity={0.62}
-      />
-      <text x={500} y={LABEL.y + 7.5} textAnchor="middle" fontSize={4.4} fontWeight={800} textLength={46} lengthAdjust="spacingAndGlyphs" letterSpacing={0.12}>
+    <g fontFamily={SANS} fill={color}>
+      <rect x="452" y="69" width="96" height="25" rx="1.4" fill="none" stroke={color} strokeWidth="1.25" />
+      <path d="M521,69 V94" fill="none" stroke={color} strokeWidth="1.1" />
+      <text x="486" y="79.2" textAnchor="middle" fontSize="5.3" fontWeight="800" textLength="50" lengthAdjust="spacingAndGlyphs">
         FIT - HPUni
       </text>
-      <text x={500} y={LABEL.y + 16.5} textAnchor="middle" fontSize={2.8} fontWeight={600} textLength={62} lengthAdjust="spacingAndGlyphs" letterSpacing={0.08}>
+      <text x="486" y="88.2" textAnchor="middle" fontSize="3.25" fontWeight="700" textLength="64" lengthAdjust="spacingAndGlyphs">
         INFORMATION TECHNOLOGY
       </text>
-      <text x={500} y={LABEL.y + 23.5} textAnchor="middle" fontSize={4.6} fontWeight={800} textLength={18} lengthAdjust="spacingAndGlyphs" letterSpacing={0.2}>
-        SIZE {size}
-      </text>
-      </g>
+      <text x="534.5" y="86.3" textAnchor="middle" fontSize="12.2" fontWeight="800">{size}</text>
+    </g>
+  );
+}
+
+/**
+ * This design uses a compact tipped knit collar rather than the shared
+ * standard collar. It is passed into the optional replacement hook on this
+ * board only, leaving every other garment's construction untouched.
+ */
+function DongDieuCollar({ body, stripe, side }: { body: string; stripe: string; side: "front" | "back" }) {
+  return (
+    <g pointerEvents="none">
+      {side === "back" ? (
+        <g>
+          <path d="M414,43 Q500,19 586,43 L597,105 Q500,127 403,105 Z" fill={body} stroke={body === K.white ? "#b8c4d0" : "#142638"} strokeWidth="1.8" />
+          <path d="M414,43 Q500,19 586,43" fill="none" stroke={stripe} strokeWidth="2.2" />
+          <path d="M418,49 Q500,27 582,49" fill="none" stroke={stripe} strokeWidth="2.2" />
+          <path d="M403,105 Q500,127 597,105" fill="none" stroke={body === K.white ? "#aebbc7" : "#142638"} strokeWidth="1.7" />
+        </g>
+      ) : (
+        <g>
+          {/* The inset is a rounded U, open into a long dark placket. */}
+          <path d="M425,59 Q500,34 575,59 C557,68 544,79 533,93 L516,119 H484 L467,93 C456,79 443,68 425,59 Z" fill={body === K.white ? "#d8dce0" : "#162638"} />
+          {/* Deep, narrow leaves: tall sides taper down toward the placket. */}
+          <path d="M414,41 C398,50 388,68 389,86 C390,104 408,131 428,155 L466,177 L490,112 C476,96 462,82 447,70 C433,59 422,48 414,41 Z" fill={body} stroke={body === K.white ? "#aebbc7" : "#142638"} strokeWidth="1.7" strokeLinejoin="round" />
+          <path d="M586,41 C602,50 612,68 611,86 C610,104 592,131 572,155 L534,177 L510,112 C524,96 538,82 553,70 C567,59 578,48 586,41 Z" fill={body} stroke={body === K.white ? "#aebbc7" : "#142638"} strokeWidth="1.7" strokeLinejoin="round" />
+          {/* Parallel tipping follows only the outside run of each leaf. */}
+          <path d="M414,42 C400,51 392,68 393,85 C394,101 411,127 430,151" fill="none" stroke={stripe} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M420,48 C407,56 399,70 400,85 C402,99 417,122 435,146" fill="none" stroke={stripe} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M586,42 C600,51 608,68 607,85 C606,101 589,127 570,151" fill="none" stroke={stripe} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M580,48 C593,56 601,70 600,85 C598,99 583,122 565,146" fill="none" stroke={stripe} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+          {/* Offset ivory facing at the opening; dark placket continues below it. */}
+          <path d="M483,107 L518,107 L520,260 L480,260 Z" fill={body === K.white ? "#d8dce0" : "#162638"} stroke={body === K.white ? "#9aa9b8" : "#0e1a27"} strokeWidth="1.5" />
+          <path d="M500,103 L521,110 L521,146 L500,146 Z" fill={stripe} />
+          <path d="M500,146 H520 V254 H500 Z" fill={body} />
+          {[121, 153, 185].map((y) => (
+            <g key={y}>
+              <circle cx="509" cy={y} r="3.7" fill={body === K.white ? "#d8dce0" : "#162638"} stroke={stripe} strokeWidth="1.2" />
+              <circle cx="508" cy={y} r="0.7" fill={stripe} />
+            </g>
+          ))}
+          <path d="M480,254 H520 V261 H480 Z" fill={stripe} />
+        </g>
+      )}
     </g>
   );
 }
@@ -153,40 +175,6 @@ function SleeveCuffTrim({ color }: { color: string }) {
   );
 }
 
-/** Matching contrast piping along the visible edge of the polo collar. */
-function CollarTrim({
-  color,
-  side,
-  wideFront = false,
-}: {
-  color: string;
-  side: "front" | "back";
-  wideFront?: boolean;
-}) {
-  if (side === "back") {
-    return (
-      <g pointerEvents="none" fill="none" stroke={color} strokeWidth={5} strokeLinecap="round" opacity={0.96}>
-        <path d="M388,104 Q500,120 612,104" />
-      </g>
-    );
-  }
-  return (
-    <g pointerEvents="none" fill="none" stroke={color} strokeWidth={5} strokeLinecap="round" strokeLinejoin="round" opacity={0.96}>
-      {wideFront ? (
-        <>
-          <path d="M365,122 L420,180 L488,108" />
-          <path d="M635,122 L580,180 L512,108" />
-        </>
-      ) : (
-        <>
-          <path d="M406,58 C390,68 380,86 386,104 L432,168 L446,187" />
-          <path d="M594,58 C610,68 620,86 614,104 L568,168 L554,187" />
-        </>
-      )}
-    </g>
-  );
-}
-
 function Back({
   colorway: c,
   annotations,
@@ -196,12 +184,12 @@ function Back({
     <PoloShirt
       side="back"
       body={c.body}
+      collarOverlay={<DongDieuCollar body={c.body} stripe={c.body === K.white ? K.navy : K.white} side="back" />}
       {...rest}
       annotations={
         <>
           {annotations}
           <SleeveCuffTrim color={c.body === K.white ? K.navy : K.silver} />
-          <CollarTrim side="back" color={c.body === K.white ? K.navy : K.silver} />
         </>
       }
     >
@@ -221,13 +209,13 @@ function Front({
     <PoloShirt
       side="front"
       body={c.body}
+      collarOverlay={<DongDieuCollar body={c.body} stripe={c.body === K.white ? K.navy : K.white} side="front" />}
       {...rest}
       annotations={
         <>
           {wideCollar && <NeckLabel color={c.body === K.white ? K.deep : K.white} size={size} />}
           {annotations}
           <SleeveCuffTrim color={c.body === K.white ? K.navy : K.silver} />
-          <CollarTrim side="front" wideFront={wideCollar} color={c.body === K.white ? K.navy : K.silver} />
         </>
       }
     >
@@ -264,7 +252,7 @@ function PreviewArt({ preview, colorway, size, large = false }: { preview: Previ
   if (preview === "back") return <Back colorway={colorway} pad={PAD} style={detailStyle} title="Áo FIT-HPUni, mặt sau" />;
   if (preview === "detail-1") return <Back colorway={colorway} crop={{ x: 255, y: 148, w: 490, h: 214 }} style={detailStyle} title="Cận cảnh chữ IT để trống, lộ màu vải" />;
   if (preview === "detail-2") return <Back colorway={colorway} crop={{ x: 320, y: 356, w: 350, h: 192 }} style={detailStyle} title="Cận cảnh câu slogan phía sau" />;
-  if (preview === "detail-3") return <Front colorway={colorway} size={size} crop={large ? { x: 442, y: 57, w: 116, h: 50 } : { x: 450, y: 70, w: 100, h: 40 }} style={detailStyle} title="Nhãn cổ FIT-HPUni" />;
+  if (preview === "detail-3") return <Front colorway={colorway} size={size} crop={large ? { x: 442, y: 62, w: 116, h: 42 } : { x: 446, y: 64, w: 108, h: 36 }} style={detailStyle} title="Cận cảnh nhãn trong cổ FIT-HPUni" />;
   return <Front colorway={colorway} size={size} crop={{ x: 170, y: 30, w: 660, h: 730 }} style={detailStyle} title={`Màu áo ${colorway.body === K.deep ? "xanh than" : "trắng"}`} />;
 }
 
@@ -404,7 +392,7 @@ export function DongDieuTee() {
           <DetailCard number="02" kicker="Hai giọng nói" title="Bạn nói, Khoa đáp lời" note="“You can do IT,” đậm; “we are ready to accompany” xám bạc." onClick={detailTrigger("detail-2")} testId="card-detail-2">
             <PreviewArt preview="detail-2" colorway={colorway} size={size} />
           </DetailCard>
-          <DetailCard number="03" kicker="Tem nhãn trong cổ" title={`FIT - HPUni · Size ${size}`} note={`Tem cổ ba dòng: FIT - HPUni, INFORMATION TECHNOLOGY và SIZE ${size} được nhấn lớn bên dưới.`} onClick={detailTrigger("detail-3")} testId="card-detail-3">
+          <DetailCard number="03" kicker="Tem nhãn trong cổ" title={`Nhãn FIT-HPUni · Cỡ ${size}`} note={`Nhãn viền chữ nhật chia ngăn: FIT - HPUni, Information Technology và chữ cỡ ${size}.`} onClick={detailTrigger("detail-3")} testId="card-detail-3">
             <PreviewArt preview="detail-3" colorway={colorway} size={size} />
           </DetailCard>
           <DetailCard number="04" kicker="Màu áo" title="Polo xanh than và trắng" note="Cùng mẫu polo xanh than và trắng, viền tương phản đồng bộ ở cổ bẻ và bo tay." onClick={detailTrigger("detail-4")} testId="card-detail-4">
