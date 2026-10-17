@@ -208,14 +208,14 @@ function DongDieuCollar({ body, stripe, side }: { body: string; stripe: string; 
 
 
 
-/** Edge-to-edge cuff bands: equal outer/middle widths, double-width inner band. */
+/** Equal outer/middle bands widened 20%; the inner band's width stays unchanged. */
 function SleeveCuffTrim({ body }: { body: string }) {
   const outer = body === K.white ? K.deep : K.white;
   const middle = body === K.white ? K.white : K.deep;
   return (
     <g pointerEvents="none" stroke="none">
-      <path d="M72,189 L131,359 L153,347 L95,178 Z M928,189 L869,359 L847,347 L905,178 Z" fill={outer} />
-      <path d="M77.75,186.25 L136.5,356 L142,353 L83.5,183.5 Z M922.25,186.25 L863.5,356 L858,353 L916.5,183.5 Z" fill={middle} />
+      <path d="M72,189 L131,359 L155.2,345.8 L97.3,176.9 Z M928,189 L869,359 L844.8,345.8 L902.7,176.9 Z" fill={outer} />
+      <path d="M78.9,185.7 L137.6,355.4 L144.2,351.8 L85.8,182.4 Z M921.1,185.7 L862.4,355.4 L855.8,351.8 L914.2,182.4 Z" fill={middle} />
     </g>
   );
 }
