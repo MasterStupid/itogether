@@ -29,9 +29,8 @@ const ART = { x: 360, top: 170, right: 640, bottom: 570 };
 const ART_W = ART.right - ART.x; // 280
 const ART_H = ART.bottom - ART.top; // 342 — within the 300 × 400 mm back-print limit
 const HPS_Y = 60;
-// A compact 42 mm neck mark sits in the clear central opening of the polo;
-// the former wide label crossed both collar leaves and looked pasted on top.
-const LABEL = { x: 479, y: 72, w: 42, h: 17 };
+// The label keeps its original, readable width; the collar is widened around it.
+const LABEL = { x: 466, y: 70, w: 68, h: 25 };
 /* the "IT" block: solid ink, letters left open so the fabric shows through */
 const BLOCK = { x: 360, y: 222, w: 220, h: 130 };
 const IT_SIZE = 140;
@@ -114,8 +113,16 @@ function FrontArt() {
 /** Tagless neck print, visible inside the back neck in front views. */
 function NeckLabel({ color }: { color: string }) {
   return (
-    <g fontFamily={SANS} fill={color} opacity={0.92}>
-      {/* Keep the small label inside the clear neck opening, clear of collar leaves. */}
+    <g fontFamily={SANS}>
+      {/* Broaden the collar leaves around the full-width neck label. These
+          overlay paths stay local to this concept and do not alter shared flats. */}
+      <path d="M390,58 Q500,18 610,58 L575,73 Q500,49 425,73 Z" fill="#20354B" stroke="#142638" strokeWidth="1.7" />
+      <path d="M420,65 Q500,43 580,65 Q570,73 560,81 Q540,94 524,110 L500,142 L476,110 Q460,94 440,81 Q430,73 420,65 Z" fill="#111D2A" />
+      <path d="M390,58 C363,72 350,96 365,122 L420,180 L488,108 C479,93 465,82 448,75 C438,71 428,67 420,65 Z" fill="#20354B" stroke="#142638" strokeWidth="1.8" />
+      <path d="M610,58 C637,72 650,96 635,122 L580,180 L512,108 C521,93 535,82 552,75 C562,71 572,67 580,65 Z" fill="#20354B" stroke="#142638" strokeWidth="1.8" />
+      <path d="M488,108 C479,93 465,82 448,75 C438,71 428,67 420,65" fill="none" stroke="#101A26" strokeWidth="2.1" />
+      <path d="M512,108 C521,93 535,82 552,75 C562,71 572,67 580,65" fill="none" stroke="#101A26" strokeWidth="2.1" />
+      <g fill={color} opacity={0.94}>
       <rect
         x={LABEL.x}
         y={LABEL.y}
@@ -127,12 +134,13 @@ function NeckLabel({ color }: { color: string }) {
         strokeWidth={0.55}
         opacity={0.62}
       />
-      <text x={500} y={LABEL.y + 7} textAnchor="middle" fontSize={4.1} fontWeight={800} textLength={32} lengthAdjust="spacingAndGlyphs" letterSpacing={0.12}>
+      <text x={500} y={LABEL.y + 9} textAnchor="middle" fontSize={4.1} fontWeight={800} textLength={46} lengthAdjust="spacingAndGlyphs" letterSpacing={0.12}>
         FIT - HPUni
       </text>
-      <text x={500} y={LABEL.y + 13} textAnchor="middle" fontSize={2.8} fontWeight={600} textLength={35} lengthAdjust="spacingAndGlyphs">
+      <text x={500} y={LABEL.y + 18} textAnchor="middle" fontSize={2.8} fontWeight={600} textLength={48} lengthAdjust="spacingAndGlyphs">
         INFO TECH · L
       </text>
+      </g>
     </g>
   );
 }
