@@ -82,6 +82,20 @@ function BackArt({ ink, ink2 }: Ink) {
         <animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.5;0.5;1" dur="1.1s" repeatCount="indefinite" />
       </rect>
 
+      {/* A quiet Vietnamese sign-off adds warmth without crowding the print. */}
+      <text
+        x={(ART.x + ART.right) / 2}
+        y={456}
+        textAnchor="middle"
+        fontWeight={600}
+        fontSize={9}
+        letterSpacing={1.1}
+        fill={ink2}
+        opacity={0.9}
+      >
+        CÙNG BẠN ĐI XA HƠN
+      </text>
+
       {/* signature */}
       <path d={`M${ART.x},462 H${ART.right}`} stroke={ink2} strokeWidth={2} />
       <text x={ART.x} y={490} fontWeight={800} fontSize={26} letterSpacing={0.5} fill={ink}>
