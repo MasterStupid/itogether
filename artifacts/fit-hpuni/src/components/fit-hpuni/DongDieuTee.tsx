@@ -182,11 +182,17 @@ function DongDieuCollar({ body, stripe, side }: { body: string; stripe: string; 
 
 
 /** Continuous fine piping, inset just inside each angled sleeve-cuff opening. */
-function SleeveCuffTrim({ color }: { color: string }) {
+function SleeveCuffTrim() {
   return (
-    <g pointerEvents="none" fill="none" stroke={color} strokeWidth={6} strokeLinecap="butt" opacity={0.98}>
-      <path d="M73.5,186.5 L132.5,356.5" />
-      <path d="M926.5,186.5 L867.5,356.5" />
+    <g pointerEvents="none">
+      <path d="M72,189 L131,359 L153,347 L95,178 Z" fill={K.deep} />
+      <path d="M928,189 L869,359 L847,347 L905,178 Z" fill={K.deep} />
+      <g fill="none" stroke={K.white} strokeWidth={4.5} strokeLinecap="butt">
+        <path d="M78,186 L137,356" />
+        <path d="M86,182 L145,352" />
+        <path d="M922,186 L863,356" />
+        <path d="M914,182 L855,352" />
+      </g>
     </g>
   );
 }
@@ -205,7 +211,7 @@ function Back({
       annotations={
         <>
           {annotations}
-          <SleeveCuffTrim color={c.body === K.white ? K.navy : K.silver} />
+          <SleeveCuffTrim />
         </>
       }
     >
@@ -231,7 +237,7 @@ function Front({
         <>
           {wideCollar && <NeckLabel color={c.body === K.white ? K.deep : K.white} size={size} />}
           {annotations}
-          <SleeveCuffTrim color={c.body === K.white ? K.navy : K.silver} />
+          <SleeveCuffTrim />
         </>
       }
     >
