@@ -181,13 +181,14 @@ function DongDieuCollar({ body, stripe, side }: { body: string; stripe: string; 
 
 
 
-/** White outer edge, navy separator and inner white stripe on each cuff. */
-function SleeveCuffTrim() {
+/** Contrasting outer/inner stripes, separated by the shirt's body colour. */
+function SleeveCuffTrim({ body }: { body: string }) {
+  const stripe = body === K.white ? K.deep : K.white;
   return (
     <g pointerEvents="none">
-      <path d="M72,189 L131,359 L153,347 L95,178 Z" fill={K.deep} />
-      <path d="M928,189 L869,359 L847,347 L905,178 Z" fill={K.deep} />
-      <g fill="none" stroke={K.white} strokeWidth={4.5} strokeLinecap="butt">
+      <path d="M72,189 L131,359 L153,347 L95,178 Z" fill={body} />
+      <path d="M928,189 L869,359 L847,347 L905,178 Z" fill={body} />
+      <g fill="none" stroke={stripe} strokeWidth={4.5} strokeLinecap="butt">
         <path d="M74.2,187.95 L133.2,357.8" />
         <path d="M82.2,184.1 L141.2,353.4" />
         <path d="M925.8,187.95 L866.8,357.8" />
@@ -211,7 +212,7 @@ function Back({
       annotations={
         <>
           {annotations}
-          <SleeveCuffTrim />
+          <SleeveCuffTrim body={c.body} />
         </>
       }
     >
@@ -237,7 +238,7 @@ function Front({
         <>
           {wideCollar && <NeckLabel color={c.body === K.white ? K.deep : K.white} size={size} />}
           {annotations}
-          <SleeveCuffTrim />
+          <SleeveCuffTrim body={c.body} />
         </>
       }
     >
