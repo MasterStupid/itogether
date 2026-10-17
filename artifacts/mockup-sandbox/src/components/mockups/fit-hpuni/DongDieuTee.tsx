@@ -82,20 +82,6 @@ function BackArt({ ink, ink2 }: Ink) {
         <animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.5;0.5;1" dur="1.1s" repeatCount="indefinite" />
       </rect>
 
-      {/* A quiet Vietnamese sign-off adds warmth without crowding the print. */}
-      <text
-        x={(ART.x + ART.right) / 2}
-        y={456}
-        textAnchor="middle"
-        fontWeight={600}
-        fontSize={9}
-        letterSpacing={1.1}
-        fill={ink2}
-        opacity={0.9}
-      >
-        CÙNG BẠN ĐI XA HƠN
-      </text>
-
       {/* signature */}
       <path d={`M${ART.x},462 H${ART.right}`} stroke={ink2} strokeWidth={2} />
       <text x={ART.x} y={490} fontWeight={800} fontSize={26} letterSpacing={0.5} fill={ink}>
@@ -142,24 +128,26 @@ function FrontArt() {
 function NeckLabel({ color }: { color: string }) {
   return (
     <g fontFamily={SANS} fill={color} opacity={0.92}>
-      {/* Slim woven label: a quiet frame and a dedicated size cell keep the
-          neckline legible without competing with the oversized back graphic. */}
+      {/* Slim woven label with a quiet, distinct motto tucked under the brand. */}
       <rect
-        x={471}
+        x={461}
         y={LABEL.y + 1}
-        width={58}
-        height={15}
+        width={78}
+        height={23}
         rx={1.8}
         fill="none"
         stroke={color}
         strokeWidth={0.7}
         opacity={0.68}
       />
-      <path d={`M512 ${LABEL.y + 1}v15`} stroke={color} strokeWidth={0.55} opacity={0.62} />
-      <text x={491.5} y={LABEL.y + 10.2} textAnchor="middle" fontSize={4.5} fontWeight={800} textLength={34} lengthAdjust="spacingAndGlyphs" letterSpacing={0.15}>
+      <path d={`M520 ${LABEL.y + 1}v23`} stroke={color} strokeWidth={0.55} opacity={0.62} />
+      <text x={490.5} y={LABEL.y + 9} textAnchor="middle" fontSize={4.5} fontWeight={800} textLength={37} lengthAdjust="spacingAndGlyphs" letterSpacing={0.15}>
         FIT - HPUni
       </text>
-      <text x={520.5} y={LABEL.y + 10.2} textAnchor="middle" fontSize={4.8} fontWeight={700} letterSpacing={0.35}>
+      <text x={490.5} y={LABEL.y + 17} textAnchor="middle" fontSize={3.4} fontWeight={600} textLength={45} lengthAdjust="spacingAndGlyphs" letterSpacing={0.1}>
+        DÁM NGHĨ, DÁM LÀM
+      </text>
+      <text x={529} y={LABEL.y + 13.5} textAnchor="middle" fontSize={4.8} fontWeight={700} letterSpacing={0.35}>
         L
       </text>
     </g>
