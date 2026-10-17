@@ -1,6 +1,6 @@
 import { useId, type ComponentProps, type ReactNode } from "react";
 import { BRAND, PALETTE } from "./_shared/brand";
-import { FitLogo, TeeShirt, ANCHORS } from "./_shared/garments";
+import { TeeShirt } from "./_shared/garments";
 
 /* ==================================================================
    Đồng Điệu · áo thun mặc hằng ngày (board label only — never printed)
@@ -29,7 +29,6 @@ const ART = { x: 360, top: 170, right: 640, bottom: 570 };
 const ART_W = ART.right - ART.x; // 280
 const ART_H = ART.bottom - ART.top; // 342 — within the 300 × 400 mm back-print limit
 const HPS_Y = 60;
-const LOGO = { ...ANCHORS.tee.front.wearerLeftChest, d: 80 };
 const LABEL = { x: 475, y: 78, w: 50, h: 20 };
 /* the "IT" block: solid ink, letters left open so the fabric shows through */
 const BLOCK = { x: 360, y: 222, w: 220, h: 130 };
@@ -122,21 +121,18 @@ function BackArt({ ink, ink2 }: Ink) {
 }
 
 function FrontArt() {
-  return <FitLogo cx={LOGO.x} cy={LOGO.y} d={LOGO.d} />;
+  return null;
 }
 
 /** Tagless neck print, visible inside the back neck in front views. */
 function NeckLabel({ color }: { color: string }) {
   return (
     <g fontFamily={SANS} fill={color} textAnchor="middle" opacity={0.9}>
-      <text x={500} y={LABEL.y + 6.5} fontSize={6.4} fontWeight={800} textLength={34} lengthAdjust="spacingAndGlyphs">
-        FIT-HPUni
+      <text x={500} y={LABEL.y + 6.5} fontSize={6.4} fontWeight={800} textLength={47} lengthAdjust="spacingAndGlyphs">
+        FIT - HPUni
       </text>
       <text x={500} y={LABEL.y + 13} fontSize={4.4} fontWeight={600}>
-        L · 100% COTTON
-      </text>
-      <text x={500} y={LABEL.y + 18.6} fontSize={3.6}>
-        Giặt lộn trái · không sấy
+        SIZE L
       </text>
     </g>
   );
@@ -279,11 +275,15 @@ export function DongDieuTee() {
           </Highlight>
           <Highlight
             n="03"
-            kicker="Mặt trước tối giản"
-            title="Chỉ logo Khoa, giữ nguyên bản gốc"
-            note="Đặt ở ngực trái, dễ phối với quần jean hay sơ mi khoác ngoài — đi học, đi làm đều hợp."
+            kicker="Tem nhãn trong cổ"
+            title="FIT - HPUni · Size L"
+            note="Nhãn in gọn bên trong cổ áo, chỉ giữ tên khoa và size để mặc thoải mái, không vướng chi tiết thừa."
           >
-            <Front crop={{ x: 520, y: 180, w: 156, h: 102 }} style={{ width: "100%", height: "100%" }} />
+            <Front
+              crop={{ x: 390, y: 28, w: 220, h: 138 }}
+              annotations={<NeckLabel color={K.white} />}
+              style={{ width: "100%", height: "100%" }}
+            />
           </Highlight>
           <Highlight
             n="04"
