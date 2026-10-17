@@ -360,12 +360,6 @@ export function DongDieuTee() {
           <img className="brand-mark" src={BRAND.logo} alt="Logo chính thức FIT-HPUni" />
           <div><p className="eyebrow">Khoa Công nghệ Thông tin · Trường Đại học Hải Phòng</p><h1 className="brand-title">Áo polo ITogether</h1></div>
         </div>
-        <div className="masthead-actions">
-          <button className="print-button" type="button" onClick={() => window.print()} data-testid="button-print">
-            <svg className="print-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 8V3h10v5M7 17H5a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2M7 14h10v7H7z" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/></svg>
-            In bảng thiết kế
-          </button>
-        </div>
       </header>
 
       <section className="control-strip" aria-label="Tùy chọn xem thiết kế">
