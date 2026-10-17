@@ -1,4 +1,4 @@
-import { useId, type ComponentProps, type ReactNode } from "react";
+import { useId, useState, type ComponentProps, type ReactNode } from "react";
 import { BRAND, PALETTE } from "./_shared/brand";
 import { FitLogo, PoloShirt } from "./_shared/garments";
 
@@ -148,6 +148,82 @@ function NeckLabel({ color }: { color: string }) {
   );
 }
 
+
+/**
+ * Navy rib collar for the white polo, traced from the user's close-up reference:
+ * broad navy leaves, twin white tipping on the outer edges, pale inner neck,
+ * navy placket with white buttons. Drawn in the reference's own pixel space,
+ * then mapped onto the garment, slightly broadened so it fully covers the shared flat collar.
+ */
+function WhiteCollar({ side }: { side: "front" | "back" }) {
+  const navy = "#1F3349";
+  const edge = "#14243A";
+  const stripe = "#FFFFFF";
+  const opening = "#DCE0E4";
+  const rib = "#2A4462";
+  if (side === "back") {
+    return (
+      <g pointerEvents="none" strokeLinejoin="round">
+        <path d="M384,64 Q384,36 414,30 Q500,22 586,30 Q616,36 616,64 L614,88 Q500,108 386,88 Z" fill={navy} stroke={edge} strokeWidth="2" />
+        <path d="M398,48 Q500,38 602,48" fill="none" stroke={rib} strokeWidth="1.8" />
+        <path d="M396,56 Q500,46 604,56" fill="none" stroke={rib} strokeWidth="1.8" />
+        <path d="M394,74 Q500,92 606,74" fill="none" stroke={stripe} strokeWidth="3" />
+        <path d="M392,81 Q500,99 608,81" fill="none" stroke={stripe} strokeWidth="3" />
+      </g>
+    );
+  }
+  return (
+    <g pointerEvents="none" strokeLinejoin="round">
+      <g transform="translate(500 24.6) scale(0.5 0.45) translate(-365 0)">
+        {/* placket base */}
+        <path d="M330,300 L408,300 L408,598 L330,598 Z" fill={navy} stroke={edge} strokeWidth="3.5" />
+        {/* back band, rib strip and pale inner neck */}
+        <path d="M200,98 L200,42 Q200,14 230,13 L500,13 Q530,14 530,42 L530,98 Z" fill={navy} stroke={edge} strokeWidth="4" />
+        <path d="M212,90 Q365,99 518,90 L518,104 Q365,114 212,104 Z" fill={rib} stroke={edge} strokeWidth="3" />
+        <path d="M212,104 Q365,114 518,104 C510,185 470,262 418,302 L365,330 L300,309 C252,258 216,180 212,104 Z" fill={opening} stroke={edge} strokeWidth="3.5" />
+        <path d="M232,124 Q365,134 498,124" fill="none" stroke="#C3CAD1" strokeWidth="5" />
+        {/* broad leaves */}
+        <path d="M110,90 L205,28 C206,125 232,240 300,309 L186,350 Q146,225 110,90 Z" fill={navy} stroke={edge} strokeWidth="4" />
+        <path d="M622,90 L527,28 C524,128 494,240 418,301 L577,346 Q609,225 622,90 Z" fill={navy} stroke={edge} strokeWidth="4" />
+        {/* twin white tipping along the outer leaf edges */}
+        <g fill="none" stroke={stripe} strokeWidth="9" strokeLinecap="butt">
+          <path d="M141,80 Q169,212 203,343" />
+          <path d="M163,63 Q190,206 223,336" />
+          <path d="M591,80 Q573,212 555,339" />
+          <path d="M570,63 Q553,206 535,333" />
+        </g>
+        {/* overlapping placket flap, stitching, buttons */}
+        <path d="M418,301 Q392,318 330,322 L330,598 L408,598 L408,330 Q410,313 418,301 Z" fill={navy} stroke={edge} strokeWidth="3.5" />
+        <path d="M398,330 L398,582 M340,334 L340,582" fill="none" stroke="#6E86A0" strokeWidth="2" strokeDasharray="8 6" />
+        {[372, 470].map((cy) => (
+          <g key={cy}>
+            <circle cx="369" cy={cy} r="11" fill={stripe} stroke={edge} strokeWidth="2.5" />
+            <circle cx="365" cy={cy - 4} r="1.8" fill={navy} />
+            <circle cx="373" cy={cy - 4} r="1.8" fill={navy} />
+            <circle cx="365" cy={cy + 4} r="1.8" fill={navy} />
+            <circle cx="373" cy={cy + 4} r="1.8" fill={navy} />
+          </g>
+        ))}
+        <path d="M330,586 L408,586 L408,598 L330,598 Z" fill={stripe} stroke={edge} strokeWidth="2.5" />
+      </g>
+    </g>
+  );
+}
+
+/** Neck label printed on the pale inner neck of the white polo. */
+function WhiteNeckLabel() {
+  const ink = "#1F3349";
+  return (
+    <g fontFamily={SANS} fill={ink} pointerEvents="none">
+      <rect x="456" y="88" width="88" height="22" rx="1.4" fill="none" stroke={ink} strokeWidth="1.1" />
+      <path d="M520,88 V110" stroke={ink} strokeWidth="1" />
+      <text x="488" y="97.5" textAnchor="middle" fontSize="5" fontWeight="800" textLength="44" lengthAdjust="spacingAndGlyphs">FIT - HPUni</text>
+      <text x="488" y="105.5" textAnchor="middle" fontSize="3" fontWeight="700" textLength="58" lengthAdjust="spacingAndGlyphs">INFORMATION TECHNOLOGY</text>
+      <text x="532" y="104" textAnchor="middle" fontSize="11" fontWeight="800">L</text>
+    </g>
+  );
+}
+
 /* ---------- garments ---------- */
 const NAVY: Ink = { body: K.deep, ink: K.white, ink2: K.silver };
 const WHITE: Ink = { body: K.white, ink: K.deep, ink2: K.navy };
@@ -206,12 +282,13 @@ function Back({
     <PoloShirt
       side="back"
       body={c.body}
+      collar={c.body === K.white ? "#1F3349" : undefined}
       {...rest}
       annotations={
         <>
           {annotations}
           <SleeveCuffTrim color={c.body === K.white ? K.navy : K.silver} />
-          <CollarTrim side="back" color={c.body === K.white ? K.navy : K.silver} />
+          {c.body === K.white ? <WhiteCollar side="back" /> : <CollarTrim side="back" color={K.silver} />}
         </>
       }
     >
@@ -230,12 +307,21 @@ function Front({
     <PoloShirt
       side="front"
       body={c.body}
+      collar={c.body === K.white ? "#1F3349" : undefined}
+      placket={c.body === K.white ? "#1F3349" : undefined}
       {...rest}
       annotations={
         <>
           {annotations}
           <SleeveCuffTrim color={c.body === K.white ? K.navy : K.silver} />
-          <CollarTrim side="front" wideFront={wideCollar} color={c.body === K.white ? K.navy : K.silver} />
+          {c.body === K.white ? (
+            <>
+              <WhiteCollar side="front" />
+              {wideCollar && <WhiteNeckLabel />}
+            </>
+          ) : (
+            <CollarTrim side="front" wideFront={wideCollar} color={K.silver} />
+          )}
         </>
       }
     >
@@ -293,6 +379,8 @@ function Highlight({
 }
 
 export function DongDieuTee() {
+  const [white, setWhite] = useState(true);
+  const c = white ? WHITE : NAVY;
   return (
     <div className="flex h-screen w-full flex-col overflow-hidden" style={{ fontFamily: SANS, background: K.paper, color: K.ink }}>
       <style>{`
@@ -310,9 +398,41 @@ export function DongDieuTee() {
 
       {/* ---------- two equal views ---------- */}
       <section className="relative grid min-h-0 flex-1 grid-cols-2 gap-3 px-5 pt-4">
+        <div
+          className="absolute bottom-3 left-1/2 z-10 flex -translate-x-1/2 items-center gap-1 rounded-full border p-1"
+          style={{ borderColor: K.rule, background: K.card }}
+        >
+          {[
+            { v: false, label: "Xanh than", dot: K.deep },
+            { v: true, label: "Trắng · cổ xanh", dot: K.white },
+          ].map((o) => (
+            <button
+              key={o.label}
+              type="button"
+              onClick={() => setWhite(o.v)}
+              className="flex items-center gap-2 rounded-full px-3.5 py-1.5 text-[12px] font-bold transition-colors"
+              style={{ background: white === o.v ? K.deep : "transparent", color: white === o.v ? K.white : K.ink }}
+            >
+              <span className="h-3 w-3 rounded-full border" style={{ background: o.dot, borderColor: "#9AA6B2" }} />
+              {o.label}
+            </button>
+          ))}
+        </div>
         {[
-          { label: "Mặt trước", node: <Front pad={PAD} wideCollar style={{ width: "100%", height: "100%" }} annotations={<NeckLabel color={K.white} />} /> },
-          { label: "Mặt sau", node: <Back pad={PAD} style={{ width: "100%", height: "100%" }} /> },
+          {
+            label: "Mặt trước",
+            node: (
+              <Front
+                key={`f${white}`}
+                c={c}
+                pad={PAD}
+                wideCollar
+                style={{ width: "100%", height: "100%" }}
+                annotations={white ? undefined : <NeckLabel color={K.white} />}
+              />
+            ),
+          },
+          { label: "Mặt sau", node: <Back key={`b${white}`} c={c} pad={PAD} style={{ width: "100%", height: "100%" }} /> },
         ].map((v, i) => (
           <figure
             key={v.label}
@@ -375,7 +495,7 @@ export function DongDieuTee() {
             n="04"
             kicker="Hai màu áo"
             title="Polo xanh than và trắng"
-            note="Cùng mẫu polo xanh than và trắng, viền tương phản đồng bộ ở cổ bẻ và bo tay."
+            note="Áo trắng dùng cổ bẻ xanh than bản rộng, hai sọc trắng dọc mép và nẹp xanh nút trắng."
           >
             <div className="flex h-full items-center justify-center gap-1 px-3">
               <Front c={NAVY} pad={14} style={{ width: "50%", height: "92%" }} />
