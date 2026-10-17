@@ -128,7 +128,7 @@ function DongDieuCollar({ body, stripe, side }: { body: string; stripe: string; 
   const trimId = `collar-trim-${useId().replace(/:/g, "")}`;
   const leftLeaf = "M122,92 L215.18,28 C216.07,125 239.29,240 300,309 L188,348 Q160,225 122,92 Z";
   const rightLeaf = "M610,92 L515.32,28 C512.64,128 485.86,240 418,301 L575,344 Q595,225 610,92 Z";
-  const backBand = "M392,64 C393,45 400,32 420,27 Q500,17 580,27 C600,32 607,45 608,64 L604,84 Q500,102 396,84 Z";
+  const backBand = "M396,84 L392,30 Q392,24 398,24 Q500,20 602,24 Q608,24 608,30 L604,84 Q500,94 396,84 Z";
   const collarColor = body === K.white ? K.deep : body;
   const edge = "#142638";
   const opening = body === K.white ? "#d8dce0" : "#162638";
@@ -138,7 +138,7 @@ function DongDieuCollar({ body, stripe, side }: { body: string; stripe: string; 
     <g pointerEvents="none" strokeLinejoin="round">
       {side === "back" ? (
         <g>
-          {/* Upright polo collar: raised crown, softly rounded ends and a fitted base. */}
+          {/* Structured standing collar: level crown, crisp corners and straight sides. */}
           <defs>
             <clipPath id={`${trimId}-back`}><path d={backBand} /></clipPath>
           </defs>

@@ -32,9 +32,9 @@ description: Rules for the faculty shirt design boards on the canvas (garment fl
 - Hai sọc trắng ở cổ Đồng Điệu phải chạy hết tới hai mép cổ, cả mặt trước lẫn mặt sau.
   **Why:** người dùng chỉ ra sọc mặt sau vẫn dừng ngắn trước mép sau khi yêu cầu hoàn thiện sọc cổ.
   **How to apply:** giữ độ dày và độ cong đã duyệt; không để khoảng hở ở đầu sọc, cũng không cho sọc tràn ra ngoài cổ.
-- Cổ sau Đồng Điệu phải đứng dáng hơn, không hạ thấp hoặc làm nằm xuống.
-  **Why:** người dùng đính chính “tôi muốn nó đứng hơn vì đây là áo polo” khi được đề xuất hạ chiều cao cổ.
-  **How to apply:** giữ dáng cổ polo đứng khi làm mềm đường cong; không diễn giải “tự nhiên hơn” thành cổ thấp.
+- Cổ sau Đồng Điệu phải đứng và cứng dáng, không mềm, hạ thấp hoặc làm nằm xuống.
+  **Why:** người dùng đính chính “tôi muốn nó đứng hơn vì đây là áo polo”, sau đó yêu cầu “tôi muốn nó cứng hơn thay vì mềm”.
+  **How to apply:** ưu tiên mép trên gần thẳng, cạnh bên thẳng và góc rõ; không diễn giải “tự nhiên hơn” thành cổ thấp hoặc bo mềm.
 - Bo tay Đồng Điệu từ ngoài vào trong: áo xanh than là trắng–xanh than bằng nhau, rồi trắng dày hơn; áo trắng đảo màu. Không có đường nhỏ dư ở ngoài cùng.
   **Why:** người dùng nói lại thiết kế sau khi thấy đường nhỏ ngoài cùng không mong muốn, sau đó xác nhận đúng và yêu cầu tăng nhẹ hai dải nhỏ, giữ nguyên dải lớn. Người dùng nhắc sửa nốt cả nét đen rất mảnh còn sót ở mép trên bo tay.
   **How to apply:** các dải liền nhau bắt đầu ngay mép tay; giữ thứ tự trên cả hai tay, cả mặt trước lẫn mặt sau. Khi tăng hai dải nhỏ, không thu hẹp dải lớn để bù. Không để nét viền thân áo chạy ngang hai đầu bo tay và đè lên các dải trắng.
