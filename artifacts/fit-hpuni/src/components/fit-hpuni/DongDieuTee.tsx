@@ -124,6 +124,9 @@ function NeckLabel({ color, size }: { color: string; size: Size }) {
  * board only, leaving every other garment's construction untouched.
  */
 function DongDieuCollar({ body, stripe, side }: { body: string; stripe: string; side: "front" | "back" }) {
+  const trimId = `collar-trim-${useId().replace(/:/g, "")}`;
+  const leftLeaf = "M122,92 L215.18,28 C216.07,125 239.29,240 300,309 L188,348 Q160,225 122,92 Z";
+  const rightLeaf = "M610,92 L515.32,28 C512.64,128 485.86,240 418,301 L575,344 Q595,225 610,92 Z";
   const collarColor = body === K.white ? K.deep : body;
   const edge = "#142638";
   const opening = body === K.white ? "#d8dce0" : "#162638";
@@ -153,19 +156,30 @@ function DongDieuCollar({ body, stripe, side }: { body: string; stripe: string; 
           <path d="M212,104 Q365,114 518,104 C510,185 470,262 418,302 L300,309 C252,258 216,180 212,104 Z" fill={opening} stroke={edge} strokeWidth="3.5" />
           {/* Broaden each leaf outward, keeping its placket attachment fixed. */}
           <g transform="translate(300 0) scale(1.12 1) translate(-300 0)">
-            <path d="M122,92 L215.18,28 C216.07,125 239.29,240 300,309 L188,348 Q160,225 122,92 Z" fill={collarColor} stroke={edge} strokeWidth="4" />
-            <path d="M174,71.5 Q199.5,209 241,329.5" fill="none" stroke={K.deep} strokeWidth="14" strokeLinecap="butt" />
-            <g fill="none" stroke={stripe} strokeWidth="10.8" strokeLinecap="butt">
-              <path d="M164,79 Q190,212 232,332.7" />
-              <path d="M184,64 Q209,206 250,326.4" />
+            <defs>
+              <clipPath id={`${trimId}-left`}><path d={leftLeaf} /></clipPath>
+            </defs>
+            <path d={leftLeaf} fill={collarColor} stroke={edge} strokeWidth="4" />
+            {/* Extend the same curves beyond both edges; clip flush to the leaf. */}
+            <g clipPath={`url(#${trimId}-left)`}>
+              <path d="M162.250,1.688 Q192.350,200.137 253.810,365.267" fill="none" stroke={K.deep} strokeWidth="14" strokeLinecap="butt" />
+              <g fill="none" stroke={stripe} strokeWidth="10.8" strokeLinecap="butt">
+                <path d="M152.000,11.731 Q182.800,202.236 244.960,368.633" />
+                <path d="M172.500,-8.350 Q201.900,198.010 262.660,362.034" />
+              </g>
             </g>
           </g>
           <g transform="translate(418 0) scale(1.12 1) translate(-418 0)">
-            <path d="M610,92 L515.32,28 C512.64,128 485.86,240 418,301 L575,344 Q595,225 610,92 Z" fill={collarColor} stroke={edge} strokeWidth="4" />
-            <path d="M558.5,71.5 Q537,209 493,321.8" fill="none" stroke={K.deep} strokeWidth="14" strokeLinecap="butt" />
-            <g fill="none" stroke={stripe} strokeWidth="10.8" strokeLinecap="butt">
-              <path d="M568,79 Q546,212 502,324" />
-              <path d="M549,64 Q528,206 484,319.6" />
+            <defs>
+              <clipPath id={`${trimId}-right`}><path d={rightLeaf} /></clipPath>
+            </defs>
+            <path d={rightLeaf} fill={collarColor} stroke={edge} strokeWidth="4" />
+            <g clipPath={`url(#${trimId}-right)`}>
+              <path d="M567.844,1.206 Q545.619,202.351 479.294,355.084" fill="none" stroke={K.deep} strokeWidth="14" strokeLinecap="butt" />
+              <g fill="none" stroke={stripe} strokeWidth="10.8" strokeLinecap="butt">
+                <path d="M577.625,11.188 Q554.525,204.737 488.305,357.127" />
+                <path d="M558.062,-8.775 Q536.712,199.965 470.283,353.041" />
+              </g>
             </g>
           </g>
           {/* Cream underlap, top X button, and the diagonal dark overlap flap. */}
