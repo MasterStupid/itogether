@@ -1,1 +1,2 @@
 - [FIT-HPUni shirt boards](fit-shirt-boards.md) — shared mm-accurate garment flats, unaltered logo, manufacturability rules for the shirt concepts.
+- [Dependency remediation choices](dependency-remediation.md) — why mockup discovery avoids the fast-glob dependency chain.
