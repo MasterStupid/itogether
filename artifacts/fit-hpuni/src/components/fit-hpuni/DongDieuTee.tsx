@@ -103,15 +103,15 @@ function FrontArt() {
 function NeckLabel({ color, size }: { color: string; size: Size }) {
   return (
     <g fontFamily={SANS} fill={color}>
-      <rect x="452" y="39" width="96" height="24" rx="1.4" fill="none" stroke={color} strokeWidth="1.25" />
-      <path d="M521,39 V63" fill="none" stroke={color} strokeWidth="1.1" />
-      <text x="486" y="49" textAnchor="middle" fontSize="5.3" fontWeight="800" textLength="50" lengthAdjust="spacingAndGlyphs">
+      <rect x="452" y="92" width="96" height="24" rx="1.4" fill="none" stroke={color} strokeWidth="1.25" />
+      <path d="M521,92 V116" fill="none" stroke={color} strokeWidth="1.1" />
+      <text x="486" y="102" textAnchor="middle" fontSize="5.3" fontWeight="800" textLength="50" lengthAdjust="spacingAndGlyphs">
         FIT - HPUni
       </text>
-      <text x="486" y="58" textAnchor="middle" fontSize="3.25" fontWeight="700" textLength="64" lengthAdjust="spacingAndGlyphs">
+      <text x="486" y="111" textAnchor="middle" fontSize="3.25" fontWeight="700" textLength="64" lengthAdjust="spacingAndGlyphs">
         INFORMATION TECHNOLOGY
       </text>
-      <text x="534.5" y="57.3" textAnchor="middle" fontSize="12.2" fontWeight="800">{size}</text>
+      <text x="534.5" y="110.3" textAnchor="middle" fontSize="12.2" fontWeight="800">{size}</text>
     </g>
   );
 }
@@ -131,8 +131,12 @@ function DongDieuCollar({ body, stripe, side }: { body: string; stripe: string; 
         <g>
           {/* Back view of the same deep band: full height through the rib rows. */}
           <path d="M420,36 Q500,29 580,36 L582,80 Q500,96 418,80 Z" fill={body} stroke={edge} strokeWidth="2" />
-          <path d="M420,68 Q500,84 582,68" fill="none" stroke={edge} strokeWidth="1.7" />
-          <path d="M419,77 Q500,95 581,77" fill="none" stroke={edge} strokeWidth="1.7" />
+          {/* Interior construction seams stay up by the attachment edge. */}
+          <path d="M420,49 Q500,42 580,49" fill="none" stroke={edge} strokeWidth="1.7" />
+          <path d="M420,57 Q500,50 580,57" fill="none" stroke={edge} strokeWidth="1.7" />
+          {/* Twin tipping follows the exposed lower free edge, not the attachment. */}
+          <path d="M422,69 Q500,85 578,69" fill="none" stroke={stripe} strokeWidth="2.5" />
+          <path d="M420,75 Q500,91 580,75" fill="none" stroke={stripe} strokeWidth="2.5" />
         </g>
       ) : (
         <g>
@@ -266,7 +270,7 @@ function PreviewArt({ preview, colorway, size, large = false }: { preview: Previ
   if (preview === "back") return <Back colorway={colorway} pad={PAD} style={detailStyle} title="Áo FIT-HPUni, mặt sau" />;
   if (preview === "detail-1") return <Back colorway={colorway} crop={{ x: 255, y: 148, w: 490, h: 214 }} style={detailStyle} title="Cận cảnh chữ IT để trống, lộ màu vải" />;
   if (preview === "detail-2") return <Back colorway={colorway} crop={{ x: 320, y: 356, w: 350, h: 192 }} style={detailStyle} title="Cận cảnh câu slogan phía sau" />;
-  if (preview === "detail-3") return <Front colorway={colorway} size={size} crop={large ? { x: 442, y: 32, w: 116, h: 38 } : { x: 446, y: 35, w: 108, h: 32 }} style={detailStyle} title="Cận cảnh nhãn trong cổ FIT-HPUni" />;
+  if (preview === "detail-3") return <Front colorway={colorway} size={size} crop={large ? { x: 442, y: 88, w: 116, h: 34 } : { x: 446, y: 89, w: 108, h: 30 }} style={detailStyle} title="Cận cảnh nhãn trong cổ FIT-HPUni" />;
   return <Front colorway={colorway} size={size} crop={{ x: 170, y: 30, w: 660, h: 730 }} style={detailStyle} title={`Màu áo ${colorway.body === K.deep ? "xanh than" : "trắng"}`} />;
 }
 
