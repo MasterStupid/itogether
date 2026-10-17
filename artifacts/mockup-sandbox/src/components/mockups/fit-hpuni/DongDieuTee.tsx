@@ -134,11 +134,14 @@ function NeckLabel({ color }: { color: string }) {
         strokeWidth={0.55}
         opacity={0.62}
       />
-      <text x={500} y={LABEL.y + 9} textAnchor="middle" fontSize={4.1} fontWeight={800} textLength={46} lengthAdjust="spacingAndGlyphs" letterSpacing={0.12}>
+      <text x={500} y={LABEL.y + 7.5} textAnchor="middle" fontSize={4.4} fontWeight={800} textLength={46} lengthAdjust="spacingAndGlyphs" letterSpacing={0.12}>
         FIT - HPUni
       </text>
-      <text x={500} y={LABEL.y + 18} textAnchor="middle" fontSize={2.35} fontWeight={600} textLength={62} lengthAdjust="spacingAndGlyphs">
-        INFORMATION TECHNOLOGY · L
+      <text x={500} y={LABEL.y + 15} textAnchor="middle" fontSize={3.4} fontWeight={600}>
+        INFORMATION
+      </text>
+      <text x={500} y={LABEL.y + 22} textAnchor="middle" fontSize={3.4} fontWeight={600}>
+        TECHNOLOGY · L
       </text>
       </g>
     </g>
@@ -284,7 +287,7 @@ export function DongDieuTee() {
             n="03"
             kicker="Tem nhãn trong cổ"
             title="FIT - HPUni · Size L"
-            note="Nhãn in gọn bên trong cổ áo polo: FIT - HPUni, Information Technology và size L."
+            note="Tem cổ ba dòng để dễ đọc: FIT - HPUni · Information Technology · size L; chữ chức danh giữ nguyên, không viết tắt."
           >
             <Front
               crop={{ x: 450, y: 70, w: 100, h: 40 }}
