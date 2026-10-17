@@ -135,10 +135,10 @@ function DongDieuCollar({ body, stripe, side }: { body: string; stripe: string; 
         <g>
           {/* Back view: same width as the front leaves, rounded upper band. */}
           <path d="M392,64 Q392,40 420,34 Q500,26 580,34 Q608,40 608,64 L606,84 Q500,102 394,84 Z" fill={collarColor} />
-          {/* White / wider navy / white trim follows the free collar edge. */}
-          <path d="M399,73 Q500,90 601,73" fill="none" stroke={K.deep} strokeWidth="10" />
-          <path d="M400,68 Q500,85 600,68" fill="none" stroke={stripe} strokeWidth="4.8" />
-          <path d="M398,78 Q500,95 602,78" fill="none" stroke={stripe} strokeWidth="4.8" />
+          {/* White / navy / white trim centered within the back collar band. */}
+          <path d="M399,53 Q500,70 601,53" fill="none" stroke={K.deep} strokeWidth="10" />
+          <path d="M400,48 Q500,65 600,48" fill="none" stroke={stripe} strokeWidth="4.8" />
+          <path d="M398,58 Q500,75 602,58" fill="none" stroke={stripe} strokeWidth="4.8" />
         </g>
       ) : (
         /* Traced in the 661×627 reference image space, then mapped uniformly:
@@ -154,18 +154,18 @@ function DongDieuCollar({ body, stripe, side }: { body: string; stripe: string; 
           {/* Broaden each leaf outward, keeping its placket attachment fixed. */}
           <g transform="translate(300 0) scale(1.12 1) translate(-300 0)">
             <path d="M122,92 L215.18,28 C216.07,125 239.29,240 300,309 L188,348 Q160,225 122,92 Z" fill={collarColor} stroke={edge} strokeWidth="4" />
-            <path d="M150,71.5 Q167.5,209 211,340" fill="none" stroke={K.deep} strokeWidth="14" strokeLinecap="butt" />
+            <path d="M174,71.5 Q199.5,209 241,329.5" fill="none" stroke={K.deep} strokeWidth="14" strokeLinecap="butt" />
             <g fill="none" stroke={stripe} strokeWidth="10.8" strokeLinecap="butt">
-              <path d="M140,79 Q158,212 202,343" />
-              <path d="M160,64 Q177,206 220,337" />
+              <path d="M164,79 Q190,212 232,332.7" />
+              <path d="M184,64 Q209,206 250,326.4" />
             </g>
           </g>
           <g transform="translate(418 0) scale(1.12 1) translate(-418 0)">
             <path d="M610,92 L515.32,28 C512.64,128 485.86,240 418,301 L575,344 Q595,225 610,92 Z" fill={collarColor} stroke={edge} strokeWidth="4" />
-            <path d="M582.5,71.5 Q575,209 547,336.5" fill="none" stroke={K.deep} strokeWidth="14" strokeLinecap="butt" />
+            <path d="M558.5,71.5 Q537,209 493,321.8" fill="none" stroke={K.deep} strokeWidth="14" strokeLinecap="butt" />
             <g fill="none" stroke={stripe} strokeWidth="10.8" strokeLinecap="butt">
-              <path d="M592,79 Q584,212 556,339" />
-              <path d="M573,64 Q566,206 538,334" />
+              <path d="M568,79 Q546,212 502,324" />
+              <path d="M549,64 Q528,206 484,319.6" />
             </g>
           </g>
           {/* Cream underlap, top X button, and the diagonal dark overlap flap. */}
