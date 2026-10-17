@@ -358,7 +358,7 @@ export function DongDieuTee() {
       <header className="masthead">
         <div className="brand-lockup">
           <img className="brand-mark" src={BRAND.logo} alt="Logo chính thức FIT-HPUni" />
-          <div><p className="eyebrow">Khoa Công nghệ Thông tin · Đại học Hải Phòng</p><h1 className="brand-title">Áo polo ITogether</h1></div>
+          <div><p className="eyebrow">Khoa Công nghệ Thông tin · Trường Đại học Hải Phòng</p><h1 className="brand-title">Áo polo ITogether</h1></div>
         </div>
         <div className="masthead-actions">
           <button className="print-button" type="button" onClick={() => window.print()} data-testid="button-print">
