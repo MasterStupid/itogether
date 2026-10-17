@@ -96,7 +96,9 @@ function BackArt({ ink, ink2 }: Ink) {
 }
 
 function FrontArt() {
-  return <FitLogo cx={590} cy={238} d={90} />;
+  // Center between the placket edge (519.35) and armhole seam (741.31)
+  // at this height, so both sides of the chest logo have equal clearance.
+  return <FitLogo cx={(519.35 + 741.31) / 2} cy={238} d={90} />;
 }
 
 /** A compact, rib-knit tipped collar and the matching two-compartment neck label. */

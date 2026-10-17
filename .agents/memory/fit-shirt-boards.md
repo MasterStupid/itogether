@@ -7,6 +7,9 @@ description: Rules for the faculty shirt design boards on the canvas (garment fl
   **How to apply:** new garments/variants import PoloShirt/TeeShirt; extend the shared file only additively (other boards depend on it).
 - Logo is used unaltered (no redraw/recolor); only an embroidered-look filter is allowed.
   **Why:** official faculty mark; the user asked for designs around the real logo.
+- Khi căn logo ngực ITogether, dùng trung điểm vùng ngực giữa nẹp và đường ráp tay, không tiếp tục dịch trái/phải tùy ý.
+  **Why:** người dùng nhiều lần chỉnh vị trí rồi yêu cầu “căn giữa cho đúng đi”.
+  **How to apply:** giữ kích thước và độ cao logo; tính vị trí ngang theo hình học áo và kiểm tra hình hiển thị.
 - Production realism is a hard requirement (embroidery ≥5 mm text, ≤4 screen colours, back print ≤A3, prints don't cross side seams).
   **Why:** user asked for expert-level, manufacturable designs.
 - Internal concept names (Dấu Ấn, do IT, Phượng Số) are board labels only — never printed on the garment; garment text identifies the faculty (FIT-HPUni / faculty name) and the verbatim slogan.
