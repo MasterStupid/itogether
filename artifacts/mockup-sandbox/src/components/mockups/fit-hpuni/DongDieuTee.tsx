@@ -137,8 +137,11 @@ function NeckLabel({ color }: { color: string }) {
       <text x={500} y={LABEL.y + 7.5} textAnchor="middle" fontSize={4.4} fontWeight={800} textLength={46} lengthAdjust="spacingAndGlyphs" letterSpacing={0.12}>
         FIT - HPUni
       </text>
-      <text x={500} y={LABEL.y + 19} textAnchor="middle" fontSize={3.4} fontWeight={600} textLength={62} lengthAdjust="spacingAndGlyphs">
-        INFORMATION TECHNOLOGY · L
+      <text x={500} y={LABEL.y + 16.5} textAnchor="middle" fontSize={2.8} fontWeight={600} textLength={62} lengthAdjust="spacingAndGlyphs" letterSpacing={0.08}>
+        INFORMATION TECHNOLOGY
+      </text>
+      <text x={500} y={LABEL.y + 23.5} textAnchor="middle" fontSize={4.6} fontWeight={800} textLength={18} lengthAdjust="spacingAndGlyphs" letterSpacing={0.2}>
+        SIZE L
       </text>
       </g>
     </g>
@@ -284,7 +287,7 @@ export function DongDieuTee() {
             n="03"
             kicker="Tem nhãn trong cổ"
             title="FIT - HPUni · Size L"
-            note="Tem cổ ba dòng để dễ đọc: FIT - HPUni · Information Technology · size L; chữ chức danh giữ nguyên, không viết tắt."
+            note="Tem cổ ba dòng; SIZE L được nhấn lớn bên dưới INFORMATION TECHNOLOGY, giữ nguyên tên ngành."
           >
             <Front
               crop={{ x: 450, y: 70, w: 100, h: 40 }}
