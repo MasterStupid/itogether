@@ -438,16 +438,16 @@ export function DongDieuTee() {
           <span className="section-slogan">{BRAND.short} · {BRAND.slogan}</span>
         </div>
         <div className="detail-grid">
-          <DetailCard number="01" dark kicker="Chữ là hình" title="Chữ IT để trống, lộ màu vải" note="Khối mực đặc, riêng chữ IT không in — điểm nhìn mạnh nhất áo." onClick={detailTrigger("detail-1")} testId="card-detail-1">
+          <DetailCard number="01" dark kicker="ĐIỂM NHẤN SLOGAN" title="Chữ IT lặng đầy bản lĩnh" note="Nằm trong vế đầu slogan 'You can do IT', chữ IT được nhóm ITogether xử lý để trống lộ nền vải trên khối mực đặc — tạo tâm điểm thị giác mạnh mẽ nhất." onClick={detailTrigger("detail-1")} testId="card-detail-1">
             <PreviewArt preview="detail-1" colorway={colorway} size={size} />
           </DetailCard>
-          <DetailCard number="02" kicker="Hai giọng nói" title="Bạn nói, Khoa đáp lời" note="“You can do IT,” đậm; “we are ready to accompany” xám bạc." onClick={detailTrigger("detail-2")} testId="card-detail-2">
+          <DetailCard number="02" kicker="THÔNG ĐIỆP ĐỒNG HÀNH" title="Bạn tự tin, Khoa tiếp bước" note="“'You can do IT, we are ready to accompany' đối lập giữa nét in đậm và sắc xám bạc, điểm xuyết con trỏ lệnh nhấp nháy sau chữ 'accompany' — biểu tượng cho sự đồng hành luôn tiếp diễn." onClick={detailTrigger("detail-2")} testId="card-detail-2">
             <PreviewArt preview="detail-2" colorway={colorway} size={size} />
           </DetailCard>
-          <DetailCard number="03" kicker="Tem nhãn trong cổ" title={`Nhãn FIT-HPUni · Cỡ ${size}`} note={`Nhãn viền chữ nhật chia ngăn: FIT - HPUni, Information Technology và chữ cỡ ${size}.`} onClick={detailTrigger("detail-3")} testId="card-detail-3">
+          <DetailCard number="03" kicker="NHẬN DIỆN THƯƠNG HIỆU" title={`Niềm tự hào ở bên trong`} note={`Nhãn cổ viền chữ nhật chia ngăn hiện đại, tích hợp chuẩn xác nhận diện Khoa Công nghệ thông tin (FIT-HPUni) và thông số cỡ áo.`} onClick={detailTrigger("detail-3")} testId="card-detail-3">
             <PreviewArt preview="detail-3" colorway={colorway} size={size} />
           </DetailCard>
-          <DetailCard number="04" kicker="Màu áo" title="Polo xanh than và trắng" note="Cùng mẫu polo xanh than và trắng, viền tương phản đồng bộ ở cổ bẻ và bo tay." onClick={detailTrigger("detail-4")} testId="card-detail-4">
+          <DetailCard number="04" kicker="PHIÊN BẢN MÀU SẮC" title="Bộ đôi Polo Xanh than & Trắng" note="Bộ đôi Polo xanh than và trắng với viền cổ, bo tay phối màu tương phản — tác phẩm từ nhóm ITogether mang thông điệp gắn kết mọi thế hệ sinh viên trong Khoa." onClick={detailTrigger("detail-4")} testId="card-detail-4">
             <div style={{ display: "flex", width: "100%", height: "100%", gap: 4 }}><Front colorway={COLORWAYS.navy} size={size} pad={PAD} style={{width:"50%",height:"100%"}} /><Front colorway={COLORWAYS.white} size={size} pad={PAD} style={{width:"50%",height:"100%"}} /></div>
           </DetailCard>
         </div>
