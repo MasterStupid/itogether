@@ -99,7 +99,7 @@ function BackArt({ ink, ink2 }: Ink) {
         fontSize={15}
         fill={ink2}
       >
-        KHOA CÔNG NGHỆ THÔNG TIN · ĐH HẢI PHÒNG
+        KHOA CÔNG NGHỆ THÔNG TIN · TRƯỜNG ĐH HẢI PHÒNG
       </text>
       {/* Contact details sit on separate centered rows for an easy, unhurried read. */}
       <g transform={`translate(${ART.x + 71}, 526)`} fill="none" stroke={ink2} strokeWidth={2}>
