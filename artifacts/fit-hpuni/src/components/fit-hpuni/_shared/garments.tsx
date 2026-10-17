@@ -618,6 +618,8 @@ export interface PoloProps extends GarmentCommon {
   buttonCount?: 2 | 3;
   /** Optional replacement for the standard collar/placket construction. */
   collarOverlay?: React.ReactNode;
+  /** Optional edge-to-edge cuff construction, without the standard cuff borders. */
+  cuffOverlay?: React.ReactNode;
 }
 
 export function PoloShirt({
@@ -631,6 +633,7 @@ export function PoloShirt({
   buttons,
   buttonCount = 3,
   collarOverlay,
+  cuffOverlay,
   stitch,
   children,
   annotations,
@@ -676,8 +679,12 @@ export function PoloShirt({
       ))}
       <Stitch d={side === "front" ? POLO.hemStitchFront : POLO.hemStitchBack} color={st} />
 
-      <Tipped shape={POLO.cuffL} edge={POLO.cuffEdgeL} base={cuffC} stripes={tipping} outline={cuffOutline} />
-      <Tipped shape={POLO.cuffR} edge={POLO.cuffEdgeR} base={cuffC} stripes={tipping} outline={cuffOutline} />
+      {cuffOverlay ?? (
+        <>
+          <Tipped shape={POLO.cuffL} edge={POLO.cuffEdgeL} base={cuffC} stripes={tipping} outline={cuffOutline} />
+          <Tipped shape={POLO.cuffR} edge={POLO.cuffEdgeR} base={cuffC} stripes={tipping} outline={cuffOutline} />
+        </>
+      )}
 
       {collarOverlay ? collarOverlay : side === "front" ? (
         <g>
@@ -721,10 +728,18 @@ export function PoloShirt({
     </g>
   );
 
+  let customOutline = poloSilhouette(side, false);
+  if (cuffOverlay) {
+    customOutline = customOutline.replace("L131,359", "M131,359").replace("L928,189", "M928,189");
+  }
+  if (!collarOverlay) {
+    customOutline += ` M590,60 Q500,${side === "front" ? 30 : 70} 410,60`;
+  }
+
   return (
     <GarmentSvg
       silhouette={poloSilhouette(side)}
-      outlinePath={collarOverlay ? poloSilhouette(side, false) : undefined}
+      outlinePath={collarOverlay || cuffOverlay ? customOutline : undefined}
       body={body}
       pad={pad}
       crop={crop}

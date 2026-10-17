@@ -26,12 +26,12 @@ description: Rules for the faculty shirt design boards on the canvas (garment fl
 - Tem cổ Đồng Điệu phải giữ đầy đủ “INFORMATION TECHNOLOGY” trên một dòng, không viết tắt và không tách hai từ thành hai dòng.
   **Why:** người dùng yêu cầu trả lại từ đầy đủ và sau đó sửa yêu cầu dàn ba dòng thành “tôi muốn trên 1 dòng”.
   **How to apply:** giữ tên FIT - HPUni ở dòng riêng trong ngăn trái của tem; không tự chia dòng tên ngành khi cải thiện độ dễ đọc.
-- Viền trang trí Đồng Điệu nằm ở bo cửa tay áo và mép cổ polo, không phải khung quanh artwork lưng.
-  **Why:** người dùng đính chính “không ý tôi viền ở cổ tay áo”, sau đó yêu cầu “thêm ở cổ nữa”; yêu cầu mới là hai viền trắng kẹp một viền xanh ở giữa hơi to hơn.
-  **How to apply:** giữ artwork lưng không có khung; đồng bộ cổ và bo tay theo trắng–xanh–trắng, dải xanh giữa rộng hơn mỗi sọc trắng.
+- Viền trang trí Đồng Điệu nằm ở bo cửa tay áo và cổ polo, không phải khung quanh artwork lưng.
+  **Why:** người dùng đính chính “không ý tôi viền ở cổ tay áo”, sau đó yêu cầu “thêm ở cổ nữa”.
+  **How to apply:** giữ artwork lưng không có khung; cổ giữ cặp sọc trắng cong ở giữa bản cổ, không tự đổi theo các chỉnh sửa riêng cho tay áo.
+- Bo tay Đồng Điệu từ ngoài vào trong: áo xanh than là trắng–xanh than bằng nhau, rồi trắng dày hơn; áo trắng đảo màu. Không có đường nhỏ dư ở ngoài cùng.
+  **Why:** người dùng nói lại thiết kế sau khi thấy đường nhỏ ngoài cùng không mong muốn.
+  **How to apply:** các dải liền nhau bắt đầu ngay mép tay; giữ thứ tự và tỷ lệ này trên cả hai tay, cả mặt trước lẫn mặt sau.
 - Yêu cầu xóa viền đen đè cổ Đồng Điệu áp dụng cho toàn bộ nét thân áo chồng lên cổ, kể cả hai đầu sát vai, không chỉ cung giữa.
   **Why:** người dùng nhắc “Bạn chưa xóa hết ở viền cổ áo kìa” sau lần chỉ bỏ cung giữa.
   **How to apply:** kiểm tra cả mặt trước và sau; không để viền thân áo vẽ đè lên cổ, nhưng giữ sọc trắng và tem nhãn.
-- Khi người dùng yêu cầu “viền” cho áo Đồng Điệu, họ muốn viền ở cổ tay áo (gấu ống tay), không phải viền khung quanh artwork lưng.
-  **Why:** người dùng đã làm rõ sau khi nhầm yêu cầu “thêm tí viền đi”.
-  **How to apply:** thêm chỉ viền tương phản mảnh tại mép bo tay; không thêm khung quanh hình in trừ khi được yêu cầu rõ.

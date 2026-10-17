@@ -208,23 +208,14 @@ function DongDieuCollar({ body, stripe, side }: { body: string; stripe: string; 
 
 
 
-/** Matching white / wider navy / white bands, clipped to the sleeve cuffs. */
-function SleeveCuffTrim() {
-  const clipId = `cuff-trim-${useId().replace(/:/g, "")}`;
+/** Edge-to-edge cuff bands: equal outer/middle widths, double-width inner band. */
+function SleeveCuffTrim({ body }: { body: string }) {
+  const outer = body === K.white ? K.deep : K.white;
+  const middle = body === K.white ? K.white : K.deep;
   return (
-    <g pointerEvents="none">
-      <defs>
-        <clipPath id={clipId}>
-          <path d="M72,189 L131,359 L153,347 L95,178 Z M928,189 L869,359 L847,347 L905,178 Z" />
-        </clipPath>
-      </defs>
-      <g clipPath={`url(#${clipId})`}>
-        <path d="M72,189 L131,359 L153,347 L95,178 Z M928,189 L869,359 L847,347 L905,178 Z" fill={K.deep} />
-        <g fill="none" stroke={K.white} strokeWidth={6.2} strokeLinecap="butt">
-          <path d="M77,184 L137,357 M90,179 L150,352" />
-          <path d="M923,184 L863,357 M910,179 L850,352" />
-        </g>
-      </g>
+    <g pointerEvents="none" stroke="none">
+      <path d="M72,189 L131,359 L153,347 L95,178 Z M928,189 L869,359 L847,347 L905,178 Z" fill={outer} />
+      <path d="M77.75,186.25 L136.5,356 L142,353 L83.5,183.5 Z M922.25,186.25 L863.5,356 L858,353 L916.5,183.5 Z" fill={middle} />
     </g>
   );
 }
@@ -239,13 +230,9 @@ function Back({
       side="back"
       body={c.body}
       collarOverlay={<DongDieuCollar body={c.body} stripe={K.white} side="back" />}
+      cuffOverlay={<SleeveCuffTrim body={c.body} />}
       {...rest}
-      annotations={
-        <>
-          {annotations}
-          <SleeveCuffTrim />
-        </>
-      }
+      annotations={annotations}
     >
       <BackArt {...c} />
     </PoloShirt>
@@ -264,12 +251,12 @@ function Front({
       side="front"
       body={c.body}
       collarOverlay={<DongDieuCollar body={c.body} stripe={K.white} side="front" />}
+      cuffOverlay={<SleeveCuffTrim body={c.body} />}
       {...rest}
       annotations={
         <>
           {wideCollar && <NeckLabel color={c.body === K.white ? K.deep : K.white} size={size} />}
           {annotations}
-          <SleeveCuffTrim />
         </>
       }
     >
