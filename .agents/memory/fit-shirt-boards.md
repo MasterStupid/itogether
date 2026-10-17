@@ -20,6 +20,9 @@ description: Rules for the faculty shirt design boards on the canvas (garment fl
 - For the Đồng Điệu direction, omit city symbols and focus on the faculty slogan: “You can do IT, we are ready to accompany”.
   **Why:** the user explicitly redirected this selected design away from city imagery.
   **How to apply:** keep future refinements of this direction slogan-led; this does not require changing the other concept boards.
+- “You can do IT, we are ready to accompany” là slogan của Khoa, không phải thông điệp do nhóm thiết kế sáng tác.
+  **Why:** người dùng xác nhận và đính chính nguồn gốc slogan.
+  **How to apply:** thuyết minh mẫu áo là cách thể hiện slogan có sẵn của Khoa bằng thiết kế; không nhận slogan là sáng tạo riêng của nhóm.
 - Cổ polo Đồng Điệu bám ảnh cận cảnh: lá cổ bản rộng, mép dưới gần thẳng, lòng cổ chữ U sâu, nẹp mở lệch lộ lót kem; tem chia ngăn. Hai sọc trắng cong nằm giữa bản lá cổ.
   **Why:** người dùng bác bản lá cổ cong nhỏ là “xấu quá” và yêu cầu “thiết kế lại cổ áo theo đúng mẫu”; không muốn diễn giải lại dáng cổ.
   **How to apply:** dựng hình theo tỷ lệ ảnh, không dùng lá cổ cong cuộn hoặc viền bao toàn bộ lá cổ; giữ tên ngành bên trái và size lớn bên phải trên tem. Theo chỉnh sửa mới nhất của người dùng, đặt cặp sọc ở giữa bản cổ thay vì sát rìa.
