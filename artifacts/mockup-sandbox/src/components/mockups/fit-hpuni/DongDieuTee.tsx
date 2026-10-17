@@ -101,21 +101,6 @@ function BackArt({ ink, ink2 }: Ink) {
       >
         KHOA CÔNG NGHỆ THÔNG TIN · TRƯỜNG ĐH HẢI PHÒNG
       </text>
-      {/* Contact details sit on separate centered rows for an easy, unhurried read. */}
-      <g transform={`translate(${ART.x + 71}, 526)`} fill="none" stroke={ink2} strokeWidth={2}>
-        <circle cx={7} cy={7} r={6} />
-        <path d="M1.5 7h11M7 1c1.7 1.7 2.5 3.7 2.5 6S8.7 11.3 7 13M7 1C5.3 2.7 4.5 4.7 4.5 7S5.3 11.3 7 13" />
-      </g>
-      <text x={ART.x + 92} y={542} textLength={116} lengthAdjust="spacingAndGlyphs" fontWeight={600} fontSize={14} letterSpacing={0.2} fill={ink2}>
-        fit.dhhp.edu.vn
-      </text>
-      <g transform={`translate(${ART.x + 74}, 550)`} fill="none" stroke={ink2} strokeWidth={1.8} strokeLinejoin="round">
-        <rect x={0.5} y={1} width={14} height={11} rx={1.5} />
-        <path d="m1.5 2 6 5 6-5" />
-      </g>
-      <text x={ART.x + 95} y={566} textLength={110} lengthAdjust="spacingAndGlyphs" fontWeight={600} fontSize={14} letterSpacing={0.1} fill={ink2}>
-        fit@dhhp.edu.vn
-      </text>
     </g>
   );
 }
