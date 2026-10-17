@@ -134,9 +134,9 @@ function DongDieuCollar({ body, stripe, side }: { body: string; stripe: string; 
         <g>
           {/* Back view: soft folded band whose top edge dips gently at centre back. */}
           <path d="M392,64 C394,46 404,38 420,37 Q500,48 580,37 C596,38 606,46 608,64 L606,86 Q500,104 394,86 Z" fill={collarColor} />
-          {/* Twin tipping follows the exposed lower free edge, 6 mm apart. */}
-          <path d="M398,74 Q500,92 602,74" fill="none" stroke={stripe} strokeWidth="2.5" />
-          <path d="M396,80 Q500,98 604,80" fill="none" stroke={stripe} strokeWidth="2.5" />
+          {/* Twin tipping: medium-width white bands with a visible navy gap. */}
+          <path d="M398,72 Q500,90 602,72" fill="none" stroke={stripe} strokeWidth="4.5" />
+          <path d="M396,80 Q500,98 604,80" fill="none" stroke={stripe} strokeWidth="4.5" />
         </g>
       ) : (
         <g>
@@ -151,11 +151,11 @@ function DongDieuCollar({ body, stripe, side }: { body: string; stripe: string; 
           <path d="M390,62 C386,100 392,138 403,168 Q452,178 498,186 C446,148 422,106 420,66 C410,60 400,58 390,62 Z" fill={collarColor} />
           <path d="M610,62 C614,100 608,138 597,168 Q548,178 502,186 C554,148 578,106 580,66 C590,60 600,58 610,62 Z" fill={collarColor} />
           {/* Double white tipping tracks the natural outer edges. */}
-          <g fill="none" stroke={stripe} strokeWidth="2.5" strokeLinecap="butt">
+          <g fill="none" stroke={stripe} strokeWidth="4.5" strokeLinecap="butt">
             <path d="M396,60 C392,99 398,137 408,169" />
-            <path d="M402,60 C398,98 404,136 414,170" />
+            <path d="M404,60 C400,98 406,136 416,170" />
             <path d="M604,60 C608,99 602,137 592,169" />
-            <path d="M598,60 C602,98 596,136 586,170" />
+            <path d="M596,60 C600,98 594,136 584,170" />
           </g>
           {/* Buttons and ivory end bar. */}
           {[204, 244].map((y) => (
