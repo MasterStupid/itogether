@@ -156,7 +156,7 @@ const PAD = { top: 4, right: 6, bottom: 8, left: 6 };
 /** Continuous fine piping, inset just inside each angled sleeve-cuff opening. */
 function SleeveCuffTrim({ color }: { color: string }) {
   return (
-    <g pointerEvents="none" fill="none" stroke={color} strokeWidth={3.2} strokeLinecap="butt" opacity={0.96}>
+    <g pointerEvents="none" fill="none" stroke={color} strokeWidth={6} strokeLinecap="butt" opacity={0.98}>
       <path d="M73.5,186.5 L132.5,356.5" />
       <path d="M926.5,186.5 L867.5,356.5" />
     </g>
