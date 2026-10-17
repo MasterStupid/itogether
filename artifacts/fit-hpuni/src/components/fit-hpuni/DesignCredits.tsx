@@ -11,7 +11,7 @@ export function DesignCredits() {
   return (
     <section className="design-credits" aria-labelledby="design-credits-title" data-testid="section-design-credits">
       <div className="design-credits__mast">
-        <span className="design-credits__eyebrow">FIT-HPUni · ITogether</span>
+        <span className="design-credits__eyebrow">FIT-HPUni · Nhóm thiết kế ITogether</span>
         <span className="design-credits__edition" aria-hidden="true">HỒ SƠ THIẾT KẾ&nbsp; / &nbsp;04</span>
       </div>
       <div className="design-credits__body">
