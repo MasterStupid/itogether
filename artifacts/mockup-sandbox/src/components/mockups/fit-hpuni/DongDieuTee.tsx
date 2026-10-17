@@ -29,7 +29,9 @@ const ART = { x: 360, top: 170, right: 640, bottom: 570 };
 const ART_W = ART.right - ART.x; // 280
 const ART_H = ART.bottom - ART.top; // 342 — within the 300 × 400 mm back-print limit
 const HPS_Y = 60;
-const LABEL = { x: 475, y: 78, w: 50, h: 20 };
+// A compact 42 mm neck mark sits in the clear central opening of the polo;
+// the former wide label crossed both collar leaves and looked pasted on top.
+const LABEL = { x: 479, y: 72, w: 42, h: 17 };
 /* the "IT" block: solid ink, letters left open so the fabric shows through */
 const BLOCK = { x: 360, y: 222, w: 220, h: 130 };
 const IT_SIZE = 140;
@@ -113,27 +115,23 @@ function FrontArt() {
 function NeckLabel({ color }: { color: string }) {
   return (
     <g fontFamily={SANS} fill={color} opacity={0.92}>
-      {/* Slim woven label with a quiet, distinct motto tucked under the brand. */}
+      {/* Keep the small label inside the clear neck opening, clear of collar leaves. */}
       <rect
-        x={461}
-        y={LABEL.y + 1}
-        width={78}
-        height={23}
+        x={LABEL.x}
+        y={LABEL.y}
+        width={LABEL.w}
+        height={LABEL.h}
         rx={1.8}
         fill="none"
         stroke={color}
-        strokeWidth={0.7}
-        opacity={0.68}
+        strokeWidth={0.55}
+        opacity={0.62}
       />
-      <path d={`M520 ${LABEL.y + 1}v23`} stroke={color} strokeWidth={0.55} opacity={0.62} />
-      <text x={490.5} y={LABEL.y + 9} textAnchor="middle" fontSize={4.5} fontWeight={800} textLength={37} lengthAdjust="spacingAndGlyphs" letterSpacing={0.15}>
+      <text x={500} y={LABEL.y + 7} textAnchor="middle" fontSize={4.1} fontWeight={800} textLength={32} lengthAdjust="spacingAndGlyphs" letterSpacing={0.12}>
         FIT - HPUni
       </text>
-      <text x={490.5} y={LABEL.y + 17} textAnchor="middle" fontSize={3.1} fontWeight={600} textLength={54} lengthAdjust="spacingAndGlyphs">
-        Information Technology
-      </text>
-      <text x={529} y={LABEL.y + 13.5} textAnchor="middle" fontSize={4.8} fontWeight={700} letterSpacing={0.35}>
-        L
+      <text x={500} y={LABEL.y + 13} textAnchor="middle" fontSize={2.8} fontWeight={600} textLength={35} lengthAdjust="spacingAndGlyphs">
+        INFO TECH · L
       </text>
     </g>
   );
