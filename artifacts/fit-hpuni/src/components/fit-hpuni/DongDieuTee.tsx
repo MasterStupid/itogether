@@ -96,7 +96,7 @@ function BackArt({ ink, ink2 }: Ink) {
 }
 
 function FrontArt() {
-  return <FitLogo cx={583} cy={238} d={90} />;
+  return <FitLogo cx={590} cy={238} d={90} />;
 }
 
 /** A compact, rib-knit tipped collar and the matching two-compartment neck label. */
