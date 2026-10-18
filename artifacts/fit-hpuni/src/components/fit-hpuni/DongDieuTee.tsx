@@ -82,14 +82,15 @@ function BackArt({ ink, ink2 }: Ink) {
         Since 2012
       </text>
       <text
-        x={ART.x}
+        x={(ART.x + ART.right) / 2}
         y={518}
+        textAnchor="middle"
         fontWeight={600}
         fontSize={15}
         fill={ink2}
       >
-        <tspan x={ART.x}>KHOA CÔNG NGHỆ THÔNG TIN</tspan>
-        <tspan x={ART.x} dy={20}>TRƯỜNG ĐH HẢI PHÒNG</tspan>
+        <tspan x={(ART.x + ART.right) / 2}>KHOA CÔNG NGHỆ THÔNG TIN</tspan>
+        <tspan x={(ART.x + ART.right) / 2} dy={20}>TRƯỜNG ĐH HẢI PHÒNG</tspan>
       </text>
     </g>
   );
