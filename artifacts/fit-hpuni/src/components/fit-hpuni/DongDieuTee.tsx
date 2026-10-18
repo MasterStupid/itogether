@@ -335,8 +335,8 @@ function PreviewDialog({ preview, colorway, size, onClose }: { preview: Preview;
   const labels: Record<Preview, [string, string]> = {
     front: ["Mặt trước", "Logo FIT-HPUni chính thức đặt gọn trên ngực trái."],
     back: ["Mặt sau", "Câu slogan của Khoa trên nền áo đã chọn."],
-    "detail-1": ["Chữ IT lặng đầy bản lĩnh", "Nằm trong vế đầu slogan 'You can do IT', chữ IT được nhóm ITogether xử lý để trống lộ nền vải trên khối mực đặc — tạo tâm điểm thị giác mạnh mẽ nhất."],
-    "detail-2": ["Bạn tự tin, Khoa tiếp bước", '"You can do IT, we are ready to accompany" đối lập giữa nét in đậm và sắc xám bạc, điểm xuyết con trỏ lệnh nhấp nháy sau chữ "accompany" — biểu tượng cho sự đồng hành luôn tiếp diễn.'],
+    "detail-1": ["Chữ “IT” lặng đầy bản lĩnh", "Nằm trong vế đầu slogan “You can do IT”, chữ “IT” được nhóm ITogether xử lý để trống lộ nền vải trên khối mực đặc — tạo tâm điểm thị giác mạnh mẽ nhất."],
+    "detail-2": ["Bạn tự tin, Khoa tiếp bước", "“You can do IT, we are ready to accompany” đối lập giữa nét in đậm và sắc xám bạc, điểm xuyết con trỏ lệnh nhấp nháy sau chữ “accompany” — biểu tượng cho sự đồng hành luôn tiếp diễn."],
     "detail-3": ["Niềm tự hào ở bên trong", "Nhãn cổ viền chữ nhật chia ngăn hiện đại, tích hợp chuẩn xác nhận diện Khoa Công nghệ thông tin (FIT-HPUni) và thông số cỡ áo."],
     "detail-4": ["Bộ đôi Polo Xanh than & Trắng", "Bộ đôi Polo xanh than và trắng với viền cổ, bo tay phối màu tương phản — tác phẩm từ nhóm ITogether mang thông điệp gắn kết mọi thế hệ sinh viên trong Khoa."],
   };
@@ -394,7 +394,7 @@ export function DongDieuTee() {
       <header className="masthead">
         <div className="brand-lockup">
           <img className="brand-mark" src={BRAND.logo} alt="Logo chính thức FIT-HPUni" />
-          <div><p className="eyebrow">Khoa Công nghệ Thông tin · Trường Đại học Hải Phòng</p><h1 className="brand-title">CUỘC THI SÁNG TẠO DẤU ẤN RIÊNG KHOA CÔNG NGHỆ THÔNG TIN </h1></div>
+          <div><p className="eyebrow">Khoa Công nghệ Thông tin - Trường Đại học Hải Phòng</p><h1 className="brand-title">CUỘC THI SÁNG TẠO DẤU ẤN RIÊNG KHOA CÔNG NGHỆ THÔNG TIN </h1></div>
         </div>
       </header>
 
@@ -414,7 +414,7 @@ export function DongDieuTee() {
             </select>
           </label>
         </div>
-        <span className="state-note" aria-live="polite" data-testid="text-current-selection">Đang xem: {color === "navy" ? "xanh than" : "trắng"} · size {size}</span>
+        <span className="state-note" aria-live="polite" data-testid="text-current-selection">Đang xem: {color === "navy" ? "Xanh than" : "Trắng"} · size {size}</span>
       </section>
 
       <section className="hero-board" aria-label="Hai mặt áo">
@@ -435,13 +435,13 @@ export function DongDieuTee() {
       <section className="details-section" aria-labelledby="details-heading">
         <div className="section-heading">
           <h2 id="details-heading">Điểm nổi bật <span>của chiếc áo</span></h2>
-          <span className="section-slogan">{BRAND.short} · {BRAND.slogan}</span>
+          <span className="section-slogan">{BRAND.short} — {BRAND.slogan}</span>
         </div>
         <div className="detail-grid">
-          <DetailCard number="01" dark kicker="ĐIỂM NHẤN SLOGAN" title="Chữ IT lặng đầy bản lĩnh" note="Nằm trong vế đầu slogan 'You can do IT', chữ IT được nhóm ITogether xử lý để trống lộ nền vải trên khối mực đặc — tạo tâm điểm thị giác mạnh mẽ nhất." onClick={detailTrigger("detail-1")} testId="card-detail-1">
+          <DetailCard number="01" dark kicker="ĐIỂM NHẤN SLOGAN" title="Chữ “IT” lặng đầy bản lĩnh" note="Nằm trong vế đầu slogan “You can do IT”, chữ IT được nhóm ITogether xử lý để trống lộ nền vải trên khối mực đặc — tạo tâm điểm thị giác mạnh mẽ nhất." onClick={detailTrigger("detail-1")} testId="card-detail-1">
             <PreviewArt preview="detail-1" colorway={colorway} size={size} />
           </DetailCard>
-          <DetailCard number="02" kicker="THÔNG ĐIỆP ĐỒNG HÀNH" title="Bạn tự tin, Khoa tiếp bước" note="“'You can do IT, we are ready to accompany' đối lập giữa nét in đậm và sắc xám bạc, điểm xuyết con trỏ lệnh nhấp nháy sau chữ 'accompany' — biểu tượng cho sự đồng hành luôn tiếp diễn." onClick={detailTrigger("detail-2")} testId="card-detail-2">
+          <DetailCard number="02" kicker="THÔNG ĐIỆP ĐỒNG HÀNH" title="Bạn tự tin, Khoa tiếp bước" note="“You can do IT, we are ready to accompany” đối lập giữa nét in đậm và sắc xám bạc, điểm xuyết con trỏ lệnh nhấp nháy sau chữ “accompany” — biểu tượng cho sự đồng hành luôn tiếp diễn." onClick={detailTrigger("detail-2")} testId="card-detail-2">
             <PreviewArt preview="detail-2" colorway={colorway} size={size} />
           </DetailCard>
           <DetailCard number="03" kicker="NHẬN DIỆN THƯƠNG HIỆU" title={`Niềm tự hào ở bên trong`} note={`Nhãn cổ viền chữ nhật chia ngăn hiện đại, tích hợp chuẩn xác nhận diện Khoa Công nghệ thông tin (FIT-HPUni) và thông số cỡ áo.`} onClick={detailTrigger("detail-3")} testId="card-detail-3">
