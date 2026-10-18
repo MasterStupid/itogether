@@ -91,6 +91,8 @@
 .masthead { max-width: 1580px; margin: 0 auto 18px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
 .brand-lockup { display: flex; align-items: center; gap: 13px; min-width: 0; }
 .brand-mark { width: 43px; height: 43px; border-radius: 50%; object-fit: contain; background: #fff; box-shadow: 0 2px 7px #1f33491b; }
+.masthead .brand-mark { flex-shrink: 0; }
+.university-mark { align-self: center; }
 .eyebrow { margin: 0 0 4px; font: 600 10px/1.2 var(--app-font-mono); text-transform: uppercase; letter-spacing: .16em; color: var(--navy); }
 .brand-title { margin: 0; font-size: clamp(16px, 2vw, 21px); font-weight: 800; letter-spacing: -.035em; }
 .masthead-actions { display: flex; align-items: center; gap: 10px; }
