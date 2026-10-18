@@ -335,7 +335,7 @@ function PreviewDialog({ preview, colorway, size, onClose }: { preview: Preview;
   const labels: Record<Preview, [string, string]> = {
     front: ["Mặt trước", "Logo FIT-HPUni chính thức đặt gọn trên ngực trái."],
     back: ["Mặt sau", "Câu slogan của Khoa trên nền áo đã chọn."],
-    "detail-1": ["Chữ\u00a0\u00a0“IT”\u00a0lặng đầy bản lĩnh", "Nằm trong vế đầu slogan “You can do IT”, chữ “IT” được nhóm ITogether xử lý để trống lộ nền vải trên khối mực đặc — tạo tâm điểm thị giác mạnh mẽ nhất."],
+    "detail-1": ["Chữ “IT” lặng đầy bản lĩnh", "Nằm trong vế đầu slogan “You can do IT”, chữ “IT” được nhóm ITogether xử lý để trống lộ nền vải trên khối mực đặc — tạo tâm điểm thị giác mạnh mẽ nhất."],
     "detail-2": ["Bạn tự tin, Khoa tiếp bước", "“You can do IT, we are ready to accompany” đối lập giữa nét in đậm và sắc xám bạc, điểm xuyết con trỏ lệnh nhấp nháy sau chữ “accompany” — biểu tượng cho sự đồng hành luôn tiếp diễn."],
     "detail-3": ["Niềm tự hào ở bên trong", "Nhãn cổ viền chữ nhật chia ngăn hiện đại, tích hợp chuẩn xác nhận diện Khoa Công nghệ thông tin (FIT-HPUni) và thông số cỡ áo."],
     "detail-4": ["Bộ đôi Polo Xanh than & Trắng", "Bộ đôi Polo xanh than và trắng với viền cổ, bo tay phối màu tương phản — tác phẩm từ nhóm ITogether mang thông điệp gắn kết mọi thế hệ sinh viên trong Khoa."],
@@ -345,7 +345,7 @@ function PreviewDialog({ preview, colorway, size, onClose }: { preview: Preview;
     <div className="dialog-backdrop" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) onClose(); }}>
       <div className="detail-dialog" role="dialog" aria-modal="true" aria-labelledby="preview-dialog-title" aria-describedby="preview-dialog-description" ref={dialogRef} data-testid="dialog-preview">
         <div className="dialog-head">
-          <div className="font-bold"><p className="eyebrow">FIT-HPUni — ITogether</p><h2 id="preview-dialog-title">{title}</h2><p id="preview-dialog-description">{description}</p></div>
+          <div className="font-bold"><p className="eyebrow">FIT-HPUni · ITogether</p><h2 id="preview-dialog-title">{title}</h2><p id="preview-dialog-description">{description}</p></div>
           <button className="close-button" type="button" onClick={onClose} ref={closeRef} aria-label="Đóng cửa sổ xem trước" data-testid="button-close-preview">×</button>
         </div>
         <div className="dialog-art"><PreviewArt preview={preview} colorway={colorway} size={size} large /></div>
@@ -394,7 +394,7 @@ export function DongDieuTee() {
       <header className="masthead">
         <div className="brand-lockup">
           <img className="brand-mark" src={BRAND.logo} alt="Logo chính thức FIT-HPUni" />
-          <div><p className="eyebrow">Khoa Công nghệ Thông tin - Trường Đại học Hải Phòng</p><h1 className="brand-title">CUỘC THI SÁNG TẠO DẤU ẤN RIÊNG KHOA CÔNG NGHỆ THÔNG TIN </h1></div>
+          <div><p className="eyebrow">Khoa Công Nghệ Thông Tin - Trường Đại học Hải Phòng</p><h1 className="brand-title">CUỘC THI SÁNG TẠO DẤU ẤN RIÊNG KHOA CÔNG NGHỆ THÔNG TIN </h1></div>
         </div>
       </header>
 
@@ -408,13 +408,13 @@ export function DongDieuTee() {
             </div>
           </div>
           <label className="control-unit" htmlFor="shirt-size">
-            <span className="control-label">Nhãn cổ · cỡ</span>
+            <span className="control-label">Nhãn cổ — cỡ</span>
             <select id="shirt-size" className="size-select" value={size} onChange={(event) => chooseSize(event.target.value as Size)} data-testid="select-size">
               {SIZES.map((option) => <option key={option} value={option}>{option}</option>)}
             </select>
           </label>
         </div>
-        <span className="state-note" aria-live="polite" data-testid="text-current-selection">Đang xem: {color === "navy" ? "Xanh than" : "Trắng"} · size {size}</span>
+        <span className="state-note" aria-live="polite" data-testid="text-current-selection">Đang xem: {color === "navy" ? "Xanh than" : "Trắng"} — Size {size}</span>
       </section>
 
       <section className="hero-board" aria-label="Hai mặt áo">
