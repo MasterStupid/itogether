@@ -335,7 +335,7 @@ function PreviewDialog({ preview, colorway, size, onClose }: { preview: Preview;
   const labels: Record<Preview, [string, string]> = {
     front: ["Mặt trước", "Logo FIT-HPUni chính thức đặt gọn trên ngực trái."],
     back: ["Mặt sau", "Câu slogan của Khoa trên nền áo đã chọn."],
-    "detail-1": ["Chữ “IT” lặng đầy bản lĩnh", "Nằm trong vế đầu slogan “You can do IT”, chữ “IT” được nhóm ITogether xử lý để trống lộ nền vải trên khối mực đặc — tạo tâm điểm thị giác mạnh mẽ nhất."],
+    "detail-1": ["Chữ “IT” lặng đầy bản lĩnh", "Nằm trong vế đầu slogan “You can do IT”, chữ \u00a0“IT” được nhóm ITogether xử lý để trống lộ nền vải trên khối mực đặc — tạo tâm điểm thị giác mạnh mẽ nhất."],
     "detail-2": ["Bạn tự tin, Khoa tiếp bước", "“You can do IT, we are ready to accompany” đối lập giữa nét in đậm và sắc xám bạc, điểm xuyết con trỏ lệnh nhấp nháy sau chữ “accompany” — biểu tượng cho sự đồng hành luôn tiếp diễn."],
     "detail-3": ["Niềm tự hào ở bên trong", "Nhãn cổ viền chữ nhật chia ngăn hiện đại, tích hợp chuẩn xác nhận diện Khoa Công nghệ thông tin (FIT-HPUni) và thông số cỡ áo."],
     "detail-4": ["Bộ đôi Polo Xanh than & Trắng", "Bộ đôi Polo xanh than và trắng với viền cổ, bo tay phối màu tương phản — tác phẩm từ nhóm ITogether mang thông điệp gắn kết mọi thế hệ sinh viên trong Khoa."],
@@ -345,7 +345,7 @@ function PreviewDialog({ preview, colorway, size, onClose }: { preview: Preview;
     <div className="dialog-backdrop" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) onClose(); }}>
       <div className="detail-dialog" role="dialog" aria-modal="true" aria-labelledby="preview-dialog-title" aria-describedby="preview-dialog-description" ref={dialogRef} data-testid="dialog-preview">
         <div className="dialog-head">
-          <div className="font-bold"><p className="eyebrow">FIT-HPUni · ITogether</p><h2 id="preview-dialog-title">{title}</h2><p id="preview-dialog-description">{description}</p></div>
+          <div className="font-bold"><p className="eyebrow">FIT-HPUni — ITogether</p><h2 id="preview-dialog-title">{title}</h2><p id="preview-dialog-description">{description}</p></div>
           <button className="close-button" type="button" onClick={onClose} ref={closeRef} aria-label="Đóng cửa sổ xem trước" data-testid="button-close-preview">×</button>
         </div>
         <div className="dialog-art"><PreviewArt preview={preview} colorway={colorway} size={size} large /></div>
