@@ -435,7 +435,7 @@ export function DongDieuTee() {
       <section className="details-section" aria-labelledby="details-heading">
         <div className="section-heading">
           <h2 id="details-heading">Điểm nổi bật <span>của chiếc áo</span></h2>
-          <span className="section-slogan">{BRAND.short} · {BRAND.slogan}</span>
+          <span className="section-slogan">{BRAND.short} — {BRAND.slogan}</span>
         </div>
         <div className="detail-grid">
           <DetailCard number="01" dark kicker="ĐIỂM NHẤN SLOGAN" title="Chữ     “IT”  lặng đầy bản lĩnh" note="Nằm trong vế đầu slogan “You can do IT”, chữ IT được nhóm ITogether xử lý để trống lộ nền vải trên khối mực đặc — tạo tâm điểm thị giác mạnh mẽ nhất." onClick={detailTrigger("detail-1")} testId="card-detail-1">
