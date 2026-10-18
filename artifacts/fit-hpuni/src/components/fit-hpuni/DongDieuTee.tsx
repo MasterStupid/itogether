@@ -337,8 +337,8 @@ function PreviewDialog({ preview, colorway, size, onClose }: { preview: Preview;
     back: ["Mặt sau", "Câu slogan của Khoa trên nền áo đã chọn."],
     "detail-1": ["Chữ IT lặng đầy bản lĩnh", "Nằm trong vế đầu slogan 'You can do IT', chữ IT được nhóm ITogether xử lý để trống lộ nền vải trên khối mực đặc — tạo tâm điểm thị giác mạnh mẽ nhất."],
     "detail-2": ["Bạn tự tin, Khoa tiếp bước", '"You can do IT, we are ready to accompany" đối lập giữa nét in đậm và sắc xám bạc, điểm xuyết con trỏ lệnh nhấp nháy sau chữ "accompany" — biểu tượng cho sự đồng hành luôn tiếp diễn.'],
-    "detail-3": ["Nhãn trong cổ", `FIT - HPUni · Information Technology · size ${size}.`],
-    "detail-4": ["Màu áo", `Bản xem trước màu ${colorway.body === K.deep ? "xanh than" : "trắng"}.`],
+    "detail-3": ["Niềm tự hào ở bên trong", "Nhãn cổ viền chữ nhật chia ngăn hiện đại, tích hợp chuẩn xác nhận diện Khoa Công nghệ thông tin (FIT-HPUni) và thông số cỡ áo."],
+    "detail-4": ["Bộ đôi Polo Xanh than & Trắng", "Bộ đôi Polo xanh than và trắng với viền cổ, bo tay phối màu tương phản — tác phẩm từ nhóm ITogether mang thông điệp gắn kết mọi thế hệ sinh viên trong Khoa."],
   };
   const [title, description] = labels[preview];
   return (
