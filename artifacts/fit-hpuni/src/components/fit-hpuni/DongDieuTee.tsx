@@ -90,7 +90,7 @@ function BackArt({ ink, ink2 }: Ink) {
         fill={ink2}
       >
         <tspan x={(ART.x + ART.right) / 2}>KHOA CÔNG NGHỆ THÔNG TIN</tspan>
-        <tspan x={(ART.x + ART.right) / 2} dy={20}>TRƯỜNG ĐH HẢI PHÒNG</tspan>
+        <tspan x={(ART.x + ART.right) / 2} dy={20}>TRƯỜNG ĐẠI HỌC HẢI PHÒNG</tspan>
       </text>
     </g>
   );
