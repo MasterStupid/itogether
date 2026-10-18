@@ -84,13 +84,12 @@ function BackArt({ ink, ink2 }: Ink) {
       <text
         x={ART.x}
         y={518}
-        textLength={ART_W}
-        lengthAdjust="spacingAndGlyphs"
         fontWeight={600}
         fontSize={15}
         fill={ink2}
       >
-        KHOA CÔNG NGHỆ THÔNG TIN · TRƯỜNG ĐH HẢI PHÒNG
+        <tspan x={ART.x}>KHOA CÔNG NGHỆ THÔNG TIN</tspan>
+        <tspan x={ART.x} dy={20}>TRƯỜNG ĐH HẢI PHÒNG</tspan>
       </text>
     </g>
   );
