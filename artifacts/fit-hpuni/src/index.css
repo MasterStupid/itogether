@@ -160,6 +160,13 @@
 .dialog-head h2 { margin: 0; color: var(--deep); font-size: clamp(20px, 3vw, 27px); letter-spacing: -.035em; }
 .dialog-head p { margin: 5px 0 0; color: var(--muted-ink); font-size: 12px; }
 .close-button { width: 41px; flex: 0 0 41px; display: grid; place-items: center; padding: 0; cursor: pointer; color: var(--deep); font-size: 22px; line-height: 1; }
+.color-pair-preview { padding: 0 16px; }
+.color-pair-controls { display: flex; justify-content: center; gap: 8px; margin: 2px 0 16px; }
+.color-pair-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.color-pair-item { min-width: 0; margin: 0; padding: 12px 4px; border: 1px solid var(--rule); border-radius: 16px; background: #ece6dc; }
+.color-pair-art { height: clamp(200px, 40vw, 420px); }
+.color-pair-item figcaption { margin-top: 10px; text-align: center; color: var(--deep); font-size: 12px; font-weight: 700; }
+.color-pair-item figcaption span { color: var(--muted-ink); font-weight: 500; }
 .dialog-art { height: min(56vh, 520px); min-height: 250px; margin: 0 16px 16px; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 15px; background: radial-gradient(ellipse 76% 72%, #fbf8f3, #e6dfd5); }
 .dialog-art svg { width: 100%; height: 100%; }
 .dialog-caption { margin: 0; padding: 0 24px 22px; color: #666c70; font-size: 11px; }

@@ -315,6 +315,7 @@ function PreviewArt({ preview, colorway, size, large = false }: { preview: Previ
 }
 
 function PreviewDialog({ preview, colorway, size, onClose }: { preview: Preview; colorway: Ink; size: Size; onClose: () => void }) {
+  const [pairSide, setPairSide] = useState<"front" | "back">("front");
   const closeRef = useRef<HTMLButtonElement>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -348,7 +349,30 @@ function PreviewDialog({ preview, colorway, size, onClose }: { preview: Preview;
           <div className="font-bold"><p className="eyebrow">FIT-HPUni — ITogether</p><h2 id="preview-dialog-title">{title}</h2><p id="preview-dialog-description">{description}</p></div>
           <button className="close-button" type="button" onClick={onClose} ref={closeRef} aria-label="Đóng cửa sổ xem trước" data-testid="button-close-preview">×</button>
         </div>
-        <div className="dialog-art"><PreviewArt preview={preview} colorway={colorway} size={size} large /></div>
+        {preview === "detail-4" ? (
+          <div className="color-pair-preview">
+            <div className="color-pair-controls" role="group" aria-label="Chọn mặt áo cho cả hai màu">
+              <button type="button" className="swatch-button" aria-pressed={pairSide === "front"} onClick={() => setPairSide("front")} data-testid="button-pair-front">Mặt trước</button>
+              <button type="button" className="swatch-button" aria-pressed={pairSide === "back"} onClick={() => setPairSide("back")} data-testid="button-pair-back">Mặt sau</button>
+            </div>
+            <div className="color-pair-grid" aria-live="polite">
+              {(["navy", "white"] as const).map((color) => (
+                <figure className="color-pair-item" key={color}>
+                  <div className="color-pair-art">
+                    {pairSide === "front" ? (
+                      <Front colorway={COLORWAYS[color]} size={size} pad={PAD} style={{ width: "100%", height: "100%" }} title={`Áo ${color === "navy" ? "xanh than" : "trắng"}, mặt trước`} />
+                    ) : (
+                      <Back colorway={COLORWAYS[color]} pad={PAD} style={{ width: "100%", height: "100%" }} title={`Áo ${color === "navy" ? "xanh than" : "trắng"}, mặt sau`} />
+                    )}
+                  </div>
+                  <figcaption>{color === "navy" ? "Xanh than" : "Trắng"} <span>— {pairSide === "front" ? "Mặt trước" : "Mặt sau"}</span></figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        ) : (
+          <div className="dialog-art"><PreviewArt preview={preview} colorway={colorway} size={size} large /></div>
+        )}
         <p className="dialog-caption">Nhấn Escape hoặc nút đóng để quay lại bảng thiết kế.</p>
       </div>
     </div>
