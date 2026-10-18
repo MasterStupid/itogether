@@ -154,7 +154,7 @@ function DongDieuCollar({ body, stripe, side }: { body: string; stripe: string; 
       ) : (
         /* Traced in the 661×627 reference image space, then mapped uniformly:
            garment = translate(335.75, 24.6) · scale(0.45) · reference. */
-        <g transform="translate(335.75 24.6) scale(0.45)">
+        (<g transform="translate(335.75 24.6) scale(0.45)">
           {/* Long dark placket base. */}
           <path d="M330,300 L408,300 L408,598 L330,598 Z" fill={placket} stroke={edge} strokeWidth="3.5" />
           {/* Rounded upper back band and its interior rib strip. */}
@@ -205,7 +205,7 @@ function DongDieuCollar({ body, stripe, side }: { body: string; stripe: string; 
             <circle cx="370" cy="466" r="1.8" />
           </g>
           <path d="M330,584 L408,584 L408,598 L330,598 Z" fill={stripe} stroke={edge} strokeWidth="2.5" />
-        </g>
+        </g>)
       )}
     </g>
   );
@@ -336,7 +336,7 @@ function PreviewDialog({ preview, colorway, size, onClose }: { preview: Preview;
     front: ["Mặt trước", "Logo FIT-HPUni chính thức đặt gọn trên ngực trái."],
     back: ["Mặt sau", "Câu slogan của Khoa trên nền áo đã chọn."],
     "detail-1": ["Chữ IT để trống", "Khối mực đặc, riêng chữ IT không in — màu vải tạo nên khoảng âm."],
-    "detail-2": ["Thông điệp đồng hành", "“You can do IT,” và lời đáp “we are ready to accompany”."],
+    "detail-2": ["Thông điệp đồng hành", "Bạn tự tin, Khoa tiếp bước"],
     "detail-3": ["Nhãn trong cổ", `FIT - HPUni · Information Technology · size ${size}.`],
     "detail-4": ["Màu áo", `Bản xem trước màu ${colorway.body === K.deep ? "xanh than" : "trắng"}.`],
   };
@@ -345,7 +345,7 @@ function PreviewDialog({ preview, colorway, size, onClose }: { preview: Preview;
     <div className="dialog-backdrop" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) onClose(); }}>
       <div className="detail-dialog" role="dialog" aria-modal="true" aria-labelledby="preview-dialog-title" aria-describedby="preview-dialog-description" ref={dialogRef} data-testid="dialog-preview">
         <div className="dialog-head">
-          <div><p className="eyebrow">FIT-HPUni · ITogether</p><h2 id="preview-dialog-title">{title}</h2><p id="preview-dialog-description">{description}</p></div>
+          <div className="font-bold"><p className="eyebrow">FIT-HPUni · ITogether</p><h2 id="preview-dialog-title">{title}</h2><p id="preview-dialog-description">{description}</p></div>
           <button className="close-button" type="button" onClick={onClose} ref={closeRef} aria-label="Đóng cửa sổ xem trước" data-testid="button-close-preview">×</button>
         </div>
         <div className="dialog-art"><PreviewArt preview={preview} colorway={colorway} size={size} large /></div>
