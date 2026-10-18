@@ -336,7 +336,7 @@ function PreviewDialog({ preview, colorway, size, onClose }: { preview: Preview;
     front: ["Mặt trước", "Logo FIT-HPUni chính thức đặt gọn trên ngực trái."],
     back: ["Mặt sau", "Câu slogan của Khoa trên nền áo đã chọn."],
     "detail-1": ["Chữ IT lặng đầy bản lĩnh", "Nằm trong vế đầu slogan 'You can do IT', chữ IT được nhóm ITogether xử lý để trống lộ nền vải trên khối mực đặc — tạo tâm điểm thị giác mạnh mẽ nhất."],
-    "detail-2": ["Thông điệp đồng hành", "Bạn tự tin, Khoa tiếp bước"],
+    "detail-2": ["Bạn tự tin, Khoa tiếp bước", "Bạn tự tin, Khoa tiếp bước"],
     "detail-3": ["Nhãn trong cổ", `FIT - HPUni · Information Technology · size ${size}.`],
     "detail-4": ["Màu áo", `Bản xem trước màu ${colorway.body === K.deep ? "xanh than" : "trắng"}.`],
   };
