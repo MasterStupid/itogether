@@ -88,8 +88,8 @@
   opacity: .035;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.4'/%3E%3C/svg%3E");
 }
-.masthead { max-width: 1580px; margin: 0 auto 18px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-.brand-lockup { display: flex; align-items: center; gap: 13px; min-width: 0; }
+.masthead { max-width: 1580px; margin: 0 auto 18px; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 20px; }
+.brand-lockup { min-width: 0; text-align: center; }
 .brand-mark { width: 43px; height: 43px; border-radius: 50%; object-fit: contain; background: #fff; box-shadow: 0 2px 7px #1f33491b; }
 .masthead .brand-mark { flex-shrink: 0; }
 .university-mark { align-self: center; }
@@ -168,7 +168,7 @@
 @keyframes lift-in { from { opacity: 0; transform: translateY(8px) scale(.99); } to { opacity: 1; transform: none; } }
 @media (max-width: 760px) {
   .board { padding: 16px 14px 28px; }
-  .masthead { align-items: flex-start; margin-bottom: 13px; }
+  .masthead { gap: 12px; margin-bottom: 13px; }
   .masthead-actions { gap: 0; }
   .print-button { min-height: 38px; padding: 0 11px; font-size: 0; gap: 0; }
   .print-icon { width: 17px; height: 17px; }
