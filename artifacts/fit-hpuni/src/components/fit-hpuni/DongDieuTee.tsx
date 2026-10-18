@@ -345,7 +345,7 @@ function PreviewDialog({ preview, colorway, size, onClose }: { preview: Preview;
     <div className="dialog-backdrop" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) onClose(); }}>
       <div className="detail-dialog" role="dialog" aria-modal="true" aria-labelledby="preview-dialog-title" aria-describedby="preview-dialog-description" ref={dialogRef} data-testid="dialog-preview">
         <div className="dialog-head">
-          <div className="font-bold"><p className="eyebrow">FIT-HPUni · ITogether</p><h2 id="preview-dialog-title">{title}</h2><p id="preview-dialog-description">{description}</p></div>
+          <div className="font-bold"><p className="eyebrow">FIT-HPUni — ITogether</p><h2 id="preview-dialog-title">{title}</h2><p id="preview-dialog-description">{description}</p></div>
           <button className="close-button" type="button" onClick={onClose} ref={closeRef} aria-label="Đóng cửa sổ xem trước" data-testid="button-close-preview">×</button>
         </div>
         <div className="dialog-art"><PreviewArt preview={preview} colorway={colorway} size={size} large /></div>
