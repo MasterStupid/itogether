@@ -394,7 +394,7 @@ export function DongDieuTee() {
       <header className="masthead">
         <div className="brand-lockup">
           <img className="brand-mark" src={BRAND.logo} alt="Logo chính thức FIT-HPUni" />
-          <div><p className="eyebrow">Khoa Công Nghệ Thông Tin - Trường Đại học Hải Phòng</p><h1 className="brand-title">CUỘC THI SÁNG TẠO DẤU ẤN RIÊNG KHOA CÔNG NGHỆ THÔNG TIN </h1></div>
+          <div><p className="eyebrow">Khoa Công Nghệ Thông Tin — Trường Đại học Hải Phòng</p><h1 className="brand-title">CUỘC THI SÁNG TẠO DẤU ẤN RIÊNG KHOA CÔNG NGHỆ THÔNG TIN </h1></div>
         </div>
       </header>
 
