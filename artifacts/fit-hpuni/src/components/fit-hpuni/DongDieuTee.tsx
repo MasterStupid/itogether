@@ -82,15 +82,15 @@ function BackArt({ ink, ink2 }: Ink) {
         Since 2012
       </text>
       <text
-        x={ART.x}
+        x={(ART.x + ART.right) / 2}
         y={518}
-        textLength={ART_W}
-        lengthAdjust="spacingAndGlyphs"
+        textAnchor="middle"
         fontWeight={600}
         fontSize={15}
         fill={ink2}
       >
-        KHOA CÔNG NGHỆ THÔNG TIN · TRƯỜNG ĐH HẢI PHÒNG
+        <tspan x={(ART.x + ART.right) / 2}>KHOA CÔNG NGHỆ THÔNG TIN</tspan>
+        <tspan x={(ART.x + ART.right) / 2} dy={20}>TRƯỜNG ĐẠI HỌC HẢI PHÒNG</tspan>
       </text>
     </g>
   );
@@ -335,7 +335,7 @@ function PreviewDialog({ preview, colorway, size, onClose }: { preview: Preview;
   const labels: Record<Preview, [string, string]> = {
     front: ["Mặt trước", "Logo FIT-HPUni chính thức đặt gọn trên ngực trái."],
     back: ["Mặt sau", "Câu slogan của Khoa trên nền áo đã chọn."],
-    "detail-1": ["Chữ “IT” lặng đầy bản lĩnh", "Nằm trong vế đầu slogan “You can do IT”, chữ “IT” được nhóm ITogether xử lý để trống lộ nền vải trên khối mực đặc — tạo tâm điểm thị giác mạnh mẽ nhất."],
+    "detail-1": ["Chữ “IT” lặng đầy bản lĩnh", "Nằm trong vế đầu slogan “You can do IT”, chữ \u00a0“IT” được nhóm ITogether xử lý để trống lộ nền vải trên khối mực đặc — tạo tâm điểm thị giác mạnh mẽ nhất."],
     "detail-2": ["Bạn tự tin, Khoa tiếp bước", "“You can do IT, we are ready to accompany” đối lập giữa nét in đậm và sắc xám bạc, điểm xuyết con trỏ lệnh nhấp nháy sau chữ “accompany” — biểu tượng cho sự đồng hành luôn tiếp diễn."],
     "detail-3": ["Niềm tự hào ở bên trong", "Nhãn cổ viền chữ nhật chia ngăn hiện đại, tích hợp chuẩn xác nhận diện Khoa Công nghệ thông tin (FIT-HPUni) và thông số cỡ áo."],
     "detail-4": ["Bộ đôi Polo Xanh than & Trắng", "Bộ đôi Polo xanh than và trắng với viền cổ, bo tay phối màu tương phản — tác phẩm từ nhóm ITogether mang thông điệp gắn kết mọi thế hệ sinh viên trong Khoa."],
@@ -345,7 +345,7 @@ function PreviewDialog({ preview, colorway, size, onClose }: { preview: Preview;
     <div className="dialog-backdrop" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) onClose(); }}>
       <div className="detail-dialog" role="dialog" aria-modal="true" aria-labelledby="preview-dialog-title" aria-describedby="preview-dialog-description" ref={dialogRef} data-testid="dialog-preview">
         <div className="dialog-head">
-          <div className="font-bold"><p className="eyebrow">FIT-HPUni · ITogether</p><h2 id="preview-dialog-title">{title}</h2><p id="preview-dialog-description">{description}</p></div>
+          <div className="font-bold"><p className="eyebrow">FIT-HPUni — ITogether</p><h2 id="preview-dialog-title">{title}</h2><p id="preview-dialog-description">{description}</p></div>
           <button className="close-button" type="button" onClick={onClose} ref={closeRef} aria-label="Đóng cửa sổ xem trước" data-testid="button-close-preview">×</button>
         </div>
         <div className="dialog-art"><PreviewArt preview={preview} colorway={colorway} size={size} large /></div>
@@ -392,10 +392,12 @@ export function DongDieuTee() {
   return (
     <main className="board">
       <header className="masthead">
+        <img className="brand-mark" src={BRAND.logo} alt="Logo chính thức FIT-HPUni" />
         <div className="brand-lockup">
-          <img className="brand-mark" src={BRAND.logo} alt="Logo chính thức FIT-HPUni" />
-          <div><p className="eyebrow">Khoa Công Nghệ Thông Tin - Trường Đại học Hải Phòng</p><h1 className="brand-title">CUỘC THI SÁNG TẠO DẤU ẤN RIÊNG KHOA CÔNG NGHỆ THÔNG TIN </h1></div>
+          <p className="eyebrow">Khoa Công Nghệ Thông Tin — Trường Đại học Hải Phòng</p>
+          <h1 className="brand-title">CUỘC THI SÁNG TẠO DẤU ẤN RIÊNG KHOA CÔNG NGHỆ THÔNG TIN </h1>
         </div>
+        <img className="brand-mark university-mark" src={`${import.meta.env.BASE_URL}assets/hai-phong-university-logo.png`} alt="Logo Trường Đại học Hải Phòng" />
       </header>
 
       <section className="control-strip" aria-label="Tùy chọn xem thiết kế">
@@ -435,7 +437,7 @@ export function DongDieuTee() {
       <section className="details-section" aria-labelledby="details-heading">
         <div className="section-heading">
           <h2 id="details-heading">Điểm nổi bật <span>của chiếc áo</span></h2>
-          <span className="section-slogan">{BRAND.short} · {BRAND.slogan}</span>
+          <span className="section-slogan">{BRAND.short} — {BRAND.slogan}</span>
         </div>
         <div className="detail-grid">
           <DetailCard number="01" dark kicker="ĐIỂM NHẤN SLOGAN" title="Chữ     “IT”  lặng đầy bản lĩnh" note="Nằm trong vế đầu slogan “You can do IT”, chữ IT được nhóm ITogether xử lý để trống lộ nền vải trên khối mực đặc — tạo tâm điểm thị giác mạnh mẽ nhất." onClick={detailTrigger("detail-1")} testId="card-detail-1">
