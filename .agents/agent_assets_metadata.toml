@@ -35,3 +35,73 @@ mtime_ms = 1792636704081
 storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:1d291d16-4f1b-4532-849c-6990e429583d/62e2860b-d209-457b-a9ba-71e750ea008c/754967d4-e91e-4de6-a984-f2ea563c15b3"
 storage_version_token = "1792636732546856"
 content_type = "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+
+[[outputs]]
+id = "zbtkhWV5VRab1NB8aiQPB"
+uri = "file://screenshots/bao-cao/01-trang-chinh-ao-xanh-than.jpg"
+type = "image"
+title = "1. Trang chính — áo xanh than"
+description = "Mặt trước và mặt sau áo xanh than trên trang web."
+logical_id = "086fbb4d-315f-4ec0-a55c-c9970da74a7b"
+content_hash = "sha256:c3192995c86cb3d7fc8f0ae1d6eaffb4395616f88ca9240db84e23bd1a36f269"
+size = 171214
+mtime_ms = 1792678177636
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:1d291d16-4f1b-4532-849c-6990e429583d/086fbb4d-315f-4ec0-a55c-c9970da74a7b/8cbaaa38-f777-4918-83fa-180de20d6479"
+storage_version_token = "1792678240764793"
+content_type = "image/jpeg"
+
+[[outputs]]
+id = "G0uw4O1WS83KxkfijuiZt"
+uri = "file://screenshots/bao-cao/02-toan-trang-chi-tiet-va-nhom.jpg"
+type = "image"
+title = "2. Toàn trang web"
+description = "Hai mặt áo, các điểm nổi bật và thông tin nhóm thiết kế."
+logical_id = "577d173c-b7f8-4590-982d-2b6c7d1ecbe7"
+content_hash = "sha256:e7fae2d9f607c8f84283864185cf42201f06f2aedf372fce8cccb43fff809bd7"
+size = 253424
+mtime_ms = 1792678185120
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:1d291d16-4f1b-4532-849c-6990e429583d/577d173c-b7f8-4590-982d-2b6c7d1ecbe7/c1d04077-a3ed-4303-a8f4-113313ddf2a2"
+storage_version_token = "1792678242194733"
+content_type = "image/jpeg"
+
+[[outputs]]
+id = "0r4LODaFhkAC5uTUalU6Y"
+uri = "file://screenshots/bao-cao/03-bo-doi-xanh-than-trang.jpg"
+type = "image"
+title = "3. Bộ đôi xanh than và trắng"
+description = "Mặt trước của hai phiên bản màu."
+logical_id = "d290e3a2-11ea-4dfe-bd59-2a06abd88aed"
+content_hash = "sha256:049168ccb5f97c103943e80a4a5768befd61c6f5769701cd44e5fb6cd156f3e8"
+size = 118151
+mtime_ms = 1792678194044
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:1d291d16-4f1b-4532-849c-6990e429583d/d290e3a2-11ea-4dfe-bd59-2a06abd88aed/3d09aa0b-545b-4d65-8672-c1ce591ba24b"
+storage_version_token = "1792678243514310"
+content_type = "image/jpeg"
+
+[[outputs]]
+id = "2UfnvHCZtUpg5LTHrzfsW"
+uri = "file://screenshots/bao-cao/04-trang-bia-ao-trang-va-xanh-than.jpg"
+type = "image"
+title = "4. Trang bìa báo cáo"
+description = "Áo trắng mặt trước và áo xanh than mặt sau."
+logical_id = "ea0f7b18-6090-43ed-98dc-054fef72207e"
+content_hash = "sha256:ea6513a04fa9e85cc11a2727226d4b612f8976764a75108956ee6be55a03b5f4"
+size = 141136
+mtime_ms = 1792678226187
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:1d291d16-4f1b-4532-849c-6990e429583d/ea0f7b18-6090-43ed-98dc-054fef72207e/c035e26e-493f-4c09-9c8a-40bda88b1d52"
+storage_version_token = "1792678244901315"
+content_type = "image/jpeg"
+
+[[outputs]]
+id = "BWKGRSPlYoN4Hq1E76xxi"
+uri = "file://screenshots/bao-cao/05-chi-tiet-co-tay-nhan.jpg"
+type = "image"
+title = "5. Chi tiết cổ, bo tay, nhãn"
+description = "Cận cảnh cổ áo, bo tay áo và nhãn cổ."
+logical_id = "4c18f3e3-d219-4e70-b69e-95cf7060ad70"
+content_hash = "sha256:4d07d8de46c52b53d532146700506603c52a7b3277e3f20feee29baabbfa425d"
+size = 118583
+mtime_ms = 1792678205283
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:1d291d16-4f1b-4532-849c-6990e429583d/4c18f3e3-d219-4e70-b69e-95cf7060ad70/240cd02c-d9be-482b-9f94-3688034976a0"
+storage_version_token = "1792678246292770"
+content_type = "image/jpeg"
