@@ -105,3 +105,73 @@ mtime_ms = 1792678205283
 storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:1d291d16-4f1b-4532-849c-6990e429583d/4c18f3e3-d219-4e70-b69e-95cf7060ad70/240cd02c-d9be-482b-9f94-3688034976a0"
 storage_version_token = "1792678246292770"
 content_type = "image/jpeg"
+
+[[outputs]]
+id = "k8aaHbu4AKDIrTt959Cj-"
+uri = "file://generated-artifacts/anh-bao-cao/01-bo-ao-xanh-than.jpg"
+type = "image"
+title = "1. Bộ áo xanh than — mặt trước và mặt sau"
+description = "Ảnh mới 2400 × 1600 px, giữ nguyên thiết kế áo đã duyệt; không lấy từ slide báo cáo hoặc toàn trang web."
+logical_id = "aaadcdc7-c49c-4851-8113-f94f0646584a"
+content_hash = "sha256:ef0c6ee44b6aa95056e8547c2e5b8af1024b2c66aae8755de5a9d7d128055924"
+size = 214552
+mtime_ms = 1792678800415
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:1d291d16-4f1b-4532-849c-6990e429583d/aaadcdc7-c49c-4851-8113-f94f0646584a/0510a1f2-e894-4341-bbfc-2fd3a8c8bbac"
+storage_version_token = "1792678923045694"
+content_type = "image/jpeg"
+
+[[outputs]]
+id = "xJxPD5GeDTPxYCJKdc3NS"
+uri = "file://generated-artifacts/anh-bao-cao/02-bo-ao-trang.jpg"
+type = "image"
+title = "2. Bộ áo trắng — mặt trước và mặt sau"
+description = "Ảnh mới 2400 × 1600 px, giữ nguyên thiết kế áo đã duyệt; không lấy từ slide báo cáo hoặc toàn trang web."
+logical_id = "4966b9fd-2d65-49e1-9889-23347b6b2f21"
+content_hash = "sha256:b3a14cc4d9ac207deef2016fac842d13d0f79611c4831db36c7bf7c925cd4c03"
+size = 192440
+mtime_ms = 1792678807987
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:1d291d16-4f1b-4532-849c-6990e429583d/4966b9fd-2d65-49e1-9889-23347b6b2f21/f373b070-c6fc-4767-a3ce-eb74b95471f6"
+storage_version_token = "1792678924430807"
+content_type = "image/jpeg"
+
+[[outputs]]
+id = "9F52z1A88me5lXW7oAOHa"
+uri = "file://generated-artifacts/anh-bao-cao/03-dau-an-mat-lung.jpg"
+type = "image"
+title = "3. Họa tiết lưng áo — hai màu"
+description = "Ảnh mới 2400 × 1600 px, giữ nguyên thiết kế áo đã duyệt; không lấy từ slide báo cáo hoặc toàn trang web."
+logical_id = "46b2f2e6-f2fa-4f0e-9919-0560c6b37789"
+content_hash = "sha256:729f631a1d135c84d0043e24ea95c766f7deb952f654c5f549d919e07f4d9d39"
+size = 256482
+mtime_ms = 1792678899800
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:1d291d16-4f1b-4532-849c-6990e429583d/46b2f2e6-f2fa-4f0e-9919-0560c6b37789/5d11169c-c821-4dde-8792-ca9122f4d0ee"
+storage_version_token = "1792678925866329"
+content_type = "image/jpeg"
+
+[[outputs]]
+id = "NsXCLyw_9kv-spgHLvrys"
+uri = "file://generated-artifacts/anh-bao-cao/04-co-ao-va-logo.jpg"
+type = "image"
+title = "4. Cổ áo và logo Khoa — hai màu"
+description = "Ảnh mới 2400 × 1600 px, giữ nguyên thiết kế áo đã duyệt; không lấy từ slide báo cáo hoặc toàn trang web."
+logical_id = "8c8560b1-e1e4-4a1f-aa20-f8af5a31445a"
+content_hash = "sha256:8c3eade6f4dedf755f4acc9f8c621e70502c112bc1387ca5c1d8a68559b3a072"
+size = 221861
+mtime_ms = 1792678826139
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:1d291d16-4f1b-4532-849c-6990e429583d/8c8560b1-e1e4-4a1f-aa20-f8af5a31445a/a73485ad-f838-4fc6-a442-218893d9f2a5"
+storage_version_token = "1792678927334716"
+content_type = "image/jpeg"
+
+[[outputs]]
+id = "oPp5V9DFm6qcadpc7WERW"
+uri = "file://generated-artifacts/anh-bao-cao/05-bo-tay-va-nhan-co.jpg"
+type = "image"
+title = "5. Bo tay và nhãn cổ — hai màu"
+description = "Ảnh mới 2400 × 1600 px, giữ nguyên thiết kế áo đã duyệt; không lấy từ slide báo cáo hoặc toàn trang web."
+logical_id = "2405e9cc-bd50-45b9-a2ed-6e4a3798b566"
+content_hash = "sha256:35b81fc7942d3ef855ccbb21e479ea2adf8e1a25706c431301e66eb56745cd06"
+size = 136269
+mtime_ms = 1792678834539
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:1d291d16-4f1b-4532-849c-6990e429583d/2405e9cc-bd50-45b9-a2ed-6e4a3798b566/886a2f45-5852-420e-933b-d4f3f84d1db7"
+storage_version_token = "1792678928657722"
+content_type = "image/jpeg"
