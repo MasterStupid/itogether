@@ -14,3 +14,24 @@ mtime_ms = 1792635939314
 storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:1d291d16-4f1b-4532-849c-6990e429583d/df3ff11e-554e-4c35-9b16-a19a487f45d3/ba3a9ae5-94e5-4db4-802b-923a58d1027c"
 storage_version_token = "1792635941438197"
 content_type = "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+
+[[outputs]]
+id = "66oZIFspW6k8Ze543Jxfe"
+uri = "file://.local/outputs/ITogether---B-o-c-o-thi-t-k---o.pptx"
+type = "slides"
+title = "ITogether — Báo cáo thiết kế áo.pptx"
+logical_id = "d0fc2952-65e6-430f-9ff2-5074b3ba370e"
+
+[[outputs]]
+id = "L4sHsQOwQZqOtGyfQG3ae"
+uri = "file://.local/outputs/ITogether-Bao-cao-thiet-ke-ao-Co-hoat-anh.pptx"
+type = "slides"
+title = "ITogether — PowerPoint có hoạt ảnh (PPTX)"
+description = "Bản 10 slide có hiệu ứng Fade gốc của PowerPoint cho chữ và hình ảnh; giữ nguyên nội dung và bố cục."
+logical_id = "62e2860b-d209-457b-a9ba-71e750ea008c"
+content_hash = "sha256:96a5a534af864ce01d1a6c128d06f63a5b1bdce7de86afcb5e91fbc21eaa48c9"
+size = 4828248
+mtime_ms = 1792636704081
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:1d291d16-4f1b-4532-849c-6990e429583d/62e2860b-d209-457b-a9ba-71e750ea008c/754967d4-e91e-4de6-a984-f2ea563c15b3"
+storage_version_token = "1792636732546856"
+content_type = "application/vnd.openxmlformats-officedocument.presentationml.presentation"
