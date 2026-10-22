@@ -1,0 +1,28 @@
+kind = "slides"
+previewPath = "/itogether-presentation/"
+title = "ITogether — Báo cáo thiết kế áo"
+description = "Bài thuyết trình 10 slide về mẫu áo Polo FIT-HPUni của nhóm ITogether, đồng bộ phong cách xanh than, trắng và nền kem của website."
+version = "1.0.0"
+id = "artifacts/itogether-presentation"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/itogether-presentation/" ]
+localPort = 19675
+
+[services.development]
+run = "pnpm --filter @workspace/itogether-presentation run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/itogether-presentation", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/itogether-presentation/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "19675"
+BASE_PATH = "/itogether-presentation/"

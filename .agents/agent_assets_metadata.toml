@@ -1,0 +1,16 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "EGvYNKAVn8n_Ojrynif9a"
+uri = "file://.local/outputs/ITogether-Bao-cao-thiet-ke-ao.pptx"
+type = "slides"
+title = "ITogether — Báo cáo thiết kế áo (PPTX)"
+description = "10 slide thuyết trình đồng bộ phong cách xanh than–trắng, sử dụng mẫu áo FIT-HPUni đã duyệt."
+logical_id = "df3ff11e-554e-4c35-9b16-a19a487f45d3"
+content_hash = "sha256:0b4293ead68260f5cf27c0b15e0a9f8b836bdaecf6cad73dc00f02970f03a8e0"
+size = 4773608
+mtime_ms = 1792635939314
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:1d291d16-4f1b-4532-849c-6990e429583d/df3ff11e-554e-4c35-9b16-a19a487f45d3/ba3a9ae5-94e5-4db4-802b-923a58d1027c"
+storage_version_token = "1792635941438197"
+content_type = "application/vnd.openxmlformats-officedocument.presentationml.presentation"

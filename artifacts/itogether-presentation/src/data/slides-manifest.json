@@ -1,0 +1,12 @@
+[
+  {"id":"53072811-c626-40c1-b046-b8de098ee101","position":1,"filepath":"src/pages/slides/Cover.tsx","title":"ITogether — Dấu ấn riêng, tinh thần chung","description":"Bài dự thi thiết kế áo FIT-HPUni của nhóm ITogether.","speakerNotes":""},
+  {"id":"53072811-c626-40c1-b046-b8de098ee102","position":2,"filepath":"src/pages/slides/Team.tsx","title":"Nhóm thiết kế ITogether","description":"Bốn thành viên của nhóm thiết kế.","speakerNotes":""},
+  {"id":"53072811-c626-40c1-b046-b8de098ee103","position":3,"filepath":"src/pages/slides/Spirit.tsx","title":"Một chiếc áo, một tinh thần đồng hành","description":"Bản sắc, gắn kết và phong cách polo.","speakerNotes":""},
+  {"id":"53072811-c626-40c1-b046-b8de098ee104","position":4,"filepath":"src/pages/slides/Slogan.tsx","title":"Từ slogan của Khoa đến ngôn ngữ thiết kế","description":"Cách thể hiện slogan có sẵn của Khoa.","speakerNotes":""},
+  {"id":"53072811-c626-40c1-b046-b8de098ee105","position":5,"filepath":"src/pages/slides/ColorPair.tsx","title":"Bộ đôi Polo Xanh than & Trắng","description":"Hai phiên bản màu thống nhất.","speakerNotes":""},
+  {"id":"53072811-c626-40c1-b046-b8de098ee106","position":6,"filepath":"src/pages/slides/Front.tsx","title":"Mặt trước — Gọn gàng để nhận diện","description":"Logo, dáng polo và cổ áo.","speakerNotes":""},
+  {"id":"53072811-c626-40c1-b046-b8de098ee107","position":7,"filepath":"src/pages/slides/Back.tsx","title":"Mặt sau — Chữ “IT” lặng đầy bản lĩnh","description":"Chữ IT khoảng âm và nhận diện mặt sau.","speakerNotes":""},
+  {"id":"53072811-c626-40c1-b046-b8de098ee108","position":8,"filepath":"src/pages/slides/Accompany.tsx","title":"Bạn tự tin, Khoa tiếp bước","description":"Nhịp chữ, sắc bạc và con trỏ lệnh.","speakerNotes":""},
+  {"id":"53072811-c626-40c1-b046-b8de098ee109","position":9,"filepath":"src/pages/slides/Details.tsx","title":"Chỉn chu trong từng chi tiết","description":"Cận cảnh sọc cổ, bo tay và nhãn cổ.","speakerNotes":""},
+  {"id":"53072811-c626-40c1-b046-b8de098ee110","position":10,"filepath":"src/pages/slides/Close.tsx","title":"Khoác bản sắc Khoa, cùng nhau tiến bước","description":"Ý nghĩa bài dự thi và lời cảm ơn.","speakerNotes":""}
+]

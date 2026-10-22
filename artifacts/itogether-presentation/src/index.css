@@ -1,0 +1,61 @@
+@import 'tailwindcss';
+
+@theme inline {
+  --color-primary: var(--slide-primary);
+  --color-accent: var(--slide-accent);
+  --color-bg: var(--slide-bg);
+  --color-text: var(--slide-text);
+  --color-muted: var(--slide-muted);
+  --font-display: var(--font-display-family);
+  --font-body: var(--font-body-family);
+}
+
+:root {
+  /* Replace these with brand colors */
+  --slide-primary: #1f3349;
+  --slide-accent: #35526f;
+  --slide-bg: #f1ece4;
+  --slide-text: #17222e;
+  --slide-muted: #5e6772;
+  --font-display-family: 'Be Vietnam Pro', sans-serif;
+  --font-body-family: 'Be Vietnam Pro', sans-serif;
+  color-scheme: light;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--slide-bg);
+  color: var(--slide-text);
+}
+
+.slide {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.slide-viewer {
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.deck { background: radial-gradient(ellipse at 90% 10%, #f8f5f0 0%, #f1ece4 72%); font-family: var(--font-body-family); color: var(--slide-primary); }
+.deck h1, .deck h2 { font-weight: 800; line-height: 1.2; text-wrap: balance; }
+.deck p, .deck li { text-wrap: pretty; }
+.deck .title { position: absolute; top: 8vh; left: 6vw; right: 6vw; font-size: 3.4vw; max-width: 86vw; }
+.deck .copy { font-size: 2vw; line-height: 1.48; }
+.deck .caption { font-size: 1.5vw; line-height: 1.4; }
+.deck .rule { border-top: .08vw solid #c9c3ba; }
+.deck .footer { position: absolute; left: 6vw; right: 6vw; bottom: 3.5vh; display: flex; justify-content: space-between; font-size: 1.5vw; color: var(--slide-muted); }
+.deck .navy-panel { background: var(--slide-primary); color: #f8f5f0; }
+.deck .garment { width: 100%; height: 100%; object-fit: contain; }
+.deck .body-list { padding-left: 1.5vw; display: flex; flex-direction: column; gap: 2.4vh; }
+.deck .body-list li { padding-left: .8vw; }
