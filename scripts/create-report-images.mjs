@@ -14,7 +14,7 @@ const fontSvg = await fs.readFile(path.join(assets, "navy-front.svg"), "utf8");
 const fontCss = fontSvg.match(/<style>([\s\S]*?)<\/style>/)?.[1] || "";
 const facultyLogo = `data:image/png;base64,${(await fs.readFile(path.join(assets, "fit-logo.png"))).toString("base64")}`;
 const universityLogo = `data:image/png;base64,${(await fs.readFile(path.join(assets, "university-logo.png"))).toString("base64")}`;
-const identity = `<aside class="identity"><img src="${facultyLogo}" alt="Logo Khoa"><img src="${universityLogo}" alt="Logo Trường"><div>KHOA CÔNG NGHỆ THÔNG TIN<br>TRƯỜNG ĐẠI HỌC HẢI PHÒNG</div></aside>`;
+const identity = `<aside class="identity"><img src="${facultyLogo}" alt="Logo Khoa"><img src="${universityLogo}" alt="Logo Trường"><div>TRƯỜNG ĐẠI HỌC HẢI PHÒNG<br>KHOA CÔNG NGHỆ THÔNG TIN</div></aside>`;
 const cards = async (entries, detail = false) => (await Promise.all(entries.map(async ([asset, label, crop]) =>
   `<section><div class="picture ${detail ? "detail" : ""}"><img src="${await image(asset, crop)}"></div><h2>${label}</h2></section>`
 ))).join("");

@@ -245,3 +245,73 @@ mtime_ms = 1792850569536
 storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:1d291d16-4f1b-4532-849c-6990e429583d/40d2b71f-7982-4a5f-bedc-f4fc9b4fe39d/4f103004-4c60-4962-9a10-b25de60c7db9"
 storage_version_token = "1792850590322354"
 content_type = "image/jpeg"
+
+[[outputs]]
+id = "BYCoU94Y1A5tlt76uzp-b"
+uri = "file://generated-artifacts/anh-bao-cao/01-xanh-than-truong-tren-khoa-duoi.jpg"
+type = "image"
+title = "1. Bộ áo xanh than"
+description = "Đã đổi tên đơn vị: TRƯỜNG ĐẠI HỌC HẢI PHÒNG ở trên, KHOA CÔNG NGHỆ THÔNG TIN ở dưới. 2400 × 1600 px."
+logical_id = "6a996a1c-a90b-4749-840e-49802fea492a"
+content_hash = "sha256:4597dca7c3df01b7ab428462fe723fc4c5724db2d2f0e932f684b6a9f75387ff"
+size = 237114
+mtime_ms = 1792850703080
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:1d291d16-4f1b-4532-849c-6990e429583d/6a996a1c-a90b-4749-840e-49802fea492a/ae6af501-de4e-4fe3-9b42-b9deb4ecd8c3"
+storage_version_token = "1792850728915241"
+content_type = "image/jpeg"
+
+[[outputs]]
+id = "DwCLIhAU7L-WgOGwh7rV_"
+uri = "file://generated-artifacts/anh-bao-cao/02-trang-truong-tren-khoa-duoi.jpg"
+type = "image"
+title = "2. Bộ áo trắng"
+description = "Đã đổi tên đơn vị: TRƯỜNG ĐẠI HỌC HẢI PHÒNG ở trên, KHOA CÔNG NGHỆ THÔNG TIN ở dưới. 2400 × 1600 px."
+logical_id = "196eab2e-fff5-4928-9d3d-f663ad22a8c3"
+content_hash = "sha256:2467d918d66b838b16218dfdecb5d7e9ab2dd8da1762a955d5405369ac0990f8"
+size = 214916
+mtime_ms = 1792850705672
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:1d291d16-4f1b-4532-849c-6990e429583d/196eab2e-fff5-4928-9d3d-f663ad22a8c3/38373088-958d-4de7-9e0e-930dba35f8b7"
+storage_version_token = "1792850730216815"
+content_type = "image/jpeg"
+
+[[outputs]]
+id = "QbEFr8NKNqnvfg_trm82f"
+uri = "file://generated-artifacts/anh-bao-cao/03-mat-lung-truong-tren-khoa-duoi.jpg"
+type = "image"
+title = "3. Họa tiết mặt lưng"
+description = "Đã đổi tên đơn vị: TRƯỜNG ĐẠI HỌC HẢI PHÒNG ở trên, KHOA CÔNG NGHỆ THÔNG TIN ở dưới. 2400 × 1600 px."
+logical_id = "1824fc4b-a0dd-4ab1-a65d-e5b4b6222d5b"
+content_hash = "sha256:99b94e95c520b1a4279755149551548a6407a5973623d00776d865215cc96901"
+size = 278313
+mtime_ms = 1792850708344
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:1d291d16-4f1b-4532-849c-6990e429583d/1824fc4b-a0dd-4ab1-a65d-e5b4b6222d5b/6147054d-e833-47fa-bb96-811ad01264d8"
+storage_version_token = "1792850731487767"
+content_type = "image/jpeg"
+
+[[outputs]]
+id = "L-rETq0kTFHLoRRxtbTZi"
+uri = "file://generated-artifacts/anh-bao-cao/04-co-ao-truong-tren-khoa-duoi.jpg"
+type = "image"
+title = "4. Cổ áo và logo Khoa"
+description = "Đã đổi tên đơn vị: TRƯỜNG ĐẠI HỌC HẢI PHÒNG ở trên, KHOA CÔNG NGHỆ THÔNG TIN ở dưới. 2400 × 1600 px."
+logical_id = "8f96bbf5-f35a-42d0-8121-c9868aaa4333"
+content_hash = "sha256:8a06c5c9ccba4d4c978b4ab17d95176a9c4cd157d7edc18882fbc2ee27fb2682"
+size = 243744
+mtime_ms = 1792850711320
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:1d291d16-4f1b-4532-849c-6990e429583d/8f96bbf5-f35a-42d0-8121-c9868aaa4333/8172ad1b-1bbb-4170-a57c-0ebd5aaee019"
+storage_version_token = "1792850732769724"
+content_type = "image/jpeg"
+
+[[outputs]]
+id = "M0H1KQ2NJHzMaKsscyjaf"
+uri = "file://generated-artifacts/anh-bao-cao/05-bo-tay-truong-tren-khoa-duoi.jpg"
+type = "image"
+title = "5. Bo tay và nhãn cổ"
+description = "Đã đổi tên đơn vị: TRƯỜNG ĐẠI HỌC HẢI PHÒNG ở trên, KHOA CÔNG NGHỆ THÔNG TIN ở dưới. 2400 × 1600 px."
+logical_id = "30e528ba-79ac-4a70-b8b3-90c728af39f2"
+content_hash = "sha256:47634f3e8412067474c39829d442dce618fd063c19795b6f273fda2e4e8f25fb"
+size = 158299
+mtime_ms = 1792850714468
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:1d291d16-4f1b-4532-849c-6990e429583d/30e528ba-79ac-4a70-b8b3-90c728af39f2/8f652825-bfc5-4931-beb7-b39e2d129981"
+storage_version_token = "1792850734084736"
+content_type = "image/jpeg"
