@@ -175,3 +175,73 @@ mtime_ms = 1792678834539
 storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:1d291d16-4f1b-4532-849c-6990e429583d/2405e9cc-bd50-45b9-a2ed-6e4a3798b566/886a2f45-5852-420e-933b-d4f3f84d1db7"
 storage_version_token = "1792678928657722"
 content_type = "image/jpeg"
+
+[[outputs]]
+id = "MdRFs2uAT6sFKXwuqnOnB"
+uri = "file://generated-artifacts/anh-bao-cao/01-bo-ao-xanh-than-co-logo.jpg"
+type = "image"
+title = "1. Bộ áo xanh than — đã thêm logo"
+description = "2400 × 1600 px. Góc trên bên phải có logo Khoa, logo Trường và hai dòng tên đơn vị."
+logical_id = "006877ac-3d3b-4ec3-82a9-557a4044fcd7"
+content_hash = "sha256:2c0a7d6cf9c5344cf2b997c5d4f03a752790b922328686ec1d2bb4a8ce9c9907"
+size = 237172
+mtime_ms = 1792850558348
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:1d291d16-4f1b-4532-849c-6990e429583d/006877ac-3d3b-4ec3-82a9-557a4044fcd7/961b301d-0793-4e47-bc71-439a4f62fc78"
+storage_version_token = "1792850585281469"
+content_type = "image/jpeg"
+
+[[outputs]]
+id = "zBJOAG41qQdsmAufPKAEg"
+uri = "file://generated-artifacts/anh-bao-cao/02-bo-ao-trang-co-logo.jpg"
+type = "image"
+title = "2. Bộ áo trắng — đã thêm logo"
+description = "2400 × 1600 px. Góc trên bên phải có logo Khoa, logo Trường và hai dòng tên đơn vị."
+logical_id = "ff4a30e3-90b1-49ee-b77b-115a2955ede2"
+content_hash = "sha256:63c91cce069b02f989c670a722b2e7eb72ba84e5e4f401654e2f76aa3092408d"
+size = 214843
+mtime_ms = 1792850561188
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:1d291d16-4f1b-4532-849c-6990e429583d/ff4a30e3-90b1-49ee-b77b-115a2955ede2/2287a112-3da5-4ea5-abc7-3d583f608ca0"
+storage_version_token = "1792850586568515"
+content_type = "image/jpeg"
+
+[[outputs]]
+id = "7mdIRwnyq4VQwiL_zDYz7"
+uri = "file://generated-artifacts/anh-bao-cao/03-dau-an-mat-lung-co-logo.jpg"
+type = "image"
+title = "3. Họa tiết lưng áo — đã thêm logo"
+description = "2400 × 1600 px. Góc trên bên phải có logo Khoa, logo Trường và hai dòng tên đơn vị."
+logical_id = "be3b443b-d42e-4b8a-ba34-229c20a61e81"
+content_hash = "sha256:f3154081bb09972d5cefda3e98e0336da0fcf98dcb105485cb35be7e1653cf7a"
+size = 278303
+mtime_ms = 1792850564028
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:1d291d16-4f1b-4532-849c-6990e429583d/be3b443b-d42e-4b8a-ba34-229c20a61e81/7cbc99c7-7d86-46e3-ba08-3f5a9deb425a"
+storage_version_token = "1792850587840135"
+content_type = "image/jpeg"
+
+[[outputs]]
+id = "aXun20_AzFKV8dhpRlfXN"
+uri = "file://generated-artifacts/anh-bao-cao/04-co-ao-va-logo-co-logo.jpg"
+type = "image"
+title = "4. Cổ áo và logo Khoa — đã thêm logo"
+description = "2400 × 1600 px. Góc trên bên phải có logo Khoa, logo Trường và hai dòng tên đơn vị."
+logical_id = "eb343c0c-5b37-4d74-bc24-ad0e0d41208a"
+content_hash = "sha256:f83a3b3db17c95595706e5dfd1eaf8ad55e7bcc97c51f682c2b89a09200f96cb"
+size = 243780
+mtime_ms = 1792850566684
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:1d291d16-4f1b-4532-849c-6990e429583d/eb343c0c-5b37-4d74-bc24-ad0e0d41208a/49fe27f0-ee0a-48c2-9749-7c6c51385359"
+storage_version_token = "1792850589090278"
+content_type = "image/jpeg"
+
+[[outputs]]
+id = "LVuyDFnWjtwidEf6IzONv"
+uri = "file://generated-artifacts/anh-bao-cao/05-bo-tay-va-nhan-co-co-logo.jpg"
+type = "image"
+title = "5. Bo tay và nhãn cổ — đã thêm logo"
+description = "2400 × 1600 px. Góc trên bên phải có logo Khoa, logo Trường và hai dòng tên đơn vị."
+logical_id = "40d2b71f-7982-4a5f-bedc-f4fc9b4fe39d"
+content_hash = "sha256:8a218157c03d7651cb848ef2f0f5bf75c590669129c7ba9595dd87b3e582fe2f"
+size = 158298
+mtime_ms = 1792850569536
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:1d291d16-4f1b-4532-849c-6990e429583d/40d2b71f-7982-4a5f-bedc-f4fc9b4fe39d/4f103004-4c60-4962-9a10-b25de60c7db9"
+storage_version_token = "1792850590322354"
+content_type = "image/jpeg"
