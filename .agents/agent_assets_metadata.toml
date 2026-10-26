@@ -315,3 +315,17 @@ mtime_ms = 1792850714468
 storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:1d291d16-4f1b-4532-849c-6990e429583d/30e528ba-79ac-4a70-b8b3-90c728af39f2/8f652825-bfc5-4931-beb7-b39e2d129981"
 storage_version_token = "1792850734084736"
 content_type = "image/jpeg"
+
+[[outputs]]
+id = "Q3Ld8w2SHloC8klEg5XBx"
+uri = "file://generated-artifacts/anh-bao-cao/anh-dang-bai.jpg"
+type = "image"
+title = "Ảnh đăng bài – Áo đồng phục ITogether"
+description = "2400 × 3000 px (tỷ lệ 4:5), gồm hai phiên bản màu xanh than và trắng, mặt trước và mặt sau, kèm logo và tên Trường, Khoa."
+logical_id = "35711ef1-0a85-46b3-9c82-2d63136b591b"
+content_hash = "sha256:fa4aaca282d167588a01bb2edb873985d502820fbcaf571feb37658b689716b3"
+size = 466157
+mtime_ms = 1792986969360
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:1d291d16-4f1b-4532-849c-6990e429583d/35711ef1-0a85-46b3-9c82-2d63136b591b/a0f1c3a9-e27d-4cdf-aec3-82ea161fc60a"
+storage_version_token = "1792986987033216"
+content_type = "image/jpeg"
