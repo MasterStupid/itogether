@@ -343,3 +343,17 @@ mtime_ms = 1792987167788
 storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:1d291d16-4f1b-4532-849c-6990e429583d/c1d06873-efae-4315-9f6c-52b25fd22b3a/f1dbe5e0-6b4d-4976-ae40-7ca65983d9dc"
 storage_version_token = "1792987183811026"
 content_type = "image/jpeg"
+
+[[outputs]]
+id = "P0QQ0VarXjIauGSFDaPh9"
+uri = "file://generated-artifacts/anh-bao-cao/anh-dang-bai-day-du-net.png"
+type = "image"
+title = "Ảnh đăng bài đầy đủ chi tiết (PNG nét cao)"
+description = "PNG 6000 × 7500 px (tỷ lệ 4:5), dựng ở độ phân giải gấp đôi; nội dung giống bản trước: hai màu áo, mặt trước, mặt sau và các chi tiết."
+logical_id = "604b2926-3f9b-4dcd-b736-75a0e4108ce1"
+content_hash = "sha256:ca96e6caffe5a2581a0bc99fe1078abd6f5bb6ee9c5d35825b67d00a1cb159f0"
+size = 10485228
+mtime_ms = 1792987470116
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:1d291d16-4f1b-4532-849c-6990e429583d/604b2926-3f9b-4dcd-b736-75a0e4108ce1/093fe7e7-b261-4fda-9961-efbfcf78f7f2"
+storage_version_token = "1792987516790722"
+content_type = "image/png"

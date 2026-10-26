@@ -1,7 +1,8 @@
 // Single large social-post image (3000 × 3750, 4:5) combining every detail of the five report images:
 // both colours, front & back, back artwork, collar & faculty logo, cuff, and neck label.
 // Garment SVGs and logos are reused unaltered; detail views only change the SVG viewBox.
-// The page is captured in two 3000 × 1875 halves (open with ?part=2 for the lower half) and stacked.
+// Screenshots are JPEG-only and capped at 3000 px per edge, so the page is rendered with ?scale=2&x=&y=
+// (CSS zoom keeps vector art and text crisp) and captured as 3000 × 2500 tiles that are stitched into a PNG.
 import fs from "node:fs/promises";
 import path from "node:path";
 
@@ -35,9 +36,9 @@ const band = async (colour, label, swatch) => `
 const html = `<!doctype html><meta charset="utf-8"><style>
 ${fontCss}
 *{box-sizing:border-box;margin:0}
-html{height:1875px;overflow:hidden}
-body{width:3000px;height:3750px;background:#f4f1eb;color:#203749;font-family:'Be Vietnam Pro',sans-serif;padding:92px 110px 80px;display:flex;flex-direction:column}
-body.part2{margin-top:-1875px}
+html,body{width:3000px;height:2500px;overflow:hidden;position:relative}
+#shift{position:absolute;left:0;top:0}
+#page{width:3000px;height:3750px;background:#f4f1eb;color:#203749;font-family:'Be Vietnam Pro',sans-serif;padding:92px 110px 80px;display:flex;flex-direction:column}
 .top{display:flex;justify-content:space-between;align-items:center;height:150px}
 .top small{font-size:34px;letter-spacing:7px;font-weight:600;color:#53636e}
 .identity{display:flex;align-items:center;gap:26px}
@@ -60,8 +61,7 @@ figure img{flex:1;width:100%;min-height:0;object-fit:contain;filter:drop-shadow(
 figcaption{font-size:30px;letter-spacing:5px;font-weight:600;color:#53636e;margin-top:8px}
 footer{display:flex;justify-content:space-between;font-size:32px;letter-spacing:2px;color:#62717b}
 </style>
-<script>if (location.search.includes("part=2")) addEventListener("DOMContentLoaded", () => document.body.classList.add("part2"));</script>
-<div class="top"><small>ITOGETHER / FIT-HPUNI</small>
+<div id="shift"><div id="page"><div class="top"><small>ITOGETHER / FIT-HPUNI</small>
   <aside class="identity"><img src="${await png("fit-logo")}" alt="Logo Khoa"><img src="${await png("university-logo")}" alt="Logo Trường"><div>TRƯỜNG ĐẠI HỌC HẢI PHÒNG<br>KHOA CÔNG NGHỆ THÔNG TIN</div></aside>
 </div>
 <header>
@@ -70,7 +70,13 @@ footer{display:flex;justify-content:space-between;font-size:32px;letter-spacing:
   <p class="slogan">“You can do IT, we are ready to accompany”<span>— slogan của Khoa</span></p>
 </header>
 <main>${await band("navy", "PHIÊN BẢN XANH THAN", "#1F3349")}${await band("white", "PHIÊN BẢN TRẮNG", "#ffffff")}</main>
-<footer><span>KHOA CÔNG NGHỆ THÔNG TIN · TRƯỜNG ĐẠI HỌC HẢI PHÒNG</span><span>itogether.me</span></footer>`;
+<footer><span>KHOA CÔNG NGHỆ THÔNG TIN · TRƯỜNG ĐẠI HỌC HẢI PHÒNG</span><span>itogether.me</span></footer></div></div>
+<script>
+const q = new URLSearchParams(location.search);
+document.getElementById("page").style.zoom = q.get("scale") || 1;
+document.getElementById("shift").style.left = -(q.get("x") || 0) + "px";
+document.getElementById("shift").style.top = -(q.get("y") || 0) + "px";
+</script>`;
 
 const name = "anh-dang-bai-day-du";
 await fs.writeFile(path.join(out, `${name}.html`), html);
