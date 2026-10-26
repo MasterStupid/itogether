@@ -329,3 +329,17 @@ mtime_ms = 1792986969360
 storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:1d291d16-4f1b-4532-849c-6990e429583d/35711ef1-0a85-46b3-9c82-2d63136b591b/a0f1c3a9-e27d-4cdf-aec3-82ea161fc60a"
 storage_version_token = "1792986987033216"
 content_type = "image/jpeg"
+
+[[outputs]]
+id = "eY-S08WkIrr8a6DBNYH8T"
+uri = "file://generated-artifacts/anh-bao-cao/anh-dang-bai-day-du.jpg"
+type = "image"
+title = "Ảnh đăng bài đầy đủ chi tiết – Áo đồng phục ITogether"
+description = "3000 × 3750 px (tỷ lệ 4:5): hai màu áo, mặt trước, mặt sau, mặt lưng, cổ áo và logo Khoa, bo tay, nhãn cổ; logo và tên Trường, Khoa ở góc trên bên phải."
+logical_id = "c1d06873-efae-4315-9f6c-52b25fd22b3a"
+content_hash = "sha256:9dd81391de61dff296d1f19ebb95eece95548b4bf968b3efebd9fb06d76864cd"
+size = 1028755
+mtime_ms = 1792987167788
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:1d291d16-4f1b-4532-849c-6990e429583d/c1d06873-efae-4315-9f6c-52b25fd22b3a/f1dbe5e0-6b4d-4976-ae40-7ca65983d9dc"
+storage_version_token = "1792987183811026"
+content_type = "image/jpeg"
