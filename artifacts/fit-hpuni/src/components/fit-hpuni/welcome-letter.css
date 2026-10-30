@@ -139,14 +139,14 @@
   letter-spacing: .13em;
 }
 .welcome-letter__body { position: relative; padding: 40px 41px 32px; animation: welcome-ink-in 700ms 3.65s ease-out both; }
-.welcome-plane {
+.welcome-tech {
   position: absolute;
   right: 46px;
-  top: 12px;
-  width: 116px;
+  top: 18px;
+  width: 104px;
   height: auto;
   pointer-events: none;
-  animation: welcome-plane-in 1s 3.75s ease-out both;
+  animation: welcome-tech-in 1s 3.75s ease-out both;
 }
 .welcome-letter__eyebrow { color: #9b775a; font-size: 10px; font-weight: 700; letter-spacing: .19em; }
 .welcome-letter__title { margin: 12px 0 16px; font-family: Georgia, serif; font-size: clamp(42px, 7vw, 64px); font-weight: 400; line-height: 1.05; }
@@ -194,20 +194,20 @@
   from { opacity: 0; transform: translateY(12px); }
   to { opacity: 1; transform: translateY(0); }
 }
-@keyframes welcome-plane-in {
-  from { opacity: 0; transform: translate(-12px, 12px) rotate(-9deg); }
-  to { opacity: 1; transform: translate(0, 0) rotate(0); }
+@keyframes welcome-tech-in {
+  from { opacity: 0; transform: translateY(8px) scale(.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 @media (max-width: 520px) {
   .welcome-close { top: 24px; right: 26px; }
   .welcome-letter__top { margin: 0 11px; padding: 20px 46px 22px 0; font-size: 10px; }
   .welcome-letter__body { padding: 28px 11px 25px; }
-  .welcome-plane { width: 88px; right: 11px; top: 10px; }
+  .welcome-tech { width: clamp(58px, 20vw, 78px); right: 11px; top: 14px; }
   .welcome-letter__body p { font-size: 13px; line-height: 1.7; }
   .welcome-letter__footer { align-items: stretch; flex-direction: column; gap: 12px; margin: 0 11px; padding: 18px 0 18px; }
   .welcome-action { width: 100%; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .welcome-overlay, .welcome-letter, .welcome-letter__body, .welcome-plane { animation: none; }
+  .welcome-overlay, .welcome-letter, .welcome-letter__body, .welcome-tech { animation: none; }
   .welcome-envelope-scene { display: none; }
 }
