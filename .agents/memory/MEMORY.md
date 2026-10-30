@@ -1,5 +1,5 @@
 - [FIT-HPUni shirt boards](fit-shirt-boards.md) — shared mm-accurate garment flats, unaltered logo, manufacturability rules for the shirt concepts.
 - [Dependency remediation choices](dependency-remediation.md) — why mockup discovery avoids the fast-glob dependency chain.
 - [GitHub authentication](github-authentication.md) — integration health does not prove Git push authentication works; verify the Git provider connection.
-- [Report/post image capture](report-image-capture.md) — screenshots are JPEG ≤3000px; for sharp output render 2× zoom tiles and stitch to PNG.
+- [Report/post image capture](report-image-capture.md) — screenshots are JPEG ≤3000px; 2× tiles for sharp PNGs; pause animations via CDP to capture exact moments.
 - [PowerPoint animations](powerpoint-animations.md) — web animations do not survive ordinary PPTX export; downloadable motion needs native timelines.
