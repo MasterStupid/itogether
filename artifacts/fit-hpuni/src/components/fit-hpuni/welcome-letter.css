@@ -63,6 +63,13 @@
   background: #e9dece;
   clip-path: polygon(0 100%, 50% 48%, 100% 100%);
 }
+.welcome-envelope__decoration {
+  position: absolute;
+  z-index: 4;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
 .welcome-envelope__seal {
   position: absolute;
   z-index: 5;
@@ -70,17 +77,13 @@
   top: 51%;
   display: grid;
   place-items: center;
-  width: 32px;
-  height: 32px;
+  width: 56px;
+  height: 56px;
   transform: translate(-50%, -50%);
-  border: 1px solid #c5a486;
-  border-radius: 50%;
-  background: #a77d5d;
-  color: #fff7e9;
-  font-family: Georgia, serif;
-  font-size: 11px;
+  filter: drop-shadow(1px 3px 2px rgba(77, 46, 31, .3));
   animation: welcome-seal-away .25s 1.9s both;
 }
+.welcome-envelope__seal svg { width: 100%; height: 100%; }
 .welcome-letter {
   position: fixed;
   z-index: 101;
@@ -125,14 +128,14 @@
   letter-spacing: .13em;
 }
 .welcome-letter__body { position: relative; padding: 40px 52px 32px; animation: welcome-ink-in 700ms 3.65s ease-out both; }
-.welcome-crane {
+.welcome-plane {
   position: absolute;
   right: 46px;
   top: 12px;
   width: 138px;
   height: auto;
   pointer-events: none;
-  animation: welcome-crane-in 1s 3.75s ease-out both;
+  animation: welcome-plane-in 1s 3.75s ease-out both;
 }
 .welcome-letter__eyebrow { color: #9b775a; font-size: 10px; font-weight: 700; letter-spacing: .19em; }
 .welcome-letter__title { margin: 12px 0 16px; font-family: Georgia, serif; font-size: clamp(42px, 7vw, 64px); font-weight: 400; line-height: 1.05; }
@@ -179,20 +182,20 @@
   from { opacity: 0; transform: translateY(12px); }
   to { opacity: 1; transform: translateY(0); }
 }
-@keyframes welcome-crane-in {
+@keyframes welcome-plane-in {
   from { opacity: 0; transform: translate(-12px, 12px) rotate(-9deg); }
   to { opacity: 1; transform: translate(0, 0) rotate(0); }
 }
 @media (max-width: 520px) {
   .welcome-letter__top { padding: 25px 64px 20px 24px; font-size: 10px; }
   .welcome-letter__body { padding: 28px 27px 25px; }
-  .welcome-crane { width: 98px; right: 23px; top: 10px; }
+  .welcome-plane { width: 98px; right: 23px; top: 10px; }
   .welcome-letter__body p { font-size: 13px; line-height: 1.7; }
   .welcome-letter__footer { padding: 18px 24px; }
   .welcome-letter__footer > span { display: none; }
   .welcome-action { width: 100%; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .welcome-overlay, .welcome-letter, .welcome-letter__body, .welcome-crane { animation: none; }
+  .welcome-overlay, .welcome-letter, .welcome-letter__body, .welcome-plane { animation: none; }
   .welcome-envelope-scene { display: none; }
 }

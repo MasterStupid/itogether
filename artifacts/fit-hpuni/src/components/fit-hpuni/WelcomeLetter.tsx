@@ -20,7 +20,28 @@ export function WelcomeLetter() {
               <i /><i /><i />
             </div>
             <div className="welcome-envelope__front" />
-            <div className="welcome-envelope__seal">IT</div>
+            <svg className="welcome-envelope__decoration" viewBox="0 0 330 213" fill="none">
+              <rect x="9" y="9" width="312" height="195" rx="2" stroke="#c8b59f" strokeWidth="0.8" />
+              <path d="M18 25h24M18 29h15M288 25h24M297 29h15M18 184h34M278 184h34" stroke="#b99d80" strokeWidth="1" />
+              <path d="M19 176c7-8 15-8 22-2m-22 6c8-7 15-7 22-1m238-3c7-8 15-8 22-2m-22 6c8-7 15-7 22-1" stroke="#b99d80" strokeWidth=".7" />
+              <text x="20" y="197" fill="#876d59" fontSize="7" fontFamily="sans-serif" letterSpacing="1.2">GỬI ĐẾN BẠN</text>
+              <text x="310" y="197" textAnchor="end" fill="#876d59" fontSize="7" fontFamily="sans-serif" letterSpacing="1">FIT · HPUNI</text>
+            </svg>
+            <div className="welcome-envelope__seal">
+              <svg viewBox="0 0 80 80" fill="none">
+                <defs>
+                  <radialGradient id="wax-gradient" cx=".34" cy=".25" r=".8">
+                    <stop stopColor="#c89a75" /><stop offset=".6" stopColor="#a97553" /><stop offset="1" stopColor="#805039" />
+                  </radialGradient>
+                </defs>
+                <path d="M40 3c4-1 7 3 10 3s7-1 10 2 3 6 6 8 6 4 7 8-1 7 0 10 3 7 2 11-4 6-5 9 0 7-3 10-6 3-9 5-5 5-9 5-7-2-10-1-7 3-11 2-6-4-9-5-7 0-10-3-3-6-5-9-5-5-5-9 2-7 1-10-3-7-2-11 4-6 5-9 0-7 3-10 6-3 9-5 5-5 9-5 7 2 10 1Z" fill="url(#wax-gradient)" stroke="#744b38" strokeWidth="1.2" />
+                <circle cx="40" cy="40" r="27" stroke="#e6c7a2" strokeOpacity=".6" strokeWidth="1.4" />
+                <circle cx="40" cy="40" r="23.5" stroke="#704a38" strokeOpacity=".5" strokeWidth=".8" />
+                <path d="M23 49c-3-7-3-13 0-19m34 19c3-7 3-13 0-19M24 35l3-3m-4 9 4-3m-3 8 4-2m28-9-3-3m4 9-4-3m3 8-4-2" stroke="#f0d4b6" strokeOpacity=".8" strokeWidth="1" strokeLinecap="round" />
+                <text x="40" y="45" textAnchor="middle" fill="#f7e7d1" fontSize="20" fontFamily="Georgia, serif" fontWeight="bold" letterSpacing="1">IT</text>
+                <path d="m40 16 1.1 2.3 2.6.4-1.9 1.8.5 2.6-2.3-1.2-2.3 1.2.5-2.6-1.9-1.8 2.6-.4L40 16Z" fill="#f1d4b2" />
+              </svg>
+            </div>
           </div>
         </div>
         <Dialog.Content className="welcome-letter">
@@ -32,15 +53,13 @@ export function WelcomeLetter() {
             <span>THƯ NGỎ</span>
           </div>
           <div className="welcome-letter__body">
-            <svg className="welcome-crane" viewBox="0 0 200 150" fill="none" aria-hidden="true">
-              <path d="M18 47 78 91 108 81 89 55 18 47Z" fill="#d8e1e4" stroke="#738a96" strokeWidth="1.4" strokeLinejoin="round" />
-              <path d="M77 91 104 79 82 15 58 68 77 91Z" fill="#f8f6ef" stroke="#738a96" strokeWidth="1.4" strokeLinejoin="round" />
-              <path d="m77 91 27-12 31 17-23 14-35-19Z" fill="#c7d4d9" stroke="#738a96" strokeWidth="1.4" strokeLinejoin="round" />
-              <path d="m104 79 34-45-15 54 12 8-31-17Z" fill="#edf1ee" stroke="#738a96" strokeWidth="1.4" strokeLinejoin="round" />
-              <path d="m135 96 24-30 5-21 13-7-7 14-3 22-24 35-31 1 23-14Z" fill="#d6e0e1" stroke="#738a96" strokeWidth="1.4" strokeLinejoin="round" />
-              <path d="m177 38 15 3-22 11 7-14Z" fill="#c49b78" stroke="#738a96" strokeWidth="1.4" strokeLinejoin="round" />
-              <path d="m77 91 35 19-14 28-4-27-17-20Z" fill="#edf1ee" stroke="#738a96" strokeWidth="1.4" strokeLinejoin="round" />
-              <path d="m58 68 46 11M82 15l22 64m-27 12 35 19m23-14-31-17" stroke="#99aeb5" strokeWidth="1" />
+            <svg className="welcome-plane" viewBox="0 0 200 150" fill="none" aria-hidden="true">
+              <path d="M15 116c21 11 43 10 55-2 9-9 8-19-1-22-8-3-13 6-8 12 7 9 23 8 35 0" stroke="#c5ad94" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="3 5" />
+              <path d="m46 55 139-35-59 96-21-32-36-7-23-22Z" fill="#f7f8f4" stroke="#738a96" strokeWidth="1.7" strokeLinejoin="round" />
+              <path d="m46 55 139-35-80 64-59-29Z" fill="#e7eeeb" stroke="#738a96" strokeWidth="1.7" strokeLinejoin="round" />
+              <path d="m105 84 80-64-59 96-21-32Z" fill="#cedde0" stroke="#738a96" strokeWidth="1.7" strokeLinejoin="round" />
+              <path d="m105 84 2 31 19-21" fill="#b5c9ce" stroke="#738a96" strokeWidth="1.7" strokeLinejoin="round" />
+              <path d="M46 55 185 20" stroke="#fff" strokeOpacity=".7" strokeWidth="1" />
             </svg>
             <span className="welcome-letter__eyebrow">GỬI ĐẾN BẠN</span>
             <Dialog.Title className="welcome-letter__title">Xin chào!</Dialog.Title>
