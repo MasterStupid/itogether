@@ -48,17 +48,12 @@ export function WelcomeLetter() {
               <span>THƯ NGỎ</span>
             </div>
             <div className="welcome-letter__body">
-              <svg className="welcome-tech" viewBox="0 0 120 120" fill="none" aria-hidden="true">
-                <g stroke="#bba98f" strokeWidth="1.5" strokeLinecap="round">
-                  <path d="M45 27V16M60 27V11M75 27V16M45 93v11M60 93v16M75 93v11M27 45H16M27 60H11M27 75H16M93 45h11M93 60h16M93 75h11" />
-                  <circle cx="60" cy="10" r="2" fill="#bba98f" stroke="none" />
-                  <circle cx="60" cy="110" r="2" fill="#bba98f" stroke="none" />
-                  <circle cx="10" cy="60" r="2" fill="#bba98f" stroke="none" />
-                  <circle cx="110" cy="60" r="2" fill="#bba98f" stroke="none" />
-                </g>
-                <rect x="27" y="27" width="66" height="66" rx="11" fill="#f6f3ed" stroke="#71818a" strokeWidth="1.6" />
-                <rect x="33" y="33" width="54" height="54" rx="7" stroke="#d6cbbd" />
-                <path d="m51 50-9 10 9 10m18-20 9 10-9 10m-5-24-8 28" stroke="#526875" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+              <svg className="welcome-plane" viewBox="75 0 270 355" fill="none" aria-hidden="true">
+                <path d="M104 147 314 8 182 174Z" fill="#fffefa" stroke="#52616a" strokeWidth="3" strokeLinejoin="round" />
+                <path d="M314 8 317 225 222 200Z" fill="#fffefa" stroke="#52616a" strokeWidth="3" strokeLinejoin="round" />
+                <path d="M314 8 222 200 196 248 182 174Z" fill="#e9edf0" stroke="#52616a" strokeWidth="3" strokeLinejoin="round" />
+                <path d="M196 248 222 200 242 206Z" fill="#d2dce0" stroke="#52616a" strokeWidth="3" strokeLinejoin="round" />
+                <path d="M188 263 C181 284 168 295 148 298 C130 300 119 311 124 329" stroke="#9a846e" strokeWidth="3" strokeLinecap="round" strokeDasharray="7 9" />
               </svg>
               <span className="welcome-letter__eyebrow">GỬI ĐẾN BẠN</span>
               <Dialog.Title className="welcome-letter__title">Xin chào!</Dialog.Title>
