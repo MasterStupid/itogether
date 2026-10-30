@@ -421,7 +421,7 @@ export function DongDieuTee() {
           <p className="eyebrow">Khoa Công Nghệ Thông Tin — Trường Đại học Hải Phòng</p>
           <h1 className="brand-title">CUỘC THI SÁNG TẠO DẤU ẤN RIÊNG KHOA CÔNG NGHỆ THÔNG TIN </h1>
         </div>
-        <img className="brand-mark university-mark" src={`${import.meta.env.BASE_URL}assets/hai-phong-university-logo.png`} alt="Logo Trường Đại học Hải Phòng" />
+        <img className="brand-mark university-mark" src={`${import.meta.env.BASE_URL}assets/hai-phong-university-logo-small.webp`} alt="Logo Trường Đại học Hải Phòng" />
       </header>
 
       <section className="control-strip" aria-label="Tùy chọn xem thiết kế">

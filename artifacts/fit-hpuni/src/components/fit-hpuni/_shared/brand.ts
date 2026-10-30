@@ -8,8 +8,8 @@ export const BRAND = {
   /** White of the logo artwork and outer ring */
   white: "#FFFFFF",
 
-  /** Official logo, original artwork with transparent corners (948 px raster) */
-  logo: `${import.meta.env.BASE_URL}assets/fit-logo.png`,
+  /** Official logo with transparent corners, losslessly compressed (948 px raster) */
+  logo: `${import.meta.env.BASE_URL}assets/fit-logo-lossless.webp`,
   /** Untouched original upload (474 px, white corners) */
   logoOriginal: `${import.meta.env.BASE_URL}assets/fit-logo-original.webp`,
 

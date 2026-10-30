@@ -7,6 +7,42 @@
   animation: welcome-overlay-in 800ms ease-out both;
 }
 
+.welcome-loading {
+  position: fixed;
+  z-index: 101;
+  top: 50%;
+  left: 50%;
+  width: min(310px, calc(100vw - 40px));
+  transform: translate(-50%, -50%);
+  padding: 25px 24px;
+  border: 1px solid #e2d8ca;
+  border-radius: 8px;
+  background: #faf7f1;
+  box-shadow: 0 24px 60px rgba(9, 19, 31, .2);
+  color: #1f3349;
+  text-align: center;
+  animation: welcome-loading-in 200ms 300ms both;
+}
+.welcome-loading__indicator {
+  display: block;
+  width: 24px;
+  height: 24px;
+  margin: 0 auto 14px;
+  border: 2px solid #e4d8c8;
+  border-top-color: #a88b70;
+  border-radius: 50%;
+  animation: welcome-loading-spin 900ms linear infinite;
+}
+.welcome-loading__title { margin: 0; font-family: Georgia, serif; font-size: 21px; font-weight: 400; }
+.welcome-loading__description { margin: 8px 0 0; color: #68747d; font-size: 12px; line-height: 1.6; }
+.welcome-loading__actions { display: flex; align-items: center; justify-content: center; gap: 13px; margin-top: 18px; }
+.welcome-loading__start { padding: 9px 13px; border: 0; border-radius: 4px; background: #1f3349; color: #fff; font-size: 12px; cursor: pointer; }
+.welcome-loading__skip { padding: 8px 2px; border: 0; background: transparent; color: #61707b; font-size: 12px; cursor: pointer; }
+.welcome-loading__skip:hover { text-decoration: underline; }
+
+[data-welcome-paused="true"],
+[data-welcome-paused="true"] * { animation-play-state: paused !important; }
+
 .welcome-envelope-scene {
   position: fixed;
   z-index: 101;
@@ -163,6 +199,13 @@
   from { opacity: 0; }
   to { opacity: 1; }
 }
+@keyframes welcome-loading-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes welcome-loading-spin {
+  to { transform: rotate(360deg); }
+}
 @keyframes welcome-flight {
   0% { opacity: 0; transform: translate(calc(-50% - 55vw), calc(-50% - 25vh)) rotate(-17deg) scale(.65); }
   12% { opacity: 1; }
@@ -212,6 +255,6 @@
   .welcome-letter__title { margin-bottom: 22px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .welcome-overlay, .welcome-letter, .welcome-letter__body, .welcome-plane { animation: none; }
+  .welcome-overlay, .welcome-loading, .welcome-loading__indicator, .welcome-letter, .welcome-letter__body, .welcome-plane { animation: none; }
   .welcome-envelope-scene { display: none; }
 }

@@ -2,17 +2,45 @@ import { useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { ArrowRight, X } from "lucide-react";
 import { EnvelopeBorder, LetterBorder } from "./LetterBorder";
+import { useWelcomeIntro } from "./useWelcomeIntro";
 import waxSeal from "@/assets/wax-seal-gold.webp";
 import "./welcome-letter.css";
 
 export function WelcomeLetter() {
   const [open, setOpen] = useState(true);
+  const { started, slow, visible, startNow } = useWelcomeIntro(open, waxSeal);
+  const paused = visible ? undefined : "true";
 
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Portal>
-        <Dialog.Overlay className="welcome-overlay" />
-        <div className="welcome-envelope-scene" aria-hidden="true">
+        <Dialog.Overlay className="welcome-overlay" data-welcome-paused={paused} />
+        {!started ? (
+          <Dialog.Content className="welcome-loading" data-welcome-paused={paused}>
+            <span className="welcome-loading__indicator" aria-hidden="true" />
+            <Dialog.Title className="welcome-loading__title">Đang chuẩn bị bức thư</Dialog.Title>
+            <Dialog.Description className="welcome-loading__description">
+              Trang đang tải, bạn chờ một chút nhé.
+            </Dialog.Description>
+            {slow && (
+              <div className="welcome-loading__actions">
+                <button type="button" className="welcome-loading__start" onClick={startNow}>Mở thư ngay</button>
+                <Dialog.Close className="welcome-loading__skip">Bỏ qua</Dialog.Close>
+              </div>
+            )}
+          </Dialog.Content>
+        ) : (
+          <WelcomeSequence paused={paused} />
+        )}
+      </Dialog.Portal>
+    </Dialog.Root>
+  );
+}
+
+function WelcomeSequence({ paused }: { paused?: string }) {
+  return (
+      <>
+        <div className="welcome-envelope-scene" data-welcome-paused={paused} aria-hidden="true">
           <div className="welcome-envelope">
             <div className="welcome-envelope__back" />
             {/* The border stays on the envelope while it opens: behind the letter at the top, in front of it on the sides and bottom. */}
@@ -37,7 +65,7 @@ export function WelcomeLetter() {
             <img className="welcome-envelope__seal" src={waxSeal} alt="" />
           </div>
         </div>
-        <Dialog.Content className="welcome-letter">
+        <Dialog.Content className="welcome-letter" data-welcome-paused={paused}>
           <LetterBorder />
           <Dialog.Close className="welcome-close" aria-label="Đóng thư chào mừng">
             <X size={20} aria-hidden="true" />
@@ -89,7 +117,6 @@ export function WelcomeLetter() {
             </div>
           </div>
         </Dialog.Content>
-      </Dialog.Portal>
-    </Dialog.Root>
+      </>
   );
 }
