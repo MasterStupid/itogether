@@ -48,12 +48,18 @@ export function WelcomeLetter() {
               <span>THƯ NGỎ</span>
             </div>
             <div className="welcome-letter__body">
-              <svg className="welcome-plane" viewBox="75 0 270 355" fill="none" aria-hidden="true">
+              <svg className="welcome-plane" viewBox="-70 0 415 355" fill="none" aria-hidden="true">
                 <path d="M104 147 314 8 182 174Z" fill="#fffefa" stroke="#52616a" strokeWidth="3" strokeLinejoin="round" />
                 <path d="M314 8 317 225 222 200Z" fill="#fffefa" stroke="#52616a" strokeWidth="3" strokeLinejoin="round" />
                 <path d="M314 8 222 200 196 248 182 174Z" fill="#e9edf0" stroke="#52616a" strokeWidth="3" strokeLinejoin="round" />
                 <path d="M196 248 222 200 242 206Z" fill="#d2dce0" stroke="#52616a" strokeWidth="3" strokeLinejoin="round" />
-                <path d="M188 263 C181 284 168 295 148 298 C130 300 119 311 124 329" stroke="#9a846e" strokeWidth="3" strokeLinecap="round" strokeDasharray="7 9" />
+                <path
+                  d="M-65 307 C-54 330 -24 341 -3 333 C14 327 20 312 12 307 C8 304 3 307 5 312 C13 328 40 337 77 329 C54 317 40 306 42 292 C44 277 62 274 77 290 C92 275 112 282 113 296 C114 309 100 319 77 329 C121 335 153 306 171 284 C181 272 188 260 196 248"
+                  stroke="#9a846e"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
               <span className="welcome-letter__eyebrow">GỬI ĐẾN BẠN</span>
               <Dialog.Title className="welcome-letter__title">Xin chào!</Dialog.Title>
