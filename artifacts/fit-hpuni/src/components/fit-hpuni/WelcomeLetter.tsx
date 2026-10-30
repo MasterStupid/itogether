@@ -53,13 +53,12 @@ export function WelcomeLetter() {
             <span>THƯ NGỎ</span>
           </div>
           <div className="welcome-letter__body">
-            <svg className="welcome-plane" viewBox="0 0 200 150" fill="none" aria-hidden="true">
-              <path d="M15 116c21 11 43 10 55-2 9-9 8-19-1-22-8-3-13 6-8 12 7 9 23 8 35 0" stroke="#c5ad94" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="3 5" />
-              <path d="m46 55 139-35-59 96-21-32-36-7-23-22Z" fill="#f7f8f4" stroke="#738a96" strokeWidth="1.7" strokeLinejoin="round" />
-              <path d="m46 55 139-35-80 64-59-29Z" fill="#e7eeeb" stroke="#738a96" strokeWidth="1.7" strokeLinejoin="round" />
-              <path d="m105 84 80-64-59 96-21-32Z" fill="#cedde0" stroke="#738a96" strokeWidth="1.7" strokeLinejoin="round" />
-              <path d="m105 84 2 31 19-21" fill="#b5c9ce" stroke="#738a96" strokeWidth="1.7" strokeLinejoin="round" />
-              <path d="M46 55 185 20" stroke="#fff" strokeOpacity=".7" strokeWidth="1" />
+            <svg className="welcome-plane" viewBox="75 0 270 290" fill="none" aria-hidden="true">
+              <path d="M104 147 314 8 182 174Z" fill="#fffefa" stroke="#52616a" strokeWidth="3" strokeLinejoin="round" />
+              <path d="M314 8 317 225 222 200Z" fill="#fffefa" stroke="#52616a" strokeWidth="3" strokeLinejoin="round" />
+              <path d="M314 8 222 200 196 248 182 174Z" fill="#e9edf0" stroke="#52616a" strokeWidth="3" strokeLinejoin="round" />
+              <path d="M196 248 222 200 242 206Z" fill="#d2dce0" stroke="#52616a" strokeWidth="3" strokeLinejoin="round" />
+              <path d="M188 263 180 282" stroke="#9a846e" strokeWidth="3" strokeLinecap="round" strokeDasharray="6 7" />
             </svg>
             <span className="welcome-letter__eyebrow">GỬI ĐẾN BẠN</span>
             <Dialog.Title className="welcome-letter__title">Xin chào!</Dialog.Title>

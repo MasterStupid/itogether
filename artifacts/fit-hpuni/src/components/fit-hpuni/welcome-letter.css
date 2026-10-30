@@ -69,6 +69,7 @@
   inset: 0;
   width: 100%;
   height: 100%;
+  animation: welcome-seal-away .25s 1.9s both;
 }
 .welcome-envelope__seal {
   position: absolute;
@@ -132,7 +133,7 @@
   position: absolute;
   right: 46px;
   top: 12px;
-  width: 138px;
+  width: 116px;
   height: auto;
   pointer-events: none;
   animation: welcome-plane-in 1s 3.75s ease-out both;
@@ -189,7 +190,7 @@
 @media (max-width: 520px) {
   .welcome-letter__top { padding: 25px 64px 20px 24px; font-size: 10px; }
   .welcome-letter__body { padding: 28px 27px 25px; }
-  .welcome-plane { width: 98px; right: 23px; top: 10px; }
+  .welcome-plane { width: 88px; right: 23px; top: 10px; }
   .welcome-letter__body p { font-size: 13px; line-height: 1.7; }
   .welcome-letter__footer { padding: 18px 24px; }
   .welcome-letter__footer > span { display: none; }
