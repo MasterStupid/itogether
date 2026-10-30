@@ -10,6 +10,19 @@ export function WelcomeLetter() {
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Portal>
         <Dialog.Overlay className="welcome-overlay" />
+        <div className="welcome-envelope-scene" aria-hidden="true">
+          <div className="welcome-envelope">
+            <div className="welcome-envelope__back" />
+            <div className="welcome-envelope__flap" />
+            <div className="welcome-envelope__paper">
+              <span>ITogether / FIT-HPUni</span>
+              <strong>Xin chào!</strong>
+              <i /><i /><i />
+            </div>
+            <div className="welcome-envelope__front" />
+            <div className="welcome-envelope__seal">IT</div>
+          </div>
+        </div>
         <Dialog.Content className="welcome-letter">
           <Dialog.Close className="welcome-close" aria-label="Đóng thư chào mừng">
             <X size={20} aria-hidden="true" />
