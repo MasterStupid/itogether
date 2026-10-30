@@ -2,6 +2,7 @@ import { useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { ArrowRight, X } from "lucide-react";
 import { EnvelopeBorder, LetterBorder } from "./LetterBorder";
+import waxSeal from "@/assets/wax-seal-gold.webp";
 import "./welcome-letter.css";
 
 export function WelcomeLetter() {
@@ -33,33 +34,7 @@ export function WelcomeLetter() {
               <text x="22" y="191" fill="#876d59" fontSize="7" fontFamily="sans-serif" letterSpacing="1.2">GỬI ĐẾN BẠN</text>
               <text x="308" y="191" textAnchor="end" fill="#876d59" fontSize="7" fontFamily="sans-serif" letterSpacing="1">FIT · HPUNI</text>
             </svg>
-            <div className="welcome-envelope__seal">
-              <svg viewBox="0 0 80 80" fill="none">
-                <defs>
-                  <radialGradient id="wax-gradient" cx=".35" cy=".3" r=".75">
-                    <stop stopColor="#5a718a" /><stop offset=".55" stopColor="#3a5069" /><stop offset="1" stopColor="#273a4f" />
-                  </radialGradient>
-                  <radialGradient id="wax-press" cx=".6" cy=".65" r=".7">
-                    <stop stopColor="#405670" /><stop offset="1" stopColor="#2c3f55" />
-                  </radialGradient>
-                  <linearGradient id="wax-gold" x1="0" y1="0" x2="1" y2="1">
-                    <stop stopColor="#eadcc0" /><stop offset=".5" stopColor="#cdb48c" /><stop offset="1" stopColor="#ad9470" />
-                  </linearGradient>
-                </defs>
-                {/* Wax pool with soft, uneven edges */}
-                <path d="M40 4c5 0 7 2 11 2.5s8 .5 10.5 3.5 2 6 4.5 8.5 5.5 4 6.5 8-1 6.5-.5 10 2.5 6.5 1.5 10-4 5.5-5 8.5.5 6.5-2.5 9.5-6.5 2.5-9.5 4.5-5 4.5-9 5-6.5-1.5-10-1.5-6.5 2.5-10 1.5-5.5-3.5-8.5-4.5-7-.5-9.5-3.5-2-6.5-4-9-5.5-4.5-6-8.5 1.5-6.5 1-10-3-6.5-2-10 4-5.5 5-8.5 0-6.5 3-9.5 6.5-2.5 9.5-4.5 5-4.5 9-5Z" fill="url(#wax-gradient)" />
-                {/* Pressed stamp face */}
-                <circle cx="40" cy="40" r="25.5" fill="url(#wax-press)" />
-                <circle cx="40" cy="40" r="25.5" stroke="#6f86a0" strokeOpacity=".45" strokeWidth="1.2" />
-                <circle cx="40" cy="40" r="21.5" stroke="url(#wax-gold)" strokeWidth="1.1" />
-                <circle cx="40" cy="40" r="19" stroke="url(#wax-gold)" strokeWidth=".5" strokeDasharray="1 2.2" />
-                <text x="40" y="47" textAnchor="middle" fill="url(#wax-gold)" fontSize="21" fontFamily="Georgia, serif" fontWeight="bold" letterSpacing=".5">IT</text>
-                <path d="M30 51.5h20" stroke="url(#wax-gold)" strokeWidth=".8" strokeLinecap="round" />
-                <path d="m40 24.2.9 1.9 2.1.3-1.5 1.5.4 2.1-1.9-1-1.9 1 .4-2.1-1.5-1.5 2.1-.3.9-1.9Z" fill="url(#wax-gold)" />
-                {/* Glossy highlight */}
-                <path d="M17 26c3-6 8-10 15-12" stroke="#fff" strokeOpacity=".22" strokeWidth="2.2" strokeLinecap="round" />
-              </svg>
-            </div>
+            <img className="welcome-envelope__seal" src={waxSeal} alt="" />
           </div>
         </div>
         <Dialog.Content className="welcome-letter">
