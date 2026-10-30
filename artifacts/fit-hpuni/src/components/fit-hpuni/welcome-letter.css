@@ -1,0 +1,68 @@
+.welcome-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(17, 29, 42, .68);
+  backdrop-filter: blur(5px);
+}
+
+.welcome-letter {
+  position: fixed;
+  z-index: 101;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(680px, calc(100vw - 32px));
+  max-height: min(90dvh, 780px);
+  overflow-y: auto;
+  background: #faf7f1;
+  color: #1f3349;
+  border: 1px solid #ded6c9;
+  border-radius: 7px;
+  box-shadow: 0 30px 90px rgba(9, 19, 31, .3);
+}
+
+.welcome-close {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid #d8d0c4;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+.welcome-close:hover { background: #eee8de; }
+.welcome-letter__top {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 29px 72px 24px 42px;
+  border-bottom: 1px solid #ddd5c8;
+  color: #61707b;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .13em;
+}
+.welcome-letter__body { padding: 40px 52px 32px; }
+.welcome-letter__eyebrow { color: #9b775a; font-size: 10px; font-weight: 700; letter-spacing: .19em; }
+.welcome-letter__title { margin: 12px 0 16px; font-family: Georgia, serif; font-size: clamp(42px, 7vw, 64px); font-weight: 400; line-height: 1.05; }
+.welcome-letter__body p { margin: 18px 0 0; color: #4a5964; font-size: 14px; line-height: 1.85; }
+.welcome-letter__intro { color: #1f3349; font-size: 16px; font-weight: 700; line-height: 1.6; }
+.welcome-letter__body blockquote { margin: 25px 0 0; padding: 4px 0 4px 18px; border-left: 3px solid #ad8765; color: #35526f; font-family: Georgia, serif; font-size: 17px; font-style: italic; line-height: 1.5; }
+.welcome-letter__body .welcome-letter__signature { color: #1f3349; line-height: 1.7; }
+.welcome-letter__footer { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 22px 42px; border-top: 1px solid #ddd5c8; }
+.welcome-letter__footer > span { color: #84909a; font-size: 9px; font-weight: 700; letter-spacing: .1em; }
+.welcome-action { display: inline-flex; align-items: center; justify-content: center; gap: 12px; padding: 13px 19px; border: 0; border-radius: 4px; background: #1f3349; color: white; font-size: 13px; font-weight: 700; cursor: pointer; }
+.welcome-action:hover { background: #35526f; }
+@media (max-width: 520px) {
+  .welcome-letter__top { padding: 25px 64px 20px 24px; font-size: 10px; }
+  .welcome-letter__body { padding: 28px 27px 25px; }
+  .welcome-letter__body p { font-size: 13px; line-height: 1.7; }
+  .welcome-letter__footer { padding: 18px 24px; }
+  .welcome-letter__footer > span { display: none; }
+  .welcome-action { width: 100%; }
+}
