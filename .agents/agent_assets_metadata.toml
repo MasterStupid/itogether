@@ -357,3 +357,45 @@ mtime_ms = 1792987470116
 storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:1d291d16-4f1b-4532-849c-6990e429583d/604b2926-3f9b-4dcd-b736-75a0e4108ce1/093fe7e7-b261-4fda-9961-efbfcf78f7f2"
 storage_version_token = "1792987516790722"
 content_type = "image/png"
+
+[[outputs]]
+id = "nTykYQFaVS1UNYl1VbvwM"
+uri = "file://attached_assets/wax-seals/dau-sap-xanh.png"
+type = "image"
+title = "Dấu sáp xanh xám"
+description = "Dấu sáp chữ IT, nền trong suốt (PNG 1024×1024)"
+logical_id = "b43bcb29-9996-4407-8c2c-a891b559b382"
+content_hash = "sha256:36670be15effb271f7c2f48079d5d5ce28684a27a9456e3c30547ac4317d7373"
+size = 1828479
+mtime_ms = 1793358191964
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:145cd7cf-3b2c-4f74-baa4-c77e2e5ffdf6/b43bcb29-9996-4407-8c2c-a891b559b382/9c317628-e1e4-4ac5-b11d-733cc9ff4735"
+storage_version_token = "1793358218031089"
+content_type = "image/png"
+
+[[outputs]]
+id = "QHo75ZL7HyRnko7fjzDax"
+uri = "file://attached_assets/wax-seals/dau-sap-do.png"
+type = "image"
+title = "Dấu sáp đỏ đô"
+description = "Dấu sáp chữ IT, nền trong suốt (PNG 1024×1024)"
+logical_id = "886bebb3-e6e1-4194-9dfc-d1b3ae6bf96a"
+content_hash = "sha256:27013ede17241b6e909d538e07c22ff7036d78f2a2af3635ee11cb757696d35c"
+size = 1907855
+mtime_ms = 1793358188500
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:145cd7cf-3b2c-4f74-baa4-c77e2e5ffdf6/886bebb3-e6e1-4194-9dfc-d1b3ae6bf96a/5e358d4c-f7c8-4a56-86c5-43486ca2dff5"
+storage_version_token = "1793358219330145"
+content_type = "image/png"
+
+[[outputs]]
+id = "60Ggc8K62udkD-vh-y60b"
+uri = "file://attached_assets/wax-seals/dau-sap-vang.png"
+type = "image"
+title = "Dấu sáp vàng cát"
+description = "Dấu sáp chữ IT, nền trong suốt (PNG 1024×1024)"
+logical_id = "b6806cd5-7f46-4764-93cc-039ac00b6ab0"
+content_hash = "sha256:af90dea00c134102e20f63d97b8399fa00672e1bc6c32451d6e60b463a6d6cfd"
+size = 1956720
+mtime_ms = 1793358187492
+storage_uri = "gcs://replit-rams-assets-sisko/rams/assets/repl:145cd7cf-3b2c-4f74-baa4-c77e2e5ffdf6/b6806cd5-7f46-4764-93cc-039ac00b6ab0/fc67d2e9-af7b-473c-a103-64307ebe8705"
+storage_version_token = "1793358220657213"
+content_type = "image/png"
