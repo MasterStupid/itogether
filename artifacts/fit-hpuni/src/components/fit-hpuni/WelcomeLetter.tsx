@@ -53,12 +53,12 @@ export function WelcomeLetter() {
             <span>THƯ NGỎ</span>
           </div>
           <div className="welcome-letter__body">
-            <svg className="welcome-plane" viewBox="75 0 270 290" fill="none" aria-hidden="true">
+            <svg className="welcome-plane" viewBox="75 0 270 355" fill="none" aria-hidden="true">
               <path d="M104 147 314 8 182 174Z" fill="#fffefa" stroke="#52616a" strokeWidth="3" strokeLinejoin="round" />
               <path d="M314 8 317 225 222 200Z" fill="#fffefa" stroke="#52616a" strokeWidth="3" strokeLinejoin="round" />
               <path d="M314 8 222 200 196 248 182 174Z" fill="#e9edf0" stroke="#52616a" strokeWidth="3" strokeLinejoin="round" />
               <path d="M196 248 222 200 242 206Z" fill="#d2dce0" stroke="#52616a" strokeWidth="3" strokeLinejoin="round" />
-              <path d="M188 263 180 282" stroke="#9a846e" strokeWidth="3" strokeLinecap="round" strokeDasharray="6 7" />
+              <path d="M188 263 C181 284 168 295 148 298 C130 300 119 311 124 329" stroke="#9a846e" strokeWidth="3" strokeLinecap="round" strokeDasharray="7 9" />
             </svg>
             <span className="welcome-letter__eyebrow">GỬI ĐẾN BẠN</span>
             <Dialog.Title className="welcome-letter__title">Xin chào!</Dialog.Title>
@@ -78,7 +78,10 @@ export function WelcomeLetter() {
             <p className="welcome-letter__signature">Thân mến,<br /><strong>Nhóm ITogether</strong></p>
           </div>
           <div className="welcome-letter__footer">
-            <span>KHOA CÔNG NGHỆ THÔNG TIN</span>
+            <div className="welcome-letter__footer-note">
+              <span>how did we get here!</span>
+              <span>KHOA CÔNG NGHỆ THÔNG TIN</span>
+            </div>
             <Dialog.Close className="welcome-action">
               Khám phá thiết kế <ArrowRight size={18} aria-hidden="true" />
             </Dialog.Close>
