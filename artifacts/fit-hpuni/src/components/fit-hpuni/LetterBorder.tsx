@@ -2,12 +2,12 @@ import { useId } from "react";
 
 /**
  * Border of the welcome letter, shared by the sealed envelope and the opened letter so
- * both always show the same frame: an airmail band (navy and gold stripes) around the
- * edge plus a thin gold rule inside it. All sizes are in px (1 envelope unit = 1 px).
+ * both always show the same frame: a soft airmail band (muted blue and sand stripes)
+ * around the edge plus a thin sand-coloured rule inside it. All sizes are in px (1 envelope unit = 1 px).
  */
-const BAND = { width: 8, navy: "#1f3349", gold: "#c39a5f", gap: "#fbf8f2" };
-const RULE = { inset: 14, color: "#c39a5f", width: 0.9 };
-const STRIPE = { colour: 11, gap: 5 };
+const BAND = { width: 5, navy: "#7d8c9c", gold: "#d2bc97", gap: "#f7f2e9" };
+const RULE = { inset: 11, color: "#d2bc97", width: 0.8 };
+const STRIPE = { colour: 8, gap: 4 };
 const PERIOD = (STRIPE.colour + STRIPE.gap) * 2;
 
 function useSafeId(prefix: string) {
