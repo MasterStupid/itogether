@@ -4,6 +4,7 @@
   z-index: 100;
   background: rgba(17, 29, 42, .68);
   backdrop-filter: blur(5px);
+  animation: welcome-overlay-in 800ms ease-out both;
 }
 
 .welcome-letter {
@@ -20,6 +21,8 @@
   border: 1px solid #ded6c9;
   border-radius: 7px;
   box-shadow: 0 30px 90px rgba(9, 19, 31, .3);
+  transform-origin: center top;
+  animation: welcome-unfold 1.15s cubic-bezier(.22, .72, .24, 1) both;
 }
 
 .welcome-close {
@@ -47,7 +50,16 @@
   font-weight: 700;
   letter-spacing: .13em;
 }
-.welcome-letter__body { padding: 40px 52px 32px; }
+.welcome-letter__body { position: relative; padding: 40px 52px 32px; animation: welcome-ink-in 900ms 350ms ease-out both; }
+.welcome-crane {
+  position: absolute;
+  right: 46px;
+  top: 12px;
+  width: 138px;
+  height: auto;
+  pointer-events: none;
+  animation: welcome-crane-in 1.3s 300ms ease-out both;
+}
 .welcome-letter__eyebrow { color: #9b775a; font-size: 10px; font-weight: 700; letter-spacing: .19em; }
 .welcome-letter__title { margin: 12px 0 16px; font-family: Georgia, serif; font-size: clamp(42px, 7vw, 64px); font-weight: 400; line-height: 1.05; }
 .welcome-letter__body p { margin: 18px 0 0; color: #4a5964; font-size: 14px; line-height: 1.85; }
@@ -58,11 +70,32 @@
 .welcome-letter__footer > span { color: #84909a; font-size: 9px; font-weight: 700; letter-spacing: .1em; }
 .welcome-action { display: inline-flex; align-items: center; justify-content: center; gap: 12px; padding: 13px 19px; border: 0; border-radius: 4px; background: #1f3349; color: white; font-size: 13px; font-weight: 700; cursor: pointer; }
 .welcome-action:hover { background: #35526f; }
+@keyframes welcome-overlay-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes welcome-unfold {
+  0% { opacity: 0; transform: translate(-50%, -54%) perspective(1100px) rotateX(-24deg) scale(.92, .72); }
+  55% { opacity: 1; }
+  100% { opacity: 1; transform: translate(-50%, -50%) perspective(1100px) rotateX(0) scale(1); }
+}
+@keyframes welcome-ink-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes welcome-crane-in {
+  from { opacity: 0; transform: translate(-12px, 12px) rotate(-9deg); }
+  to { opacity: 1; transform: translate(0, 0) rotate(0); }
+}
 @media (max-width: 520px) {
   .welcome-letter__top { padding: 25px 64px 20px 24px; font-size: 10px; }
   .welcome-letter__body { padding: 28px 27px 25px; }
+  .welcome-crane { width: 98px; right: 23px; top: 10px; }
   .welcome-letter__body p { font-size: 13px; line-height: 1.7; }
   .welcome-letter__footer { padding: 18px 24px; }
   .welcome-letter__footer > span { display: none; }
   .welcome-action { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .welcome-overlay, .welcome-letter, .welcome-letter__body, .welcome-crane { animation: none; }
 }

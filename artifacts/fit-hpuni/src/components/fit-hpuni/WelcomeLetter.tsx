@@ -19,6 +19,16 @@ export function WelcomeLetter() {
             <span>THƯ NGỎ</span>
           </div>
           <div className="welcome-letter__body">
+            <svg className="welcome-crane" viewBox="0 0 200 150" fill="none" aria-hidden="true">
+              <path d="M18 47 78 91 108 81 89 55 18 47Z" fill="#d8e1e4" stroke="#738a96" strokeWidth="1.4" strokeLinejoin="round" />
+              <path d="M77 91 104 79 82 15 58 68 77 91Z" fill="#f8f6ef" stroke="#738a96" strokeWidth="1.4" strokeLinejoin="round" />
+              <path d="m77 91 27-12 31 17-23 14-35-19Z" fill="#c7d4d9" stroke="#738a96" strokeWidth="1.4" strokeLinejoin="round" />
+              <path d="m104 79 34-45-15 54 12 8-31-17Z" fill="#edf1ee" stroke="#738a96" strokeWidth="1.4" strokeLinejoin="round" />
+              <path d="m135 96 24-30 5-21 13-7-7 14-3 22-24 35-31 1 23-14Z" fill="#d6e0e1" stroke="#738a96" strokeWidth="1.4" strokeLinejoin="round" />
+              <path d="m177 38 15 3-22 11 7-14Z" fill="#c49b78" stroke="#738a96" strokeWidth="1.4" strokeLinejoin="round" />
+              <path d="m77 91 35 19-14 28-4-27-17-20Z" fill="#edf1ee" stroke="#738a96" strokeWidth="1.4" strokeLinejoin="round" />
+              <path d="m58 68 46 11M82 15l22 64m-27 12 35 19m23-14-31-17" stroke="#99aeb5" strokeWidth="1" />
+            </svg>
             <span className="welcome-letter__eyebrow">GỬI ĐẾN BẠN</span>
             <Dialog.Title className="welcome-letter__title">Xin chào!</Dialog.Title>
             <Dialog.Description className="welcome-letter__intro">
