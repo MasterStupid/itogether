@@ -23,22 +23,34 @@ export function WelcomeLetter() {
             <div className="welcome-envelope__front" />
             <svg className="welcome-envelope__decoration" viewBox="0 0 330 213" fill="none">
               <EnvelopeBorder />
-              <text x="20" y="197" fill="#876d59" fontSize="7" fontFamily="sans-serif" letterSpacing="1.2">GỬI ĐẾN BẠN</text>
-              <text x="310" y="197" textAnchor="end" fill="#876d59" fontSize="7" fontFamily="sans-serif" letterSpacing="1">FIT · HPUNI</text>
+              <text x="22" y="191" fill="#876d59" fontSize="7" fontFamily="sans-serif" letterSpacing="1.2">GỬI ĐẾN BẠN</text>
+              <text x="308" y="191" textAnchor="end" fill="#876d59" fontSize="7" fontFamily="sans-serif" letterSpacing="1">FIT · HPUNI</text>
             </svg>
             <div className="welcome-envelope__seal">
               <svg viewBox="0 0 80 80" fill="none">
                 <defs>
-                  <radialGradient id="wax-gradient" cx=".34" cy=".25" r=".8">
-                    <stop stopColor="#c89a75" /><stop offset=".6" stopColor="#a97553" /><stop offset="1" stopColor="#805039" />
+                  <radialGradient id="wax-gradient" cx=".35" cy=".3" r=".75">
+                    <stop stopColor="#3f6286" /><stop offset=".55" stopColor="#24405f" /><stop offset="1" stopColor="#14263b" />
                   </radialGradient>
+                  <radialGradient id="wax-press" cx=".6" cy=".65" r=".7">
+                    <stop stopColor="#2b4a6b" /><stop offset="1" stopColor="#182d45" />
+                  </radialGradient>
+                  <linearGradient id="wax-gold" x1="0" y1="0" x2="1" y2="1">
+                    <stop stopColor="#f3dcae" /><stop offset=".5" stopColor="#c99d5c" /><stop offset="1" stopColor="#a9793d" />
+                  </linearGradient>
                 </defs>
-                <path d="M40 3c4-1 7 3 10 3s7-1 10 2 3 6 6 8 6 4 7 8-1 7 0 10 3 7 2 11-4 6-5 9 0 7-3 10-6 3-9 5-5 5-9 5-7-2-10-1-7 3-11 2-6-4-9-5-7 0-10-3-3-6-5-9-5-5-5-9 2-7 1-10-3-7-2-11 4-6 5-9 0-7 3-10 6-3 9-5 5-5 9-5 7 2 10 1Z" fill="url(#wax-gradient)" stroke="#744b38" strokeWidth="1.2" />
-                <circle cx="40" cy="40" r="27" stroke="#e6c7a2" strokeOpacity=".6" strokeWidth="1.4" />
-                <circle cx="40" cy="40" r="23.5" stroke="#704a38" strokeOpacity=".5" strokeWidth=".8" />
-                <path d="M23 49c-3-7-3-13 0-19m34 19c3-7 3-13 0-19M24 35l3-3m-4 9 4-3m-3 8 4-2m28-9-3-3m4 9-4-3m3 8-4-2" stroke="#f0d4b6" strokeOpacity=".8" strokeWidth="1" strokeLinecap="round" />
-                <text x="40" y="45" textAnchor="middle" fill="#f7e7d1" fontSize="20" fontFamily="Georgia, serif" fontWeight="bold" letterSpacing="1">IT</text>
-                <path d="m40 16 1.1 2.3 2.6.4-1.9 1.8.5 2.6-2.3-1.2-2.3 1.2.5-2.6-1.9-1.8 2.6-.4L40 16Z" fill="#f1d4b2" />
+                {/* Wax pool with soft, uneven edges */}
+                <path d="M40 4c5 0 7 2 11 2.5s8 .5 10.5 3.5 2 6 4.5 8.5 5.5 4 6.5 8-1 6.5-.5 10 2.5 6.5 1.5 10-4 5.5-5 8.5.5 6.5-2.5 9.5-6.5 2.5-9.5 4.5-5 4.5-9 5-6.5-1.5-10-1.5-6.5 2.5-10 1.5-5.5-3.5-8.5-4.5-7-.5-9.5-3.5-2-6.5-4-9-5.5-4.5-6-8.5 1.5-6.5 1-10-3-6.5-2-10 4-5.5 5-8.5 0-6.5 3-9.5 6.5-2.5 9.5-4.5 5-4.5 9-5Z" fill="url(#wax-gradient)" />
+                {/* Pressed stamp face */}
+                <circle cx="40" cy="40" r="25.5" fill="url(#wax-press)" />
+                <circle cx="40" cy="40" r="25.5" stroke="#5b7ea3" strokeOpacity=".55" strokeWidth="1.2" />
+                <circle cx="40" cy="40" r="21.5" stroke="url(#wax-gold)" strokeWidth="1.1" />
+                <circle cx="40" cy="40" r="19" stroke="url(#wax-gold)" strokeWidth=".5" strokeDasharray="1 2.2" />
+                <text x="40" y="47" textAnchor="middle" fill="url(#wax-gold)" fontSize="21" fontFamily="Georgia, serif" fontWeight="bold" letterSpacing=".5">IT</text>
+                <path d="M30 51.5h20" stroke="url(#wax-gold)" strokeWidth=".8" strokeLinecap="round" />
+                <path d="m40 24.2.9 1.9 2.1.3-1.5 1.5.4 2.1-1.9-1-1.9 1 .4-2.1-1.5-1.5 2.1-.3.9-1.9Z" fill="url(#wax-gold)" />
+                {/* Glossy highlight */}
+                <path d="M17 26c3-6 8-10 15-12" stroke="#fff" strokeOpacity=".35" strokeWidth="2.2" strokeLinecap="round" />
               </svg>
             </div>
           </div>

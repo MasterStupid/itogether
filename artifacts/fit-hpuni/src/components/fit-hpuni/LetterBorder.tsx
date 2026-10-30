@@ -1,74 +1,77 @@
+import { useId } from "react";
+
 /**
  * Border of the welcome letter, shared by the sealed envelope and the opened letter so
- * both always show the same frame line and corner ornaments.
- * Coordinates are on the envelope face (330 × 213); 1 unit = 1 px at full size.
+ * both always show the same frame: an airmail band (navy and gold stripes) around the
+ * edge plus a thin gold rule inside it. All sizes are in px (1 envelope unit = 1 px).
  */
-const FACE = { width: 330, height: 213 };
-const FRAME = { inset: 9, radius: 2, color: "#c8b59f", width: 0.8 };
-const ORNAMENT_COLOR = "#b99d80";
+const BAND = { width: 8, navy: "#1f3349", gold: "#c39a5f", gap: "#fbf8f2" };
+const RULE = { inset: 14, color: "#c39a5f", width: 0.9 };
+const STRIPE = { colour: 11, gap: 5 };
+const PERIOD = (STRIPE.colour + STRIPE.gap) * 2;
 
-function CornerOrnaments() {
+function useSafeId(prefix: string) {
+  return `${prefix}-${useId().replace(/[^a-zA-Z0-9_-]/g, "")}`;
+}
+
+function AirmailStripes({ id }: { id: string }) {
   return (
-    <>
-      <path d="M18 25h24M18 29h15M288 25h24M297 29h15M18 184h34M278 184h34" stroke={ORNAMENT_COLOR} strokeWidth="1" />
-      <path d="M19 176c7-8 15-8 22-2m-22 6c8-7 15-7 22-1m238-3c7-8 15-8 22-2m-22 6c8-7 15-7 22-1" stroke={ORNAMENT_COLOR} strokeWidth=".7" />
-    </>
+    <defs>
+      <pattern id={id} width={PERIOD} height={PERIOD} patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+        <rect width={PERIOD} height={PERIOD} fill={BAND.gap} />
+        <rect width={STRIPE.colour} height={PERIOD} fill={BAND.navy} />
+        <rect x={STRIPE.colour + STRIPE.gap} width={STRIPE.colour} height={PERIOD} fill={BAND.gold} />
+      </pattern>
+    </defs>
   );
 }
 
 /** Border printed on the envelope face; render inside an SVG with viewBox "0 0 330 213". */
 export function EnvelopeBorder() {
+  const stripes = useSafeId("envelope-stripes");
+  const face = { width: 330, height: 213 };
   return (
     <>
+      <AirmailStripes id={stripes} />
       <rect
-        x={FRAME.inset}
-        y={FRAME.inset}
-        width={FACE.width - FRAME.inset * 2}
-        height={FACE.height - FRAME.inset * 2}
-        rx={FRAME.radius}
-        stroke={FRAME.color}
-        strokeWidth={FRAME.width}
+        x={BAND.width / 2}
+        y={BAND.width / 2}
+        width={face.width - BAND.width}
+        height={face.height - BAND.width}
+        stroke={`url(#${stripes})`}
+        strokeWidth={BAND.width}
       />
-      <CornerOrnaments />
+      <rect
+        x={RULE.inset}
+        y={RULE.inset}
+        width={face.width - RULE.inset * 2}
+        height={face.height - RULE.inset * 2}
+        rx="1.5"
+        stroke={RULE.color}
+        strokeWidth={RULE.width}
+      />
     </>
   );
 }
 
-/* Each corner of the letter shows the matching corner of the envelope face at 1:1 scale. */
-const CORNER_WIDTH = 60;
-const TOP_HEIGHT = 40;
-const BOTTOM_HEIGHT = 50;
-const CORNERS = [
-  { position: "tl", x: 0, y: 0, height: TOP_HEIGHT },
-  { position: "tr", x: FACE.width - CORNER_WIDTH, y: 0, height: TOP_HEIGHT },
-  { position: "bl", x: 0, y: FACE.height - BOTTOM_HEIGHT, height: BOTTOM_HEIGHT },
-  { position: "br", x: FACE.width - CORNER_WIDTH, y: FACE.height - BOTTOM_HEIGHT, height: BOTTOM_HEIGHT },
-] as const;
-
 /** The same border on the opened letter, which can be any size. */
 export function LetterBorder() {
-  const span = `calc(100% - ${FRAME.inset * 2}px)`;
+  const stripes = useSafeId("letter-stripes");
+  const inset = (amount: number) => ({
+    left: amount,
+    top: amount,
+    width: `calc(100% - ${amount * 2}px)`,
+    height: `calc(100% - ${amount * 2}px)`,
+  });
   return (
     <div className="welcome-border" aria-hidden="true">
-      <svg
-        className="welcome-border__frame"
-        style={{ left: FRAME.inset, top: FRAME.inset, width: span, height: span }}
-        fill="none"
-      >
-        <rect width="100%" height="100%" rx={FRAME.radius} stroke={FRAME.color} strokeWidth={FRAME.width} />
+      <svg style={inset(BAND.width / 2)} fill="none">
+        <AirmailStripes id={stripes} />
+        <rect width="100%" height="100%" stroke={`url(#${stripes})`} strokeWidth={BAND.width} />
       </svg>
-      {CORNERS.map(({ position, x, y, height }) => (
-        <svg
-          key={position}
-          className={`welcome-border__corner welcome-border__corner--${position}`}
-          width={CORNER_WIDTH}
-          height={height}
-          viewBox={`${x} ${y} ${CORNER_WIDTH} ${height}`}
-          fill="none"
-        >
-          <CornerOrnaments />
-        </svg>
-      ))}
+      <svg style={inset(RULE.inset)} fill="none">
+        <rect width="100%" height="100%" rx="1.5" stroke={RULE.color} strokeWidth={RULE.width} />
+      </svg>
     </div>
   );
 }

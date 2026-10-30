@@ -95,8 +95,8 @@
   transform: translate(-50%, -50%);
   width: min(680px, calc(100vw - 32px));
   max-height: min(90dvh, 780px);
-  /* The text scrolls inside the frame, between the top and bottom corner ornaments. */
-  padding: 32px 10px 46px;
+  /* The text scrolls inside the airmail frame, so the border always stays visible. */
+  padding: 15px;
   background: #faf7f1;
   color: #1f3349;
   border-radius: 4px;
@@ -106,14 +106,9 @@
 }
 .welcome-letter__sheet { min-height: 0; overflow-y: auto; overscroll-behavior: contain; }
 
-/* Same frame line and corner ornaments as the sealed envelope (see LetterBorder.tsx). */
-.welcome-border { position: absolute; inset: 0; pointer-events: none; }
-.welcome-border svg { position: absolute; }
-.welcome-border__frame { overflow: visible; }
-.welcome-border__corner--tl { top: 0; left: 0; }
-.welcome-border__corner--tr { top: 0; right: 0; }
-.welcome-border__corner--bl { bottom: 0; left: 0; }
-.welcome-border__corner--br { bottom: 0; right: 0; }
+/* Same airmail band and gold rule as the sealed envelope (see LetterBorder.tsx). */
+.welcome-border { position: absolute; inset: 0; overflow: hidden; border-radius: inherit; pointer-events: none; }
+.welcome-border svg { position: absolute; overflow: visible; }
 
 .welcome-close {
   position: absolute;
@@ -134,15 +129,15 @@
   display: flex;
   justify-content: space-between;
   gap: 16px;
-  margin: 0 46px;
-  padding: 4px 52px 22px 0;
+  margin: 0 41px;
+  padding: 21px 52px 22px 0;
   border-bottom: 1px solid #ddd5c8;
   color: #61707b;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: .13em;
 }
-.welcome-letter__body { position: relative; padding: 40px 46px 32px; animation: welcome-ink-in 700ms 3.65s ease-out both; }
+.welcome-letter__body { position: relative; padding: 40px 41px 32px; animation: welcome-ink-in 700ms 3.65s ease-out both; }
 .welcome-plane {
   position: absolute;
   right: 46px;
@@ -158,7 +153,7 @@
 .welcome-letter__intro { color: #1f3349; font-size: 16px; font-weight: 700; line-height: 1.6; }
 .welcome-letter__body blockquote { margin: 25px 0 0; padding: 4px 0 4px 18px; border-left: 3px solid #ad8765; color: #35526f; font-family: Georgia, serif; font-size: 17px; font-style: italic; line-height: 1.5; }
 .welcome-letter__body .welcome-letter__signature { color: #1f3349; line-height: 1.7; }
-.welcome-letter__footer { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin: 0 46px; padding: 22px 0 6px; border-top: 1px solid #ddd5c8; }
+.welcome-letter__footer { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin: 0 41px; padding: 22px 0 26px; border-top: 1px solid #ddd5c8; }
 .welcome-letter__footer-note { display: flex; flex-direction: column; gap: 5px; color: #84909a; font-size: 9px; font-weight: 700; letter-spacing: .1em; }
 .welcome-letter__footer-note span:first-child { color: #657986; font-family: Georgia, serif; font-size: 13px; font-style: italic; font-weight: 400; letter-spacing: 0; }
 .welcome-action { display: inline-flex; align-items: center; justify-content: center; gap: 12px; padding: 13px 19px; border: 0; border-radius: 4px; background: #1f3349; color: white; font-size: 13px; font-weight: 700; cursor: pointer; }
@@ -203,12 +198,12 @@
   to { opacity: 1; transform: translate(0, 0) rotate(0); }
 }
 @media (max-width: 520px) {
-  .welcome-close { top: 40px; right: 22px; }
-  .welcome-letter__top { margin: 0 16px; padding: 20px 46px 22px 0; font-size: 10px; }
-  .welcome-letter__body { padding: 28px 16px 25px; }
-  .welcome-plane { width: 88px; right: 16px; top: 10px; }
+  .welcome-close { top: 24px; right: 26px; }
+  .welcome-letter__top { margin: 0 11px; padding: 20px 46px 22px 0; font-size: 10px; }
+  .welcome-letter__body { padding: 28px 11px 25px; }
+  .welcome-plane { width: 88px; right: 11px; top: 10px; }
   .welcome-letter__body p { font-size: 13px; line-height: 1.7; }
-  .welcome-letter__footer { align-items: stretch; flex-direction: column; gap: 12px; margin: 0 16px; padding: 18px 0 6px; }
+  .welcome-letter__footer { align-items: stretch; flex-direction: column; gap: 12px; margin: 0 11px; padding: 18px 0 18px; }
   .welcome-action { width: 100%; }
 }
 @media (prefers-reduced-motion: reduce) {
